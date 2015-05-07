@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :parcels
   end
 
-  # TODO: need root route
+  root ''
 end
