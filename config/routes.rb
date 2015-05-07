@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :trips do
     resources :parcels
   end
-
+ root 'users#show'
 end

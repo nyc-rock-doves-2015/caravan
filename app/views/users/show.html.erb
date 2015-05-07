@@ -1,0 +1,9 @@
+<h2><%= @user.username%>'s Profile</h2>
+<h3>Driver:</h3>
+
+<h3>Sender:<h3>
+<ul>
+  <% @user.parcels.each do |parcel| %>
+   <%= parcel.description %>
+  <% end %>
+</ul>
