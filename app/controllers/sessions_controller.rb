@@ -1,9 +1,9 @@
 class AuthController < ApplicationController
   
-  def signin_form
+  def new
   end
 
-  def signin
+  def create
     user = User.find_by(name: params[:user][:name])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
@@ -14,7 +14,7 @@ class AuthController < ApplicationController
     end
   end
 
-  def signout
+  def destroy
     session.clear
     redirect_to root_path
   end
