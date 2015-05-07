@@ -20,15 +20,16 @@ ActiveRecord::Schema.define(version: 20150507202700) do
     t.string "description"
     t.string "street_address"
     t.string "secondary_address"
-    t.string "city",              null: false
-    t.string "state",             null: false
-    t.string "zip_code",          null: false
+    t.string "city",                        null: false
+    t.string "state",             limit: 2, null: false
+    t.string "zip_code",                    null: false
   end
 
   create_table "parcels", force: :cascade do |t|
     t.integer  "origin_address_id",      null: false
     t.integer  "destination_address_id", null: false
     t.integer  "sender_id",              null: false
+    t.integer  "trip_id"
     t.datetime "pickup_by",              null: false
     t.datetime "deliver_by",             null: false
     t.integer  "weight"

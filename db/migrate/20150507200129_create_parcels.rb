@@ -4,6 +4,7 @@ class CreateParcels < ActiveRecord::Migration
       t.references :origin_address, null: false
       t.references :destination_address, null: false
       t.references :sender, null: false
+      t.references :trip
       t.datetime :pickup_by, null: false
       t.datetime :deliver_by, null: false
       t.integer :weight
