@@ -84,4 +84,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  if ENV['CIRCLE_ARTIFACTS']
+    require 'simplecov'
+    dir = File.join("..", "..", "..", ENV['CIRCLE_ARTIFACTS'], "coverage")
+    SimpleCov.coverage_dir(dir)
+  end
 end
