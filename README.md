@@ -4,8 +4,7 @@
 * [Charles Green]()
 * [Grant Ziolkowski]()
 * [Kenny Geiler]()
-* [Vinh Bui]()
+* [Vinh Bui](https://github.com/bicyclethief)
 
 ## User Stories:
-
 
