@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :users
+<<<<<<< HEAD
+=======
+  get '/profiles/:id', to: redirect('/users/%{id}')
+>>>>>>> Bootstrap working, functional user and profile route to user show
 
   get '/profiles/:id', to: redirect('/users/%{id}')
   get 'signin' => 'sessions#new'
@@ -16,5 +20,8 @@ Rails.application.routes.draw do
     resources :parcels
   end
 
+<<<<<<< HEAD
  root 'users#show'
+=======
+>>>>>>> Bootstrap working, functional user and profile route to user show
 end
