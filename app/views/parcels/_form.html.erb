@@ -1,0 +1,15 @@
+<%= form_for(@parcel) do |f| %>
+  <%= f.label "Description" %>
+  <%= f.text_field :description %>
+  <%= f.label "Delivery Notes" %>
+  <%= f.text_field :delivery_notes %>
+  <%= f.label "Volume" %>
+  <%= f.text_field :volue %>
+  <%= f.label "Weight" %>
+  <%= f.text_field :weight %>
+  <%= f.label "Pick Up By" %>
+  <%= f.text_field :pickup_by %>
+  <%= f.label "Deliver By" %>
+  <%= f.text_field :deliver_by %>
+  <%= f.submit "Submit" %>
+<% end %>
