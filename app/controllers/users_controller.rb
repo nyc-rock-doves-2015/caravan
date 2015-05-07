@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
 
   def create
     user = User.new(user_params)
@@ -20,4 +21,19 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password)
   end
 
+=======
+  def new
+  end
+
+  def create
+
+  end
+
+  def index
+  end
+
+  def show
+    @user = User.find(1)
+  end
+>>>>>>> Add users controller for dummy layout show
 end
