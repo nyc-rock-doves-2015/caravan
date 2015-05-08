@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
-  resources :user
-
-  get 'profile', to: 'users#show'
+  resources :users
+  get '/profiles/:id', to: redirect('/users/%{id}')
 
   resources :parcels do
     resources :trips
@@ -12,6 +11,5 @@ Rails.application.routes.draw do
   resources :trips do
     resources :parcels
   end
-
-  # TODO: need root route
+ root 'users#show'
 end
