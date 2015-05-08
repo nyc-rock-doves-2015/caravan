@@ -1,17 +1,12 @@
 class ParcelsController < ActionController::Base
 
-  def new
-  end
-
   def create
-    origin_address = Address.new(address_params_origin)
-    destination_address = Address.new(address_params_dest)
-    if origin_address.save && destination_address.save
-      parcel = Parcel.new(parcel_params)
-      parcel.update_attributes(:origin_address_id => origin_address.id, :destination_address_id => destination_address.id)
-      parcel.save
-      redirect_to parcel_path(parcel)
+    parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
+
+    if parcel && parcel.id
+      redirect_to profile_path
     else
+      flash[:error] = parcel.errors.full_messages.join('<br>')
       render :new
     end
   end
@@ -19,12 +14,12 @@ class ParcelsController < ActionController::Base
 
   private
 
-  def address_params_origin
-    params.require(:origin_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code)
+  def origin_address_params
+    params.require(:origin_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code, :user_id)
   end
 
-  def address_params_dest
-    params.require(:destination_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code)
+  def destination_address_params
+    params.require(:destination_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code, :user_id)
   end
 
 
