@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     resources :parcels
   end
 
-  root 'application#index'
+ root to: 'application#index'
 
 end
