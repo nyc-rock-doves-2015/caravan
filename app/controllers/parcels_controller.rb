@@ -44,7 +44,8 @@ class ParcelsController < ApplicationController
   end
 
   def match_trips
-    @trips = Parcel.find(params[:id]).match_trips
+    parcel = Parcel.find(params[:id])
+    @trips = Trip.match_parcels
   end
 
   private
