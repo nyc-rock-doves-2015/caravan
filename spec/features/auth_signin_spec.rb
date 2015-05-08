@@ -8,9 +8,7 @@ feature "Auth" do
       expect(page).to have_content("Password")
     end
     scenario "A successful sign in redirects to the user profile" do
-      User.create(name: "test_user",
-                  password: "password",
-                  password_confirmation: "password")
+      User.create(username: "test_user",password: "password",password_confirmation: "password")
       visit signin_path
       fill_in "user[username]", :with => "test_user"
       fill_in "user[password]", :with => "password"
