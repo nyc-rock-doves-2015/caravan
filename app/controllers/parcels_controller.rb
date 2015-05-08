@@ -43,8 +43,8 @@ class ParcelsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
-  def match_trip
-    @trips = Parcel.match_trip
+  def match_trips
+    @trips = Parcel.find(params[:id]).match_trips
   end
 
   private

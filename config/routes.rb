@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
 
   get 'profile', to: 'users#current'
-  get 'match', to: 'parcels#match_trip'
+  get 'match', to: 'parcels#match_trips'
 
   resources :parcels do
     resources :trips
