@@ -1,4 +1,10 @@
-class ParcelsController < ActionController::Base
+class ParcelsController < ApplicationController
+
+  def new
+    @url = parcels_path
+    @method = :post
+    @submit_btn = "Create Parcel"
+  end
 
   def create
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
@@ -12,13 +18,20 @@ class ParcelsController < ActionController::Base
   end
 
   def edit
-    @parcel = parcel.find(params[:id])
+    @parcel = Parcel.find(params[:id])
+    @origin_address = @parcel.origin_address
+    @destination_address = @parcel.destination_address
+    @url = parcel_path(@parcel)
+    @method = :put
+    @submit_btn = "Update Parcel"
   end
 
   def update
     @parcel = Parcel.find(params[:id])
-    if @parcel.update_attributes(parcel_params)
-      redirect_to post_path(@parcel)
+    @origin_address = @parcel.origin_address
+    @destination_address = @parcel.destination_address
+    if @parcel.update(parcel_params) && @origin_address.update(origin_address_params) && @destination_address.update(destination_address_params)
+      redirect_to user_path(current_user.id)
     else
       render :edit
     end
@@ -27,7 +40,7 @@ class ParcelsController < ActionController::Base
   def destroy
     parcel = Parcel.find(params[:id])
     parcel.destroy
-    redirect_to parcels_path
+    redirect_to user_path(current_user.id)
   end
 
   private
