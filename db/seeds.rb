@@ -16,4 +16,16 @@ end
   trip.parcels << parcel
 end
 
+# for testing trips matching parcel
+
+pdx1 = Address.create(description: Faker::Commerce.color, street_address: Faker::Address.street_address, secondary_address: Faker::Address.secondary_address, city: 'Portland', state: 'OR', zip_code: Faker::Address.zip_code, user_id: User.pluck(:id).sample)
+
+pdx2 = Address.create(description: Faker::Commerce.color, street_address: Faker::Address.street_address, secondary_address: Faker::Address.secondary_address, city: 'Portland', state: 'OR', zip_code: Faker::Address.zip_code, user_id: User.pluck(:id).sample)
+
+parcel = Parcel.create(origin_address: Address.pluck(:id).sample, destination_address: pdx1.id, sender: User.find(User.pluck(:id).sample), pickup_by: '8/5/2015', deliver_by: '15/5/2015', weight: 1, volume: 10, delivery_notes: Faker::Lorem.paragraph(2), description: 'parcel for testing matching trips')
+
+5.times do
+  Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: pdx2.id, driver: User.find(User.pluck(:id).sample), leaving_at: '8/6/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: Faker::Commerce.price , content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos")
+end
+
 
