@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20150507202700) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer  "origin_address_id"
-    t.integer  "destination_address_id"
+    t.integer  "origin_address_id",                              null: false
+    t.integer  "destination_address_id",                         null: false
     t.integer  "driver_id",                                      null: false
     t.datetime "leaving_at",                                     null: false
     t.datetime "arriving_at",                                    null: false
