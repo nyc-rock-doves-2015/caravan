@@ -1,0 +1,74 @@
+<%= form_tag @url, method: @method do |f|  %>
+  <%= hidden_field_tag "origin_address[user_id]", 1 %>
+  <%= hidden_field_tag "destination_address[user_id]", 1 %>
+  <%= hidden_field_tag "trip[driver_id]", 1 %>
+  <p>
+    <%= label_tag "Origin Street Address" %>
+    <%= text_field_tag "origin_address[street_address]", @origin_address ? @origin_address.street_address : "" %>
+  </p>
+  <p>
+    <%= label_tag "Secondary Address" %>
+    <%= text_field_tag "origin_address[secondary_address]", @origin_address ? @origin_address.secondary_address : "" %>
+  </p>
+  <p>
+    <%= label_tag "City" %>
+    <%= text_field_tag "origin_address[city]", @origin_address ? @origin_address.city: "" %>
+  </p>
+  <p>
+    <%= label_tag "State" %>
+    <%= text_field_tag "origin_address[state]", @origin_address ? @origin_address.state : "" %>
+  </p>
+  <p>
+    <%= label_tag "Zip Code" %>
+    <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "" %>
+  </p>
+  <p>
+    <%= label_tag "Destination Street Address" %>
+    <%= text_field_tag "destination_address[street_address]", @destination_address ? @destination_address.street_address : "" %>
+  </p>
+  <p>
+    <%= label_tag "Secondary Address" %>
+    <%= text_field_tag "destination_address[secondary_address]", @destination_address ? @destination_address.secondary_address : "" %>
+  </p>
+  <p>
+    <%= label_tag "City" %>
+    <%= text_field_tag "destination_address[city]", @destination_address ? @destination_address.city : "" %>
+  </p>
+  <p>
+    <%= label_tag "State" %>
+    <%= text_field_tag "destination_address[state]", @destination_address ? @destination_address.state : "" %>
+  </p>
+  <p>
+    <%= label_tag "Zip Code" %>
+    <%= text_field_tag "destination_address[zip_code]", @destination_address ? @destination_address.zip_code: "" %>
+  </p>
+  <p>
+    <%= label_tag "Leaving at" %>
+    <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "" %>
+  </p>
+  <p>
+    <%= label_tag "Arriving at" %>
+    <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "" %>
+  </p>
+  <p>
+    <%= label_tag "Volume Available" %>
+    <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "" %>
+  </p>
+  <p>
+    <%= label_tag "Max Weight" %>
+    <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "" %>
+  </p>
+  <p>
+    <%= label_tag "Rate" %>
+    <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "" %>
+  </p>
+  <p>
+    <%= label_tag "Content Restrictions" %>
+    <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10" %>
+  </p>
+  <p>
+    <%= label_tag "Vehicle" %>
+    <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "" %>
+  </p>
+  <%= submit_tag @submit_btn %>
+<% end %>

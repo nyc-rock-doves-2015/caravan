@@ -1,5 +1,40 @@
 class TripsController < ApplicationController
 
+  def new
+    @url = trips_path
+    @method = :post
+    @submit_btn = "Create Trip"
+  end
+
+  def edit
+    @trip = Trip.find(params[:id])
+    @origin_address = @trip.origin_address
+    @destination_address = @trip.destination_address
+    @url = trip_path
+    @method = :put
+    @submit_btn = "Update Trip"
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    @origin_address = @trip.origin_address
+    @destination_address = @trip.destination_address
+
+    if @trip.update(trip_params)
+      @trip.origin_address.update(origin_address_params)
+      @trip.destination_address.update(destination_address_params)
+      redirect_to current_user_profile
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    trip = Trip.find(params[:id])
+    trip.destroy
+    redirect_to current_user_profile
+  end
+
   def create
     trip = Trip.build(origin_address_params, destination_address_params, trip_params)
 
