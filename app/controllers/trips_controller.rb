@@ -1,9 +1,5 @@
 class TripsController < ApplicationController
 
-  def new
-    current_user
-  end
-
   def create
     trip = Trip.build(origin_address_params, destination_address_params, trip_params)
 
