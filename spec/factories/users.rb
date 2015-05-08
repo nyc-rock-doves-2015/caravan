@@ -3,5 +3,4 @@ FactoryGirl.define do
   	username "Bob"
     password "password"
   end
-
 end
