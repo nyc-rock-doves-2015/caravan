@@ -32,5 +32,8 @@ class Parcel < ActiveRecord::Base
 
   validates :origin_address_id, :destination_address_id, :sender_id, presence: true
   validates :pickup_by, :deliver_by, :volume, presence: true
+
+  validates_associated :origin_address, :destination_address
   
+
 end
