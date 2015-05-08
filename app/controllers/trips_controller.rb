@@ -1,4 +1,4 @@
-class TripsController < ActionController::Base
+class TripsController < ApplicationController
 
   def create
     trip = Trip.build(origin_address_params, destination_address_params, trip_params)
