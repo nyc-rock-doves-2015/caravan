@@ -1,3 +1,7 @@
+<% if flash[:error] %>
+  <h3 style="color: red;"><%= flash[:error] %></h3>
+<% end %>
+
 <%= form_tag(parcels_path) do |f| %>
   <%= label_tag 'Origin Street Address' %>
   <%= text_field_tag 'origin_address[street_address]' %> <br>

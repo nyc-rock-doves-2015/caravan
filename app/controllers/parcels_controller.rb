@@ -15,11 +15,11 @@ class ParcelsController < ActionController::Base
   private
 
   def origin_address_params
-    params.require(:origin_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code, :user_id)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code)
   end
 
   def destination_address_params
-    params.require(:destination_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code, :user_id)
+    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code)
   end
 
 
