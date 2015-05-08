@@ -2,8 +2,16 @@
 <h3>Driver:</h3>
 
 <h3>Sender:<h3>
-<ul>
-  <% @user.parcels.each do |parcel| %>
-   <%= parcel.description %>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-4">Parcel Description</div>
+  <div class="col-md-4">Parcel Delivery City</div>
+  <div class="col-md-4">Parcel Delivery Date</div>
+</div>
+<br>
+<% @user.parcels.each do |parcel| %>
+ <div class="row">
+   <div class="col-md-4"><%= parcel.description %></div>
+   <div class="col-md-4"><%= parcel.destination_address.city %></div>
+   <div class="col-md-4"><%= parcel.deliver_by %></div>
+ </div>
+<% end %>
