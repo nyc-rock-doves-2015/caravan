@@ -2,46 +2,46 @@
   <h3 style="color: red;"><%= flash[:error] %></h3>
 <% end %>
 
-<%= form_tag(parcels_path) do |f| %>
+<%= form_tag @url, method: @method do %>
   <%= label_tag 'Origin Street Address' %>
-  <%= text_field_tag 'origin_address[street_address]' %> <br>
+  <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "" %> <br>
   <%= label_tag 'Origin Secondary Address' %>
-  <%= text_field_tag 'origin_address[secondary_address]' %> <br>
+  <%= text_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : "" %> <br>
   <%= label_tag 'Location Description' %>
-  <%= text_field_tag 'origin_address[description]' %> <br>
+  <%= text_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "" %> <br>
   <%= label_tag 'Origin City' %>
-  <%= text_field_tag 'origin_address[city]' %> <br>
+  <%= text_field_tag 'origin_address[city]', @origin_address ? @origin_address.city : "" %> <br>
   <%= label_tag 'Origin State' %>
-  <%= text_field_tag 'origin_address[state]' %> <br>
+  <%= text_field_tag 'origin_address[state]', @origin_address ? @origin_address.state : "" %> <br>
   <%= label_tag 'Origin Zip Code' %>
-  <%= text_field_tag 'origin_address[zip_code]' %> <br>
+  <%= text_field_tag 'origin_address[zip_code]', @origin_address ? @origin_address.zip_code : "" %> <br>
   <%= hidden_field_tag 'origin_address[user_id]', '1' %> <br>
 
-  <%= hidden_field_tag 'destination_address[user_id]', '1' %> <br>
+  <%= hidden_field_tag 'destination_address[user_id]', current_user.id %> <br>
   <%= label_tag 'Destination Street Address' %>
-  <%= text_field_tag 'destination_address[street_address]' %> <br>
+  <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "" %> <br>
   <%= label_tag 'Destination Secondary Address' %>
-  <%= text_field_tag 'destination_address[secondary_address]' %> <br>
+  <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "" %> <br>
   <%= label_tag 'Destination City' %>
-  <%= text_field_tag 'destination_address[city]' %> <br>
+  <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "" %> <br>
   <%= label_tag 'Destination State' %>
-  <%= text_field_tag 'destination_address[state]' %> <br>
+  <%= text_field_tag 'destination_address[state]', @destination_address ? @destination_address.state : "" %> <br>
   <%= label_tag 'Destination Zip Code' %>
-  <%= text_field_tag 'destination_address[zip_code]' %> <br> <br>
+  <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "" %> <br> <br>
 
-  <%= hidden_field_tag 'parcel[sender_id]', '1' %> <br>
+  <%= hidden_field_tag 'parcel[sender_id]', current_user.id %> <br>
   <%= label_tag 'Parcel Description' %>
-  <%= text_field_tag 'parcel[description]' %> <br>
+  <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "" %> <br>
   <%= label_tag 'Pickup By' %>
-  <%= text_field_tag 'parcel[pickup_by]' %> <br>
+  <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "" %> <br>
   <%= label_tag 'Delivery By' %>
-  <%= text_field_tag 'parcel[deliver_by]' %> <br>
+  <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "" %> <br>
   <%= label_tag 'Volume' %>
-  <%= text_field_tag 'parcel[volume]' %> <br>
+  <%= text_field_tag 'parcel[volume]', @parcel ? @parcel.volume : "" %> <br>
   <%= label_tag 'Weight' %>
-  <%= text_field_tag 'parcel[weight]' %> <br>
+  <%= text_field_tag 'parcel[weight]', @parcel ? @parcel.weight : "" %> <br>
   <%= label_tag 'Delivery Notes' %>
-  <%= text_field_tag 'parcel[delivery_notes]' %> <br> <br>
-  <%= submit_tag %>
+  <%= text_field_tag 'parcel[delivery_notes]', @parcel ? @parcel.delivery_notes : "" %> <br> <br>
+  <%= submit_tag @submit_btn %>
 
 <% end %>
