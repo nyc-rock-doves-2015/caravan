@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
 
   get 'profile', to: 'users#current'
-  get 'exit', to: 'sessions#destroy', as: :logout
+  get 'match', to: 'parcels#match_trip'
+
   resources :parcels do
     resources :trips
   end

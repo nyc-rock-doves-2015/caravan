@@ -43,6 +43,10 @@ class ParcelsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def match_trip
+    @trips = Parcel.match_trip
+  end
+
   private
 
   def origin_address_params
