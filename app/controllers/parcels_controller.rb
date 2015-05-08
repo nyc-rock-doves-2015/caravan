@@ -6,6 +6,10 @@ class ParcelsController < ApplicationController
     @submit_btn = "Create Parcel"
   end
 
+  def show
+    @parcel = Parcel.find(params[:id])
+  end
+
   def create
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
 
