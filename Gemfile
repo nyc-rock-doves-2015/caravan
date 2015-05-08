@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 group :development do
+  gem 'faker'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
@@ -41,7 +42,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'faker'
+
   gem 'factory_girl_rails'
   gem 'capybara', '~> 2.4'
   gem 'database_cleaner'
