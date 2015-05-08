@@ -1,8 +1,8 @@
 class CreateTrips < ActiveRecord::Migration
   def change
     create_table :trips do |t|
-      t.references :origin_address
-      t.references :destination_address
+      t.references :origin_address, null: false
+      t.references :destination_address, null: false
       t.references :driver, null: false
       t.datetime :leaving_at, null: false
       t.datetime :arriving_at, null: false
