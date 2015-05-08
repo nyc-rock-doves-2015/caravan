@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :address do
+    user_id 1
     description Faker::Lorem.word
     street_address Faker::Address.street_address
     secondary_address Faker::Address.street_address
