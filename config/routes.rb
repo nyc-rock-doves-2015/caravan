@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
+
   resources :users
 
   get '/profiles/:id', to: redirect('/users/%{id}')
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
   post 'signin' => 'sessions#create'
   get 'signout' => 'sessions#destroy'
   get 'signup' => 'users#new'
+
+  get 'profile', to: 'users#show'
+
   resources :parcels do
     resources :trips
   end
@@ -16,6 +20,6 @@ Rails.application.routes.draw do
     resources :parcels
   end
 
- root 'users#show'
-  
+ root to: 'application#index'
+
 end
