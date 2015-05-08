@@ -25,22 +25,22 @@
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
       <ul class="nav navbar-nav">
-        <% if true%>
+        <% if current_user %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User name <span class="caret"></span></a>
+            <a href="<%=user_path(current_user)%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.username %><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a role="menuitem" href="profile route">My profile</a></li>
-              <li><a role="menuitem" href="signout route">Sign out</a></li>
+              <li><a role="menuitem" href="/profile">My profile</a></li>
+              <li><a role="menuitem" href="<%=signout_path%>">Sign out</a></li>
             </ul>
           </li>
         <% else %>
-          <li><a href="Sign up route">Sign up</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown" name="sign_in" id="sign_in">Sign In<strong class="caret"></strong></a>
+          <li><a href="<%=signup_path%>">Sign Up</a></li>
+          <li><a href="<%=signin_path%>">Sign In</a></li>
+         <!--  <li class="dropdown">
+            <a class="dropdown-toggle" href="/signin" data-toggle="dropdown" name="sign_in" id="sign_in">Sign In<strong class="caret"></strong></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-              <%= render 'sessions/signin' %>
             </div>
-          </li>
+          </li> -->
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
