@@ -1,5 +1,5 @@
  <div class="row">
-   <div class="col-md-1"></div>
+   <div class="col-md-1"><%= link_to "Edit", edit_trip_path(trip) %></div>
    <div class="col-md-3"><%= link_to "Delete", trip_path(trip), method: :delete %></div>
    <div class="col-md-3"><%=trip.destination_address.city %></div>
    <div class="col-md-3"><%= trip.arriving_at %></div>
