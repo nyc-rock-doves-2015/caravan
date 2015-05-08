@@ -6,6 +6,10 @@ class TripsController < ApplicationController
     @submit_btn = "Create Trip"
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
   def edit
     @trip = Trip.find(params[:id])
     @origin_address = @trip.origin_address
