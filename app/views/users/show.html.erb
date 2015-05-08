@@ -1,15 +1,9 @@
 <h2><%= @user.username%>'s Profile</h2>
-<h3>Driver</h3>
 <% if @user == current_user %>
-  <%= render 'current_user_trips' %>
+  <%= render 'current_user' %>
 <% else %>
-  <h5>Reputation</h5>
+  <h3>Driver Reputation</h3>
   <h5>Reviews</h5>
-<% end %>
-<h3>Sender</h3>
-<% if @user == current_user %>
-  <%= render 'current_user_parcels' %>
-<% else %>
-  <h5>Reputation</h5>
+  <h3>Sender Repuation</h3>
   <h5>Reviews</h5>
 <% end %>
