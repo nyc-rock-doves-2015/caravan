@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(version: 20150507202700) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string "description"
-    t.string "street_address"
-    t.string "secondary_address"
-    t.string "city",                        null: false
-    t.string "state",             limit: 2, null: false
-    t.string "zip_code",                    null: false
+    t.integer "user_id",                     null: false
+    t.string  "description"
+    t.string  "street_address"
+    t.string  "secondary_address"
+    t.string  "city",                        null: false
+    t.string  "state",             limit: 2, null: false
+    t.string  "zip_code",                    null: false
   end
 
   create_table "parcels", force: :cascade do |t|
@@ -41,8 +42,8 @@ ActiveRecord::Schema.define(version: 20150507202700) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer  "origin_address_id",                              null: false
-    t.integer  "destination_address_id",                         null: false
+    t.integer  "origin_address_id"
+    t.integer  "destination_address_id"
     t.integer  "driver_id",                                      null: false
     t.datetime "leaving_at",                                     null: false
     t.datetime "arriving_at",                                    null: false
