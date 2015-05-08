@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
 
 	it "should have a username and password" do
 		expect(user.username).to eq "Bob"
-		expect(user.password).to eq "password"
+		expect(user.password).to eq "123"
 	end
 
 	it "should not create a user with bad params" do
