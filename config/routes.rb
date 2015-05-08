@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/profiles/:id', to: redirect('/users/%{id}')
+  get '/profiles/:id', to: 'users#show'
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create'
   get 'signout' => 'sessions#destroy'
   get 'signup' => 'users#new'
 
-  get 'profile', to: 'users#show'
-
+  get 'profile', to: 'users#current'
+  get 'exit', to: 'sessions#destroy', as: :logout
   resources :parcels do
     resources :trips
   end
