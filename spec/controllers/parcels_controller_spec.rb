@@ -9,8 +9,8 @@ RSpec.describe ParcelsController, type: :controller do
 
   context "#create" do
     it "redirects to the users profile" do
-      post :create, parcel: FactoryGirl.attributes_for(:parcel),
-        expect(response).to redirect_to user_path(User.last.id)
+      post :create
+      expect(response).to redirect_to user_path(User.last.id)
     end
 
     it "should not redirect with bad attributes" do

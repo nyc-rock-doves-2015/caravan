@@ -8,7 +8,6 @@ FactoryGirl.define do
     origin_address_id 1
     destination_address_id 3
     sender_id 1
-    trip_id 2
     delivery_notes "fragile"
   end
 
