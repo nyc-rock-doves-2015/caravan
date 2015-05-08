@@ -1,0 +1,47 @@
+<% if flash[:error] %>
+  <h3 style="color: red;"><%= flash[:error] %></h3>
+<% end %>
+
+<%= form_tag(parcels_path) do |f| %>
+  <%= label_tag 'Origin Street Address' %>
+  <%= text_field_tag 'origin_address[street_address]' %> <br>
+  <%= label_tag 'Origin Secondary Address' %>
+  <%= text_field_tag 'origin_address[secondary_address]' %> <br>
+  <%= label_tag 'Location Description' %>
+  <%= text_field_tag 'origin_address[description]' %> <br>
+  <%= label_tag 'Origin City' %>
+  <%= text_field_tag 'origin_address[city]' %> <br>
+  <%= label_tag 'Origin State' %>
+  <%= text_field_tag 'origin_address[state]' %> <br>
+  <%= label_tag 'Origin Zip Code' %>
+  <%= text_field_tag 'origin_address[zip_code]' %> <br>
+  <%= hidden_field_tag 'origin_address[user_id]', '1' %> <br>
+
+  <%= hidden_field_tag 'destination_address[user_id]', '1' %> <br>
+  <%= label_tag 'Destination Street Address' %>
+  <%= text_field_tag 'destination_address[street_address]' %> <br>
+  <%= label_tag 'Destination Secondary Address' %>
+  <%= text_field_tag 'destination_address[secondary_address]' %> <br>
+  <%= label_tag 'Destination City' %>
+  <%= text_field_tag 'destination_address[city]' %> <br>
+  <%= label_tag 'Destination State' %>
+  <%= text_field_tag 'destination_address[state]' %> <br>
+  <%= label_tag 'Destination Zip Code' %>
+  <%= text_field_tag 'destination_address[zip_code]' %> <br> <br>
+
+  <%= hidden_field_tag 'parcel[sender_id]', '1' %> <br>
+  <%= label_tag 'Parcel Description' %>
+  <%= text_field_tag 'parcel[description]' %> <br>
+  <%= label_tag 'Pickup By' %>
+  <%= text_field_tag 'parcel[pickup_by]' %> <br>
+  <%= label_tag 'Delivery By' %>
+  <%= text_field_tag 'parcel[deliver_by]' %> <br>
+  <%= label_tag 'Volume' %>
+  <%= text_field_tag 'parcel[volume]' %> <br>
+  <%= label_tag 'Weight' %>
+  <%= text_field_tag 'parcel[weight]' %> <br>
+  <%= label_tag 'Delivery Notes' %>
+  <%= text_field_tag 'parcel[delivery_notes]' %> <br> <br>
+  <%= submit_tag %>
+
+<% end %>
