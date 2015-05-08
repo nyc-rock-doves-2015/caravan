@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'signin' => 'sessions#create'
   get 'signout' => 'sessions#destroy'
   get 'signup' => 'users#new'
-  
+
   get 'profile', to: 'users#show'
 
   resources :parcels do
@@ -20,6 +20,5 @@ Rails.application.routes.draw do
     resources :parcels
   end
 
-  root 'users#show'
-
+  root 'application#index'
 end
