@@ -9,9 +9,10 @@ class ParcelsController < ApplicationController
   def create
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
 
-    if parcel && parcel.id
+    if parcel && parcel.persisted?
       redirect_to profile_path
     else
+      p parcel.errors.full_messages.join
       flash[:error] = parcel.errors.full_messages.join('<br>')
       render :new
     end

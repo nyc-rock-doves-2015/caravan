@@ -3,8 +3,8 @@ FactoryGirl.define do
     weight 4
     volume 3
     description "pet cat"
-    pickup_by 03/03/1995
-    deliver_by 04/04/1995
+    pickup_by Date.parse('1995-03-03')
+    deliver_by Date.parse('1995-04-04')
     origin_address_id 1
     destination_address_id 3
     sender_id 1
