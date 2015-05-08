@@ -12,8 +12,8 @@ feature "Auth" do
                   password: "password",
                   password_confirmation: "password")
       visit signin_path
-      fill_in "session[name]", :with => "test_user"
-      fill_in "session[password]", :with => "password"
+      fill_in "user[name]", :with => "test_user"
+      fill_in "user[password]", :with => "password"
       click_on "login"
       expect(page).to have_content("test_user")
     end
