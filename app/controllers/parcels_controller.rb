@@ -11,6 +11,25 @@ class ParcelsController < ActionController::Base
     end
   end
 
+  def edit
+    @parcel = parcel.find(params[:id])
+  end
+
+  def update
+    @parcel = Parcel.find(params[:id])
+    if @parcel.update_attributes(parcel_params)
+      redirect_to post_path(@parcel)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    parcel = Parcel.find(params[:id])
+    parcel.destroy
+    redirect_to parcels_path
+  end
+
   private
 
   def origin_address_params
