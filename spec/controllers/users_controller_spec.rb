@@ -19,7 +19,7 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to user_path(User.last.id)
     end
 
-    it "should not redirect with bad attributes" do
+    it "does not redirect with bad attributes" do
       post :create, user: {username: nil , password: "wdw"}
       expect(response).to redirect_to new_user_path
     end
