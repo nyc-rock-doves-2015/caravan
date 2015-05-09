@@ -31,6 +31,17 @@ class Parcel < ActiveRecord::Base
     end
   end
 
+    def self.match_reviewer(user_id, current_id)
+    parcels = Parcel.where(sender_id: user_id)
+    match = []
+    parcels.each do |parcel|
+      if parcel.trip.driver_id == current_id
+          match << parcel
+      end
+    end
+    match
+  end
+
 
   validates :origin_address_id, :destination_address_id, :sender_id, presence: true
   validates :pickup_by, :deliver_by, :volume, presence: true
