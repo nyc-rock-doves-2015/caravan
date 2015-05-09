@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def new
-    session[:return_to] ||= request.referer
     @review = Review.new
     if params[:trip_id]
       @trip = Trip.find(params[:trip_id])
@@ -16,7 +15,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.create(review_params)
     if @review.save
-      redirect_to session.delete(:return_to)
+      redirect_to user_path(params[:review][:user_id])
     else
       flash[:error] = trip.errors.full_messages.join('<br>')
       render :new
@@ -32,7 +31,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content)
+    params.require(:review).permit(:rating, :content, :trip_id, :parcel_id)
   end
 
 end
