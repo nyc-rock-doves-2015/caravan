@@ -1,7 +1,7 @@
 <div class="row">
   <% if @reviewer %>
     <div class="col-md-4">
-      <%= link_to "Review", new_trip_review_path(trip) %>
+      <%= link_to "Review", new_parcel_review_path(parcel) %>
     </div class="col-md-4">
   <% else %>
     <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: 'get'%></div>
