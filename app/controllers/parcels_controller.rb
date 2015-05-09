@@ -1,6 +1,11 @@
 class ParcelsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
+  def index
+    @trip = Trip.find(params[:trip_id])
+    @parcels = @trip.parcels
+  end
+
   def new
     @url = parcels_path
     @method = :post
@@ -17,7 +22,6 @@ class ParcelsController < ApplicationController
     if parcel && parcel.persisted?
       redirect_to profile_path
     else
-      p parcel.errors.full_messages.join
       flash[:error] = parcel.errors.full_messages.join('<br>')
       render :new
     end

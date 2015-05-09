@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-3"></div>
-  <div class="col-md-3">Trip Destination City</div>
-  <div class="col-md-3">Trip Destination Date</div>
+  <div class="col-md-1"></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-2">Parcels to Deliver</div>
+  <div class="col-md-3">Destination City</div>
+  <div class="col-md-3">Destination Date</div>
 </div>
 <% @user.trips.each do |trip| %>
   <%= render partial: '/trips/summary', locals: {trip: trip} %>
