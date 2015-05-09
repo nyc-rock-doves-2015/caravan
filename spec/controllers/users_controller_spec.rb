@@ -6,6 +6,13 @@ RSpec.describe UsersController, type: :controller do
     session[:user_id] = @testuser.id
   end
 
+  describe "#new" do
+  	it "renders the :new view" do
+  		get :new
+  		expect(response).to render_template :new
+  	end
+  end
+
   context "#create" do
     it "redirects to the users profile" do
       post :create, user: FactoryGirl.attributes_for(:user)
@@ -19,25 +26,30 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "#show" do
-    pending "sets @user to current_user" do
+    # pending "sets @user to current_user" do
+    #   get :show, id: @testuser.id
+    #   expect(@user).to eq @testuser
+    # end
+    it "renders the show template" do
       get :show, id: @testuser.id
-      expect(@user).to eq @testuser
-    end
-    pending "renders the show template" do
-      get :show
-      expect(response).to redirect_to
+      expect(response).to render_template :show
     end
   end
 
   describe "#current" do
-    it "sets @user to current_user" do
-      get :current, current_user: @testuser
-      expect(@user).to eq @testuser
-    end
+    # pending "sets @user to current_user" do
+    #   user = FactoryGirl.create :user
+    #   stub_current_user(user)
+    #   stub_authorize_user!
+    #   get :current
+    #   expect(@user).to eq(user)
+    # end
+
     it "renders the show template" do
-    	get :current, current_user: @testuser
-    	expect(response).to to render_template :new
+      get :current, current_user: @testuser
+      expect(response).to render_template :show
     end
   end
+
 
 end
