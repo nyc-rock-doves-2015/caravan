@@ -1,4 +1,5 @@
 class Parcel < ActiveRecord::Base
+  has_many :reviews
   belongs_to :sender, class_name: "User"
   belongs_to :trip
   belongs_to :origin_address, class_name: "Address"
