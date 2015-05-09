@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
 
   def new
     @url = trips_path
