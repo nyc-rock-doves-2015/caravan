@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Trip, type: :model do
   let!(:user) { FactoryGirl.build :user }
   let!(:address) { FactoryGirl.build :address }
-  let!(:trip1) { Trip.create(origin_address: address, destination_address: address, driver_id: user.id, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 50, max_weight: 40, rate: Faker::Commerce.price, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos") }
+  let!(:trip1) { Trip.create(origin_address: address, destination_address: address, driver_id: 1, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 50, max_weight: 40, rate: Faker::Commerce.price, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos") }
 
   it "is valid with a driver, origin address, destination address, leaving_at, arriving_at, available_volume, max_weight, rate, content_restrictions, vehicle" do
       expect(trip1).to be_valid
