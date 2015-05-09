@@ -58,7 +58,6 @@ class TripsController < ApplicationController
   end
   def match_reviewer
     @trips = Trip.match_reviewer(params[:id], current_user.id)
-    p @trips
     if @trips
       @user =  current_user
       @reviewer = true

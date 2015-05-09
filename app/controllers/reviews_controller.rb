@@ -3,12 +3,14 @@ class ReviewsController < ApplicationController
 
   def new
     session[:return_to] ||= request.referer
-    @user = User.find(params[:user_id])
-    Trip.match_reviewer(user)
-    Parcel.match_reviewer(user)
-    # end
     @review = Review.new
-
+    if params[:trip_id]
+      @trip = Trip.find(params[:trip_id])
+      render partial: 'new_trip_review'
+    elsif params[:parcel_id]
+      @parcel = Parcel.find(params[:parcel_id])
+      render partial: 'new_parcel_review'
+    end
   end
 
   def create
