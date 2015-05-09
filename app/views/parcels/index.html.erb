@@ -1,0 +1,10 @@
+
+<h2>Parcels to Deliver for <%= link_to "Trip##{@trip.id}", trip_path(@trip) %></h2>
+
+<ol>
+<% @parcels.each do |parcel| %>
+  <li>
+    <%= render partial: "parcels/single", locals: {parcel: parcel} %>
+  </li>
+<% end %>
+</ol>
