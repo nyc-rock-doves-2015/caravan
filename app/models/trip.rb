@@ -41,8 +41,4 @@ class Trip < ActiveRecord::Base
     trips
   end
 
-  validates :origin_address_id, :destination_address_id, :driver_id, presence: :true
-  validates :leaving_at, :arriving_at, :available_volume, :rate, presence: :true
-
-
 end
