@@ -4,7 +4,7 @@
 
   <%= f.label :content %>:
   <%= f.text_area :content %><br>
-  <%= f.hidden_field :trip_id, :value => @trip.id %>
+
   <%= f.hidden_field :reviewee_id, :value => @trip.driver_id %>
   <%= f.submit %>
 <% end %>
