@@ -2,8 +2,8 @@ class TripsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    parcel = Parcel.find(params[:parcel_id])
-    @trips = Trip.all_matching_parcel(parcel)
+    @parcel = Parcel.find(params[:parcel_id])
+    @trips = Trip.all_matching_parcel(@parcel)
   end
 
   def new
@@ -55,6 +55,14 @@ class TripsController < ApplicationController
       # TODO: recycle params so user does not have to re-input
       render :new
     end
+  end
+
+  def book
+    p "book **************************************"
+    p "Trip#book"
+    p params
+    p "*************************************************"
+    render nothing: true
   end
 
   private
