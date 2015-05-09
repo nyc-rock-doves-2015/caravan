@@ -44,10 +44,12 @@ ActiveRecord::Schema.define(version: 20150509142815) do
   create_table "reviews", force: :cascade do |t|
     t.integer  "trip_id"
     t.integer  "parcel_id"
-    t.integer  "rating"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "reviewer_id", null: false
+    t.integer  "reviewee_id", null: false
+    t.integer  "rating",      null: false
+    t.text     "content",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "trips", force: :cascade do |t|

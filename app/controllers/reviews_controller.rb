@@ -13,9 +13,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(review_params)
-    if @review.save
-      redirect_to user_path(params[:review][:user_id])
+    review = Review.new(review_params)
+    review.update_attributes(reviewer_id: current_user.id)
+    if review.save
+      redirect_to user_path(review.reviewee_id)
     else
       flash[:error] = trip.errors.full_messages.join('<br>')
       render :new
@@ -31,7 +32,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :trip_id, :parcel_id)
+    params.require(:review).permit(:rating, :content, :trip_id, :parcel_id, :reviewee_id)
   end
 
 end
