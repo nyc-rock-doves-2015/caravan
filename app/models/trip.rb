@@ -46,7 +46,11 @@ class Trip < ActiveRecord::Base
     trips = Trip.where(driver_id: user_id)
     match = []
     trips.each do |trip|
-      match << trip.parcels.find_by(sender_id: current_id)
+      trip.parcels.each do |parcel|
+        if parcel.sender_id == current_id
+          match << trip
+        end
+      end
     end
     match
   end
