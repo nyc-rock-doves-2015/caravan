@@ -2,8 +2,5 @@
 <% if @user == current_user %>
   <%= render 'current_user' %>
 <% else %>
-  <h3>Driver Reputation</h3>
-  <h5>Reviews</h5>
-  <h3>Sender Repuation</h3>
-  <h5>Reviews</h5>
+  <%= render 'reputation' %>
 <% end %>

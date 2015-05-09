@@ -1,0 +1,10 @@
+<h3>Driver Reputation</h3>
+<%= link_to 'Review Driver', "/review_trips/#{@user.id}" %>
+<h5>Average rating:</h5>
+<h5>Reviews</h5>
+<%= render partial: '/reviews/show', locals: {reviews: @user.driver_reviews} %>
+
+<h3>Sender Repuation</h3>
+<%= link_to 'Review Sender', "/review_parcels/#{@user.id}" %>
+<h5>Average rating:</h5>
+<h5>Reviews</h5>
