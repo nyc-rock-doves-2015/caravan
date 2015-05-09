@@ -5,6 +5,9 @@
   <div class="col-md-3">Parcel Delivery Date</div>
 </div>
 <br>
-<% @user.parcels.each do |parcel| %>
+<% if !@reviewer %>
+  <% @parcels = @user.parcels %>
+<% end %>
+<% @parcels.each do |parcel| %>
   <%= render partial: '/parcels/summary', locals: {parcel: parcel} %>
 <% end %>
