@@ -60,7 +60,10 @@ class TripsController < ApplicationController
   def book
     @parcel = Parcel.find(params[:parcel_id])
     @trip = Trip.find(params[:id])
-    unless @parcel.update(trip: @trip)
+    if @parcel.update(trip: @trip)
+      @trip.available_volume -= @parcel.volume
+      @trip.save
+    else
       flash[:error] = @parcel.errors.full_messages.join('<br>')
       redirect_to parcel_trips_path(@parcel)
     end
