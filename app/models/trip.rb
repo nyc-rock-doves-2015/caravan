@@ -36,18 +36,8 @@ class Trip < ActiveRecord::Base
   end
 
   def self.all_matching_parcel(parcel)
-    matching_trips = Trip.joins(:destination_address).where('addresses.city = ? and addresses.state = ?', parcel.destination_address.city, parcel.destination_address.state)
-
-    matching_trips = matching_trips.where('arriving_at < ? and leaving_at < ?', parcel.deliver_by, parcel.pickup_by)
-
-    if parcel.weight
-      matching_trips = matching_trips.where('max_weight > ?', parcel.weight)
-    end
-
-    if parcel.volume
-      matching_trips = matching_trips.where('available_volume > ?', parcel.volume)
-    end
-
-    matching_trips
+    matching_trips = Trip.joins(:destination_address).where('addresses.city = ? and addresses.state = ?', parcel.destination_address.city, parcel.destination_address.state).where('arriving_at < ? and leaving_at > ?', parcel.deliver_by, parcel.pickup_by)
+    matching_trips = matching_trips.where('max_weight > ?', parcel.weight) if parcel.weight
+    matching_trips = matching_trips.where('available_volume > ?', parcel.volume) if parcel.volume
   end
 end
