@@ -46,8 +46,6 @@ RSpec.describe ParcelsController, type: :controller do
 
     end
     it "updates a parcel" do
-      p "*****************************"
-      p @parcel.origin_address
       put :update, id: @parcel, parcel: FactoryGirl.attributes_for(:parcel, delivery_notes: 'yo'), origin_address: FactoryGirl.attributes_for(:address, user_id: @user.id), destination_address: FactoryGirl.attributes_for(:address, user_id: @user.id)
       @parcel.reload
       expect(@parcel.delivery_notes).to eq('yo')
