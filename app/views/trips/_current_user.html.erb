@@ -5,5 +5,5 @@
   <div class="col-md-3">Trip Destination Date</div>
 </div>
 <% @user.trips.each do |trip| %>
-  <%= render partial: 'trip', locals: {trip: trip} %>
+  <%= render partial: '/trips/summary', locals: {trip: trip} %>
 <% end %>
