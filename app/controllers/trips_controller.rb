@@ -1,6 +1,11 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
+  def index
+    parcel = Parcel.find(params[:parcel_id])
+    @trips = Trip.all_matching_parcel(parcel)
+  end
+
   def new
     @url = trips_path
     @method = :post

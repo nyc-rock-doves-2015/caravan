@@ -49,11 +49,6 @@ class ParcelsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
-  def match_trips
-    parcel = Parcel.find(params[:id])
-    @trips = Trip.all_matching_parcel(parcel)
-  end
-
   private
 
   def origin_address_params
