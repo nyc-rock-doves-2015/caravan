@@ -3,7 +3,13 @@
   <%= render 'current_user' %>
 <% else %>
   <h3>Driver Reputation</h3>
+  reviews = Review.where(driver_id: @user.id)
+  review.rating
   <h5>Reviews</h5>
+  review.content
   <h3>Sender Repuation</h3>
+  reviews = Review.where(driver_id: @user.id)
+  review.rating
   <h5>Reviews</h5>
+  review.rating
 <% end %>
