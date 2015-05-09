@@ -12,5 +12,9 @@ RSpec.describe UsersController, type: :controller do
 			expect(response).to redirect_to new_user_path
 		end
 
+		describe "#show" do
+			it "sets @user to current_user"
+			it "renders the show template"
+		end
 	end
 end
