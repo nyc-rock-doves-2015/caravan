@@ -56,6 +56,14 @@ class TripsController < ApplicationController
       render :new
     end
   end
+  def match_reviewer
+    @trips = Trip.match_reviewer(params[:id], current_user.id)
+    p @trips
+    if @trips
+      @user =  current_user
+      render '_current_user', locals: {reviewer: true}
+    end
+  end
 
   def book
     @parcel = Parcel.find(params[:parcel_id])

@@ -4,7 +4,11 @@ class ReviewsController < ApplicationController
   def new
     session[:return_to] ||= request.referer
     @user = User.find(params[:user_id])
+    Trip.match_reviewer(user)
+    Parcel.match_reviewer(user)
+    # end
     @review = Review.new
+
   end
 
   def create

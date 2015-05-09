@@ -41,4 +41,13 @@ class Trip < ActiveRecord::Base
     matching_trips = matching_trips.where('max_weight > ?', parcel.weight) if parcel.weight
     matching_trips = matching_trips.where('available_volume > ?', parcel.volume) if parcel.volume
   end
+
+  def self.match_reviewer(user_id, current_id)
+    trips = self.where(driver_id: user_id)
+    match = []
+    trips.each do |trip|
+      match << trip.parcels.where(sender_id: current_id)
+    end
+    match
+  end
 end

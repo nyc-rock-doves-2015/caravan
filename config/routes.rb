@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   get 'profile', to: 'users#current'
 
+  get 'review_trips/:id', to: 'trips#match_reviewer'
+  get 'review_parcels/:id', to: 'parcels#match_reviewer'
+
   resources :parcels do
     resources :reviews
     resources :trips do
