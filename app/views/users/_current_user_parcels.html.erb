@@ -6,5 +6,5 @@
 </div>
 <br>
 <% @user.parcels.each do |parcel| %>
-  <%= render partial: 'parcel', locals: {parcel: parcel} %>
+  <%= render partial: '/parcels/_summary', locals: {parcel: parcel} %>
 <% end %>
