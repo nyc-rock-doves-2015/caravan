@@ -2,11 +2,8 @@
 <%= link_to 'Review Driver', new_user_review_path(@user.id) %>
 <h5>Average rating:</h5>
 <h5>Reviews</h5>
-<%  reviews = Review.where(driver_id: @user.id) %>
-<%= render '/reviews/show', locals: {reviews: reviews} %>
+
 <h3>Sender Repuation</h3>
 <%= link_to 'Review Sender', new_user_review_path(@user.id) %>
 <h5>Average rating:</h5>
 <h5>Reviews</h5>
-<%  reviews = Review.where(driver_id: @user.id)  %>
-<%= render '/reviews/show', locals: {reviews: reviews} %>

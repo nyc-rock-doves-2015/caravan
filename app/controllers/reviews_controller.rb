@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
 
   def new
     session[:return_to] ||= request.referer
+    @user = User.find(params[:user_id])
+    @review = Review.new
   end
 
   def create
@@ -23,7 +25,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:trip_id, :parcel_id, :rating, :content)
+    params.require(:review).permit(:rating, :content)
   end
 
 end
