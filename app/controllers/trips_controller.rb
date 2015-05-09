@@ -58,11 +58,12 @@ class TripsController < ApplicationController
   end
 
   def book
-    p "book **************************************"
-    p "Trip#book"
-    p params
-    p "*************************************************"
-    render nothing: true
+    @parcel = Parcel.find(params[:parcel_id])
+    @trip = Trip.find(params[:id])
+    unless @parcel.update(trip: @trip)
+      flash[:error] = @parcel.errors.full_messages.join('<br>')
+      redirect_to parcel_trips_path(@parcel)
+    end
   end
 
   private
