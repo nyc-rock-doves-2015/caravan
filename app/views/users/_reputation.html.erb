@@ -1,0 +1,10 @@
+<h3>Driver Reputation</h3>
+<h5>Average rating:</h5>
+<h5>Reviews</h5>
+<%  reviews = Review.where(driver_id: @user.id) %>
+<%= render '/reviews/show', locals: {reviews: reviews} %>
+<h3>Sender Repuation</h3>
+<h5>Average rating:</h5>
+<h5>Reviews</h5>
+<%  reviews = Review.where(driver_id: @user.id)  %>
+<%= render '/reviews/show', locals: {reviews: reviews} %>
