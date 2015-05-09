@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
   helper_method :current_user_profile
+  helper_method :authenticate_user!
+  helper_method :set_return_point
+  helper_method :return_point
 
   def index
   end
