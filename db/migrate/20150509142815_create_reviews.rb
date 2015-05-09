@@ -6,7 +6,7 @@ class CreateReviews < ActiveRecord::Migration
       t.references :trip
       t.references :parcel
       t.integer :rating
-      t.text :review
+      t.text :content
       t.timestamps null: false
     end
   end
