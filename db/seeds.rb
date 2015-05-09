@@ -30,8 +30,15 @@ parcel2 = Parcel.create(origin_address: Address.find(Address.pluck(:id).sample),
   Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: pdx2, driver: User.find(User.pluck(:id).sample), leaving_at: '9/5/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: Faker::Commerce.price , content_restrictions: 'matching trip', vehicle: "U-Haul Lambos")
 end
 
-#Test Reviewing a Trip
-trip = Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), driver_id: 2, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: Faker::Commerce.price , content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos")
-trip.parcels.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), sender_id: 1, pickup_by: Faker::Date.forward(4), deliver_by: Faker::Date.forward(10), weight: rand(1..200), volume: rand(1..400), delivery_notes: Faker::Lorem.paragraph(2), description: Faker::Lorem.paragraph(2))
+#Test Reviewing a Trip/Driver
+trip_to_review = Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), driver_id: 2, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: Faker::Commerce.price , content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos")
+trip_to_review.parcels.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), sender_id: 1, pickup_by: Faker::Date.forward(4), deliver_by: Faker::Date.forward(10), weight: rand(1..200), volume: rand(1..400), delivery_notes: Faker::Lorem.paragraph(2), description: Faker::Lorem.paragraph(2))
+
+#Test Reviewing a Parcel/Sender
+parcel_to_review = Parcel.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), sender_id: 2, pickup_by: Faker::Date.forward(4), deliver_by: Faker::Date.forward(10), weight: rand(1..200), volume: rand(1..400), delivery_notes: Faker::Lorem.paragraph(2), description: Faker::Lorem.paragraph(2))
+
+trip = Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), driver_id: 1, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: Faker::Commerce.price , content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos")
+
+trip.parcels << parcel_to_review
 
 
