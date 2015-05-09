@@ -23,7 +23,7 @@ RSpec.describe SessionsController, type: :controller do
       post :create, user: {username: @user.username, password: @user.password}
       expect(response).to redirect_to profile_path
     end
-    
+
     it "should redirect back to signin upon bad signin" do
       post :create, user: {username: @user.username, password:""}
       expect(response).to redirect_to signin_path
