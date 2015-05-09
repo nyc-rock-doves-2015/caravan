@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  resources :users
+  resources :users do
+    resources :reviews
+  end
 
   get '/profiles/:id', to: 'users#show'
   get 'signin' => 'sessions#new'
@@ -15,10 +17,12 @@ Rails.application.routes.draw do
 
   resources :parcels do
     resources :trips
+    resources :reviews
   end
 
   resources :trips do
     resources :parcels
+    resources :reviews
   end
 
  root to: 'application#index'
