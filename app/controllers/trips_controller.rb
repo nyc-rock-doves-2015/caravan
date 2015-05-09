@@ -61,7 +61,8 @@ class TripsController < ApplicationController
     p @trips
     if @trips
       @user =  current_user
-      render '_current_user', locals: {reviewer: true}
+      @reviewer = true
+      render '_current_user'
     end
   end
 

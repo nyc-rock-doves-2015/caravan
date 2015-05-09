@@ -43,10 +43,10 @@ class Trip < ActiveRecord::Base
   end
 
   def self.match_reviewer(user_id, current_id)
-    trips = self.where(driver_id: user_id)
+    trips = Trip.where(driver_id: user_id)
     match = []
     trips.each do |trip|
-      match << trip.parcels.where(sender_id: current_id)
+      match << trip.parcels.find_by(sender_id: current_id)
     end
     match
   end

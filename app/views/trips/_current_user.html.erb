@@ -7,7 +7,7 @@
   <div class="col-md-3">Destination City</div>
   <div class="col-md-3">Destination Date</div>
 </div>
-<% if !reviewer %>
+<% if !@reviewer %>
   <% @trips = @user.trips %>
 <% end %>
 <% @trips.each do |trip| %>
