@@ -1,6 +1,11 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
+  def index
+    @parcel = Parcel.find(params[:parcel_id])
+    @trips = Trip.all_matching_parcel(@parcel)
+  end
+
   def new
     @url = trips_path
     @method = :post
@@ -49,6 +54,15 @@ class TripsController < ApplicationController
       flash[:error] = trip.errors.full_messages.join('<br>')
       # TODO: recycle params so user does not have to re-input
       render :new
+    end
+  end
+
+  def book
+    @parcel = Parcel.find(params[:parcel_id])
+    @trip = Trip.find(params[:id])
+    unless @parcel.update(trip: @trip)
+      flash[:error] = @parcel.errors.full_messages.join('<br>')
+      redirect_to parcel_trips_path(@parcel)
     end
   end
 
