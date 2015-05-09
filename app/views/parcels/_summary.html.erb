@@ -1,13 +1,14 @@
 <div class="row">
-  <div class="col-md-1">
-    <%= button_to 'match', match_path, method: 'get', params: {id: parcel.id} %></div>
-   </div>
+    <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: 'get'%>
+    </div>
+    <div class="col-md-1">
+      <%= button_to 'match', match_path, method: 'get', params: {id: parcel.id} %>
+    </div>
   <div class="col-md-3"><%= parcel.description %></div>
   <div class="col-md-3"><%= parcel.destination_address.city %></div>
   <div class="col-md-3">
     <%= parcel.deliver_by %> <br>
     <%= button_to 'Edit', edit_parcel_path(parcel.id), method: 'get' %>
     <%= button_to 'Delete', parcel_path(parcel.id), method: 'delete' %>
-    <%= button_to 'details', parcel_path(parcel), method: 'get'%>
   </div>
 </div>
