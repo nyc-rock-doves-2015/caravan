@@ -1,9 +1,7 @@
 FactoryGirl.define do
-  factory :address do
-    user_id 1
-    description Faker::Lorem.word
-    street_address Faker::Address.street_address
-    secondary_address Faker::Address.street_address
+ factory :address do
+    id 1
+    association :user, factory: :user
     city Faker::Address.city
     state Faker::Address.state_abbr
     zip_code Faker::Address.zip_code
