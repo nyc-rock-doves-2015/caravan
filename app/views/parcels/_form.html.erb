@@ -28,12 +28,12 @@
           <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "" %>
         </div>
         <div class="form-group">
-         <%= label_tag 'Origin Secondary Address' %>
-         <%= text_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : "" %>
+          <%= label_tag 'Origin Secondary Address' %>
+          <%= text_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : "" %>
        </div>
        <div class="form-group">
-        <%= label_tag 'Location Description' %>
-        <%= text_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "" %>
+         <%= label_tag 'Location Description' %>
+         <%= text_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "" %>
       </div>
       <div class="form-group">
         <%= label_tag 'Origin City' %>
@@ -62,12 +62,12 @@
         <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "" %>
       </div>
       <div class="form-group">
-       <%= label_tag 'Destination Secondary Address' %>
-       <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "" %>
+        <%= label_tag 'Destination Secondary Address' %>
+        <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "" %>
      </div>
      <div class="form-group">
-      <%= label_tag 'Destination City' %>
-      <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "" %>
+       <%= label_tag 'Destination City' %>
+       <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "" %>
     </div>
     <div class="form-group">
       <%= label_tag 'Destination State' %>
@@ -86,14 +86,20 @@
     <div class="col-md-12">
       <h3> Step 3</h3>
       <div class="form-group">
-       <%= hidden_field_tag 'parcel[sender_id]', current_user.id %>
-       <%= hidden_field_tag 'parcel[delivered]', false %>
-       <%= label_tag 'Parcel Description' %>
-       <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "" %>
+        <%= hidden_field_tag 'parcel[sender_id]', current_user.id %>
+        <%= hidden_field_tag 'parcel[delivered]', false %>
+        <%= label_tag 'Parcel Description' %>
+        <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "" %>
      </div>
      <div class="form-group">
-      <%= label_tag 'Pickup By' %>
-      <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "" %>
+        <div class='input-group date' id='datetimepicker1'>
+            <input type='text' class="form-control" />
+              <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+       <%= label_tag 'Pickup By' %>
+       <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "" %>
     </div>
     <div class="form-group">
       <%= label_tag 'Delivery By' %>
@@ -108,8 +114,8 @@
      <%= text_field_tag 'parcel[weight]', @parcel ? @parcel.weight : "" %>
    </div>
    <div class="form-group">
-    <%= label_tag 'Delivery Notes' %>
-    <%= text_field_tag 'parcel[delivery_notes]', @parcel ? @parcel.delivery_notes : "" %> <br>
+     <%= label_tag 'Delivery Notes' %>
+     <%= text_field_tag 'parcel[delivery_notes]', @parcel ? @parcel.delivery_notes : "" %> <br>
   </div>
   <%= submit_tag (@submit_btn) %>
   <% end %>
@@ -117,3 +123,9 @@
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>
