@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
 
+  def get_reputation
+    reviews = Review.includes(:rating).where(reviewee_id: self.id)
+    count = self.received_reviews.count
+    reviews.reduce(:+)
+  end
 end
