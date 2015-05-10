@@ -20,10 +20,9 @@
   </div>
   <%= form_tag @url, method: @method do %>
   <div class="row setup-content" id="step-1">
-      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
     <div class="col-xs-12">
       <div class="col-md-12">
-        <h3> Step 1</h3>
+        <h3> Step 1 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
         <div class="form-group">
           <%= label_tag 'Origin Street Address' %>
           <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "" %>
@@ -53,10 +52,10 @@
 
 </div>
 <div class="row setup-content" id="step-2">
-      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+
   <div class="col-xs-12">
     <div class="col-md-12">
-      <h3> Step 2</h3>
+      <h3> Step 2       <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
       <div class="form-group">
         <%= label_tag 'Destination Street Address' %>
         <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "" %>
@@ -81,11 +80,12 @@
 </div>
 </div>
 <div class="row setup-content" id="step-3">
-    <%= submit_tag (@submit_btn) %>
 
   <div class="col-xs-12">
     <div class="col-md-12">
-      <h3> Step 3</h3>
+      <h3> Step 3 <%= submit_tag (@submit_btn), class: "btn btn-primary nextBtn btn-lg pull-right"%></h3>
+
+
       <div class="form-group">
        <%= hidden_field_tag 'parcel[sender_id]', current_user.id %>
        <%= hidden_field_tag 'parcel[delivered]', false %>

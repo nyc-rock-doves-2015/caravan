@@ -21,10 +21,10 @@
   </div>
   <%= form_tag @url, method: @method do %>
   <div class="row setup-content" id="step-1">
-    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
     <div class="col-xs-12">
       <div class="col-md-12">
-        <h3> Step 1: Origin</h3>
+    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+        <h3> Step 1: Origin </h3>
         <div class="form-group">
           <%= label_tag 'Street Address' %>
           <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "" %>
@@ -53,10 +53,10 @@
  </div>
 </div>
 <div class="row setup-content" id="step-2">
-    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+
   <div class="col-xs-12">
     <div class="col-md-12">
-      <h3> Step 2: Destination</h3>
+      <h3> Step 2: Destination     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
       <div class="form-group">
         <%= hidden_field_tag 'destination_address[user_id]', current_user.id %> <br>
         <%= label_tag 'Street Address' %>
@@ -82,10 +82,9 @@
 </div>
 </div>
 <div class="row setup-content" id="step-3">
-  <%= submit_tag (@submit_btn) %>
   <div class="col-xs-12">
     <div class="col-md-12">
-      <h3> Step 3: Trip Info</h3>
+      <h3> Step 3: Trip Info  <%= submit_tag (@submit_btn), class: "btn btn-primary nextBtn btn-lg pull-right" %></h3> 
       <div class="form-group">
         <%= label_tag "Leaving at" %>
         <div class='input-group date' id='datetimepicker1'>
