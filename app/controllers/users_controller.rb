@@ -24,8 +24,9 @@ class UsersController < ApplicationController
 
   def history
     @user = current_user
-    @history = true
-    render 'show'
+    @trips = @user.trips.where(completed: true)
+    @parcels = @user.parcels.where(delivered: true)
+    render 'history'
   end
 
   private
