@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :trip do
+    sequence(:id) { |n| n }
     leaving_at Faker::Date.forward(3)
     arriving_at Faker::Date.forward(10)
     available_volume 40
