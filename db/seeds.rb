@@ -41,4 +41,10 @@ trip = Trip.create(origin_address: Address.find(Address.pluck(:id).sample), dest
 
 trip.parcels << parcel_to_review
 
-
+# Create some messages between Users
+User.all.each do |receiver|
+  3.times do
+    sender = User.find(User.pluck(:id).sample)
+    sender.send_message(receiver, Faker::Hacker.say_something_smart, Faker::Hacker.noun)
+  end
+end
