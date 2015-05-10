@@ -3,13 +3,8 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    if params[:trip_id]
-      @trip = Trip.find(params[:trip_id])
-      render partial: 'new_trip_review'
-    elsif params[:parcel_id]
-      @parcel = Parcel.find(params[:parcel_id])
-      render partial: 'new_parcel_review'
-    end
+    @review_carrier = Trip.find(params[:trip_id]) if params[:trip_id]
+    @review_carrier = Parcel.find(params[:parcel_id]) if params[:parcel_id]
   end
 
   def create
