@@ -88,35 +88,56 @@
       <div class="form-group">
         <%= hidden_field_tag "trip[driver_id]", current_user.id %>
         <%= label_tag "Leaving at" %>
-        <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "" %>
+        <div class='input-group date' id='datetimepicker1'>
+          <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "" %>
+          <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
       </div>
-      <div class="form-group">
-       <%= label_tag "Arriving at" %>
-       <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "" %>
-     </div>
-     <div class="form-group">
-      <%= label_tag "Volume Available" %>
-      <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "" %>
     </div>
     <div class="form-group">
-      <%= label_tag "Max Weight" %>
-      <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "" %>
-    </div>
-    <div class="form-group">
-     <%= label_tag "Rate" %>
-     <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "" %>
+      <%= label_tag "Arriving at" %>
+        <div class='input-group date' id='datetimepicker2'>
+            <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "" %>
+          <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
    </div>
    <div class="form-group">
-     <%= label_tag "Content Restrictions" %>
-     <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10" %>
-   </div>
-   <div class="form-group">
-    <%= label_tag "Vehicle" %>
-    <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "" %>
+    <%= label_tag "Volume Available" %>
+    <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "" %>
   </div>
-  <%= submit_tag (@submit_btn) %>
-  <% end %>
+  <div class="form-group">
+    <%= label_tag "Max Weight" %>
+    <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "" %>
+  </div>
+  <div class="form-group">
+   <%= label_tag "Rate" %>
+   <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "" %>
+ </div>
+ <div class="form-group">
+   <%= label_tag "Content Restrictions" %>
+   <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10" %>
+ </div>
+ <div class="form-group">
+  <%= label_tag "Vehicle" %>
+  <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "" %>
+</div>
+<%= submit_tag (@submit_btn) %>
+<% end %>
 </div>
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+$(function () {
+  $('#datetimepicker1').datetimepicker();
+});
+</script>
+<script type="text/javascript">
+$(function () {
+  $('#datetimepicker2').datetimepicker();
+});
+</script>
