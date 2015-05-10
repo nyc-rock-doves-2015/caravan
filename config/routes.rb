@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'review_trips/:id', to: 'trips#match_reviewer'
   get 'review_parcels/:id', to: 'parcels#match_reviewer'
 
+  resources :reviews
+
   resources :parcels do
     resources :reviews, only: [:new, :create, :destroy]
     resources :trips, only: [:index] do

@@ -13,7 +13,10 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to user_path(review.reviewee_id)
     else
-      flash[:error] = trip.errors.full_messages.join('<br>')
+      flash[:error] = review.errors.full_messages.join('<br>')
+      @review = Review.new
+      @review_carrier = Trip.find(params[:trip_id]) if params[:trip_id]
+      @review_carrier = Parcel.find(params[:parcel_id]) if params[:parcel_id]
       render :new
     end
   end
