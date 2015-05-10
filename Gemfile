@@ -5,6 +5,8 @@ gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
