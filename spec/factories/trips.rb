@@ -8,6 +8,7 @@ FactoryGirl.define do
     rate Faker::Commerce.price
     content_restrictions Faker::Lorem.paragraph(2)
     vehicle "U-Haul"
+    driver_id "1"
     association :driver, factory: :user
     association :destination_address, factory: :address
     association :origin_address, factory: :address
