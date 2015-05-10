@@ -4,6 +4,16 @@ nav.navbar{
  // background: $color-nav-main;
 }
 
-ul.details {
+ul.details{
 	list-style: none;
+}
+
+.deliveries{
+	list-style: none;
+}
+
+form input.submit {
+	@extend .btn;
+	@extend .btn-default;
+	@extend button;
 }
