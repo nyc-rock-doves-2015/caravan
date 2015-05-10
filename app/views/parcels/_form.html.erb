@@ -92,18 +92,22 @@
         <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "" %>
      </div>
      <div class="form-group">
+        <%= label_tag 'Pickup By' %>
         <div class='input-group date' id='datetimepicker1'>
-            <input type='text' class="form-control" />
+           <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "" %>
               <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
         </div>
-       <%= label_tag 'Pickup By' %>
-       <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "" %>
     </div>
     <div class="form-group">
       <%= label_tag 'Delivery By' %>
-      <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "" %>
+       <div class='input-group date' id='datetimepicker2'>
+            <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "" %>
+              <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
     </div>
     <div class="form-group">
       <%= label_tag 'Volume' %>
@@ -127,5 +131,10 @@
 <script type="text/javascript">
   $(function () {
     $('#datetimepicker1').datetimepicker();
+  });
+</script>
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker2').datetimepicker();
   });
 </script>
