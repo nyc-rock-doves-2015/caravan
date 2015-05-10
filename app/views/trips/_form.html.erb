@@ -15,21 +15,22 @@
       <div class="stepwizard-step">
         <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
         <!-- <p>Step 3</p> -->
-           <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+         
       </div>
     </div>
   </div>
   <%= form_tag @url, method: @method do %>
   <div class="row setup-content" id="step-1">
+    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
     <div class="col-xs-12">
       <div class="col-md-12">
-        <h3> Step 1</h3>
+        <h3> Step 1: Origin</h3>
         <div class="form-group">
-          <%= label_tag 'Origin Street Address' %>
+          <%= label_tag 'Street Address' %>
           <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "" %>
         </div>
         <div class="form-group">
-         <%= label_tag 'Origin Secondary Address' %>
+         <%= label_tag 'Secondary Address' %>
          <%= text_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : "" %>
        </div>
        <div class="form-group">
@@ -37,27 +38,28 @@
         <%= text_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "" %>
       </div>
       <div class="form-group">
-        <%= label_tag 'Origin City' %>
+        <%= label_tag 'City' %>
         <%= text_field_tag 'origin_address[city]', @origin_address ? @origin_address.city : "" %>
       </div>
       <div class="form-group">
-        <%= label_tag 'Origin State' %>
+        <%= label_tag 'State' %>
         <%= text_field_tag 'origin_address[state]', @origin_address ? @origin_address.state : "" %>
       </div>
       <div class="form-group">
        <%= label_tag "Zip Code" %>
        <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "" %>
      </div>
-  
    </div>
  </div>
 </div>
 <div class="row setup-content" id="step-2">
+    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
   <div class="col-xs-12">
     <div class="col-md-12">
-      <h3> Step 2</h3>
+      <h3> Step 2: Destination</h3>
       <div class="form-group">
-        <%= label_tag 'Destination Street Address' %>
+        <%= hidden_field_tag 'destination_address[user_id]', current_user.id %> <br>
+        <%= label_tag 'Street Address' %>
         <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "" %>
       </div>
       <div class="form-group">
@@ -65,25 +67,25 @@
        <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "" %>
      </div>
      <div class="form-group">
-      <%= label_tag 'Destination City' %>
+      <%= label_tag 'City' %>
       <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "" %>
     </div>
     <div class="form-group">
-      <%= label_tag 'Destination State' %>
+      <%= label_tag 'State' %>
       <%= text_field_tag 'destination_address[state]', @destination_address ? @destination_address.state : "" %>
     </div>
     <div class="form-group">
-      <%= label_tag 'Destination Zip Code' %>
+      <%= label_tag 'Zip Code' %>
       <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "" %>
     </div>
-    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
   </div>
 </div>
 </div>
 <div class="row setup-content" id="step-3">
+  <%= submit_tag (@submit_btn) %>
   <div class="col-xs-12">
     <div class="col-md-12">
-      <h3> Step 3</h3>
+      <h3> Step 3: Trip Info</h3>
       <div class="form-group">
         <%= label_tag "Leaving at" %>
         <div class='input-group date' id='datetimepicker1'>
@@ -110,6 +112,7 @@
     <%= label_tag "Max Weight" %>
     <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "" %>
   </div>
+<<<<<<< HEAD
   <div class="form-group">
    <%= label_tag "Rate" %>
    <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "" %>
@@ -124,6 +127,9 @@
 </div>
 <%= submit_tag (@submit_btn) %>
 <% end %>
+=======
+  <% end %>
+>>>>>>> fixed next button bug
 </div>
 </div>
 </div>
