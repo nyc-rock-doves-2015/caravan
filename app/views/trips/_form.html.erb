@@ -61,8 +61,24 @@
      <div class="form-group">
       <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Vehicle" %>
     </div>
-  <% end %>
+
+    <div class="form-group">
+     <%# label_tag "Rate" %>
+     <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "", placeholder: "Rate (per sq ft)" %>
+   </div>
+   <div class="form-group">
+    <%# label_tag "Vehicle" %>
+    <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Vehicle" %>
   </div>
+  <!-- change to drop down! -->
+   <div class="form-group">
+     <%# label_tag "Content Restrictions" %>
+     <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10", placeholder: "Content Restrictions" %>
+   </div>
+   
+<% end %>
+
+</div>
 </div>
 </div>
 </div>
