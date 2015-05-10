@@ -3,4 +3,4 @@
 
 <h3>(Parcel ID#<%= @parcel.id %>) is booked to ship with <%= @trip.driver.username %> on Trip #ID<%= @trip.id %></h3>
 <br><br>
-<%= button_to "Ship Another Parcel", new_parcel_path, method: :get %>
+<%= button_to "Ship Another Parcel", parcel_trips_path(@parcel.id), method: :get %>
