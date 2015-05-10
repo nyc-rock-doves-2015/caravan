@@ -46,7 +46,6 @@
       <div class="form-group">
        <%= label_tag "Zip Code" %>
        <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "" %>
-       <%= hidden_field_tag 'origin_address[user_id]', current_user.id %>
      </div>
      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
    </div>
@@ -57,7 +56,6 @@
     <div class="col-md-12">
       <h3> Step 2</h3>
       <div class="form-group">
-        <%= hidden_field_tag 'destination_address[user_id]', current_user.id %> <br>
         <%= label_tag 'Destination Street Address' %>
         <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "" %>
       </div>
@@ -86,7 +84,6 @@
     <div class="col-md-12">
       <h3> Step 3</h3>
       <div class="form-group">
-        <%= hidden_field_tag "trip[driver_id]", current_user.id %>
         <%= label_tag "Leaving at" %>
         <div class='input-group date' id='datetimepicker1'>
           <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "" %>

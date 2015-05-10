@@ -1,5 +1,5 @@
-<% trip = parcel.trip %>
-<% if !trip.id && %>
+<% trip = parcel.trip if trip%>
+<% if !trip%>
   <%= button_to 'Edit', edit_parcel_path(parcel.id), method: :get %>
 <% elsif trip.id != nil && !parcel.delivered %>
   Delivery Status: Pending <br>
