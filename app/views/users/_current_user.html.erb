@@ -1,5 +1,5 @@
 <%= link_to 'Your Caravan History', profile_history_path %>
 <h3>Your Trips</h3>
-<%= render '/trips/current_user', locals: {history: @history} %>
+<%= render '/trips/current_user' %>
 <h3>Your Parcels</h3>
-<%= render '/parcels/current_user', locals: {history: @history} %>
+<%= render '/parcels/current_user' %>
