@@ -1,4 +1,5 @@
 $color-nav-main: blue;
+$image-background-main: url(road1.jpg);
 
 nav.navbar{
  // background: $color-nav-main;
@@ -16,4 +17,11 @@ form input.submit {
 	@extend .btn;
 	@extend .btn-default;
 	@extend button;
+}
+
+.jumbotron{
+	background: none;
+	background-image: $image-background-main;
+	background-repeat: no-repeat; 
+	background-size: cover;
 }
