@@ -7,7 +7,9 @@ Deliver By: <%= parcel.deliver_by %> <br>
 Volume: <%= parcel.volume %> <br>
 Weight: <%= parcel.weight %> <br>
 Delivery Notes: <%= parcel.delivery_notes %> <br>
-<% if parcel.delivered == false %>
+<% if parcel.trip_id == nil %>
+
+<% elsif parcel.trip_id != nil && parcel.delivered == false %>
 Delivery Status: Pending
 <% else %>
 Delivery Status: Delivered!
