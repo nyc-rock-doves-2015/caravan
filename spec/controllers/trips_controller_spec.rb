@@ -27,4 +27,21 @@ RSpec.describe TripsController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    it "assigns the requested trip to @trip" do
+      trip = FactoryGirl.create :trip
+      get :show, id: trip
+      expect(assigns(:trip)).to eq trip
+    end
+  end
+
+  describe "GET #index" do
+    it "assigns the requested parcel to @parcel" do
+      parcel = FactoryGirl.create :parcel
+      get :index, parcel_id: parcel
+      expect(assigns(:parcel)).to eq parcel
+      # expect(assigns(:trips)).to eq parcel.trips
+    end
+  end
+
 end
