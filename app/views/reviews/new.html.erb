@@ -1,0 +1,13 @@
+<%= form_for [@review_carrier,@review] do |f| %>
+  <%= f.label :rating%>:
+  <%= f.text_field :rating %><br>
+
+  <%= f.label :content %>:
+  <%= f.text_area :content %><br>
+  <% if @review_carrier.is_a? Parcel %>
+    <%= f.hidden_field :reviewee_id, :value => @review_carrier.sender_id %>
+  <% else %>
+    <%= f.hidden_field :reviewee_id, :value => @review_carrier.driver_id %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

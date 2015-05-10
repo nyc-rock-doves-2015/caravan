@@ -3,19 +3,15 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    if params[:trip_id]
-      @trip = Trip.find(params[:trip_id])
-      render partial: 'new_trip_review'
-    elsif params[:parcel_id]
-      @parcel = Parcel.find(params[:parcel_id])
-      render partial: 'new_parcel_review'
-    end
+    @review_carrier = Trip.find(params[:trip_id]) if params[:trip_id]
+    @review_carrier = Parcel.find(params[:parcel_id]) if params[:parcel_id]
   end
 
   def create
-    @review = Review.create(review_params)
-    if @review.save
-      redirect_to user_path(params[:review][:user_id])
+    review = Review.new(review_params)
+    review.update_attributes(reviewer_id: current_user.id)
+    if review.save
+      redirect_to user_path(review.reviewee_id)
     else
       flash[:error] = trip.errors.full_messages.join('<br>')
       render :new
@@ -31,7 +27,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :trip_id, :parcel_id)
+    params.require(:review).permit(:rating, :content, :trip_id, :parcel_id, :reviewee_id)
   end
 
 end
