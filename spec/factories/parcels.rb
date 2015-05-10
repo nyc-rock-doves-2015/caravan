@@ -9,5 +9,6 @@ FactoryGirl.define do
     delivery_notes "fragile"
     association :destination_address, factory: :address
     association :origin_address, factory: :address
+    association :trip, factory: :trip
   end
 end
