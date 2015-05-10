@@ -1,0 +1,3 @@
+<% parcels.each do |parcel| %>
+  <%= link_to "Review #{parcel.sender.username} as Sender", new_parcel_review_path(parcel.id) %>
+<% end %>

@@ -6,17 +6,19 @@
   <% else %>
     <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: 'get'%></div>
     <div class="col-md-1"><%= button_to 'match', parcel_trips_path(parcel), method: :get %></div>
-    <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), method: 'get' %></div>
-    <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), method: 'delete' %></div>
   <% end %>
-  <div class="col-md-3"><%= parcel.description %></div>
+  <div class="col-md-4"><%= parcel.description %></div>
   <div class="col-md-3"><%= parcel.destination_address.city %></div>
   <div class="col-md-3">
     <%= parcel.deliver_by %> <br>
   </div>
 </div>
 <div class="row">
+  <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), method: 'get' %></div>
+  <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), method: 'delete' %></div>
   <div class="col-md-1">
-   <%= link_to "Review #{parcel.trip.driver.username} as Driver", "new_parcel_review_path(#{parcel.trip.driver_id})" %>
+  <% if trip %>
+   <%= link_to "Review #{trip.driver.username} as Driver", new_trip_review_path(trip.id) %>
+  <% end %>
    </div>
 </div>
