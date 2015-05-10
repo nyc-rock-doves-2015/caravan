@@ -40,8 +40,6 @@ RSpec.describe TripsController, type: :controller do
       parcel = FactoryGirl.create :parcel
       get :index, parcel_id: parcel
       expect(assigns(:parcel)).to eq parcel
-      # expect(assigns(:trips)).to eq parcel.trips
     end
   end
-
 end
