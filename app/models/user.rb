@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  acts_as_messageable
   has_many :trips, foreign_key: :driver_id
   has_many :parcels, foreign_key: :sender_id
 
@@ -17,5 +18,14 @@ class User < ActiveRecord::Base
       sum += review.rating
     end
     sum / count.to_f
+  end
+
+  # method for mailbox gem
+  def name
+    username
+  end
+
+  def mailboxer_email(object)
+    nil # no mail to be sent by mailbox
   end
 end
