@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe TripsController, type: :controller do
   let(:user) { FactoryGirl.create :user }
   before :each do
-    stub_current_user(user)
-    stub_authorize_user!
+    allow(controller).to receive(:current_user) { user}
   end
 
   describe "GET #new" do
