@@ -10,9 +10,10 @@ class ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
     review.update_attributes(reviewer_id: current_user.id)
+    reviewee = User.find(review.reviewee_id)
     if review.save
-      User.find(review.reviewee_id).update_attributes(reputation: review.rating)
-      redirect_to user_path(review.reviewee_id)
+      reviewee.update_attributes(reputation: review.rating.to_f)
+      redirect_to user_path(reviewee.id)
     else
       flash[:error] = review.errors.full_messages.join('<br>')
       @review = Review.new

@@ -1,4 +1,4 @@
-<h4>Reputation</h4>
+<h4>Reputation <%= @user.reputation %></h4>
 <%= link_to "Review #{@user.username} as Driver", "/review_trips/#{@user.id}" %>
 <br>
 <%= link_to "Review #{@user.username} as Sender", "/review_parcels/#{@user.id}" %>

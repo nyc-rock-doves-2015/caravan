@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   # has_many :sender_reviews, class_name: "Review", through: :parcels, source: :sender
 
 
-  validates :username, :password, presence: true
+  validates :username, presence: true
 
 end
