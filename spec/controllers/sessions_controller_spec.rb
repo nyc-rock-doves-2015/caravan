@@ -7,7 +7,7 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe "GET #new" do
-    it "should render the signin form" do
+    it "renders the signin form" do
       get :new
       expect(response).to render_template :new
     end
@@ -24,18 +24,18 @@ RSpec.describe SessionsController, type: :controller do
       expect(response).to redirect_to profile_path
     end
 
-    it "should redirect back to signin upon bad signin" do
+    it "redirects back to signin upon bad signin" do
       post :create, user: {username: @user.username, password:""}
       expect(response).to redirect_to signin_path
     end
   end
 
-  describe "get destroy" do
-    it "should clear the session" do
+  describe "GET #destroy" do
+    it "clears the session" do
       get :destroy
       expect(session[:user_id]).to be nil
     end
-    it "should redirect to the index page" do
+    it "redirects to the index page" do
       get :destroy
       expect(response).to redirect_to root_path
     end

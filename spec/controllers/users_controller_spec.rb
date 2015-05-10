@@ -7,10 +7,10 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "#new" do
-  	it "renders the :new view" do
-  		get :new
-  		expect(response).to render_template :new
-  	end
+    it "renders the :new view" do
+      get :new
+      expect(response).to render_template :new
+    end
   end
 
   context "#create" do
@@ -50,6 +50,4 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template :show
     end
   end
-
-
 end

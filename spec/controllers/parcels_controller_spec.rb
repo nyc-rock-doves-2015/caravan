@@ -54,5 +54,3 @@ RSpec.describe ParcelsController, type: :controller do
     end
   end
 end
-
-
