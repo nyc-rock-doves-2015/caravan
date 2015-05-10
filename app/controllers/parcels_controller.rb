@@ -4,6 +4,7 @@ class ParcelsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @parcels = @trip.parcels
+
   end
 
   def new
@@ -72,7 +73,7 @@ class ParcelsController < ApplicationController
   end
 
   def parcel_params
-    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description)
+    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered)
   end
 
 end

@@ -11,6 +11,7 @@ class CreateParcels < ActiveRecord::Migration
       t.integer :volume, null: false
       t.text :delivery_notes
       t.string :description
+      t.boolean :delivered, default: false, null: false
       t.timestamps
     end
   end

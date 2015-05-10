@@ -30,6 +30,7 @@
   <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "" %> <br> <br>
 
   <%= hidden_field_tag 'parcel[sender_id]', current_user.id %> <br>
+  <%= hidden_field_tag 'parcel[delivered]', false %>
   <%= label_tag 'Parcel Description' %>
   <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "" %> <br>
   <%= label_tag 'Pickup By' %>

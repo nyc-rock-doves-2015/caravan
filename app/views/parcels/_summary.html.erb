@@ -5,7 +5,13 @@
     </div class="col-md-4">
   <% else %>
     <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: 'get'%></div>
+    <% if parcel.trip_id == nil %>
     <div class="col-md-1"><%= button_to 'match', parcel_trips_path(parcel), method: :get %></div>
+    <% elsif parcel.delivered == false %>
+    <div class="col-md-1">Pending Delivery</div>
+    <% else %>
+    <div class="col-md-1">Delivered!</div>
+    <% end %>
   <% end %>
   <div class="col-md-4"><%= parcel.description %></div>
   <div class="col-md-3"><%= parcel.destination_address.city %></div>

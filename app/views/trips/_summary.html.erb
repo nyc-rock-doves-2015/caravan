@@ -18,11 +18,9 @@
         <%= render partial: '/trips/link_trip_parcels', locals: {parcels: parcels} %>
       <% end %>
     </div>
-    <div class="col-md-2"><%= link_to trip.parcels.count, trip_parcels_path(trip) %></div>
+    <div class="col-md-2"><%= link_to (trip.parcels.where(delivered: false).count), trip_parcels_path(trip) %></div>
   <% end %>
   <div class="col-md-3"><%= trip.destination_address.city %></div>
   <div class="col-md-3"><%= trip.arriving_at %></div>
 </div>
-
-
 
