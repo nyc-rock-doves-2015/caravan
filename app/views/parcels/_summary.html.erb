@@ -15,3 +15,8 @@
     <%= parcel.deliver_by %> <br>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-1">
+   <%= link_to "Review #{parcel.trip.driver.username} as Driver", "new_parcel_review_path(#{parcel.trip.driver_id})" %>
+   </div>
+</div>
