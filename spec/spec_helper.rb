@@ -1,10 +1,4 @@
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-
 RSpec.configure do |config|
-  config.include AuthenticationHelpers
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
