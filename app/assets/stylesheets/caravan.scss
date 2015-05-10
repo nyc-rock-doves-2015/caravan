@@ -1,1 +1,5 @@
-$override: blue
+$override: blue;
+
+nav.navbar{
+ background: $override;
+}
