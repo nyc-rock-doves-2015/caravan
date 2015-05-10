@@ -1,5 +1,7 @@
 $color-nav-main: blue;
+$color-font-homepage: white;
 $image-background-main: url(road1.jpg);
+
 
 nav.navbar{
  // background: $color-nav-main;
@@ -24,6 +26,8 @@ form input.submit {
 	background-image: $image-background-main;
 	background-repeat: no-repeat; 
 	background-size: cover;
+	text-align:center;
+	color: $color-font-homepage;
 }
 
 .stepwizard-step {

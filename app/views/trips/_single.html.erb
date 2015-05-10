@@ -11,4 +11,4 @@
 <li>Restrictions: <%= trip.content_restrictions %></li>
 <li>Vehicle: <%= trip.vehicle %></li>
 </ul>
-<%= button_to 'Edit', edit_trip_path(trip.id), method: :get %>
+<%= button_to 'Edit', edit_trip_path(trip.id), class: "btn btn-primary nextBtn btn-sm", method: :get %>

@@ -6,16 +6,12 @@
     <div class="stepwizard-row setup-panel">
       <div class="stepwizard-step">
         <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-        <!-- <p>Step 1</p> -->
       </div>
       <div class="stepwizard-step">
         <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-        <!-- <p>Step 2</p> -->
       </div>
       <div class="stepwizard-step">
         <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-        <!-- <p>Step 3</p> -->
-         
       </div>
     </div>
   </div>
@@ -26,28 +22,29 @@
     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
         <h3> Step 1: Origin </h3>
         <div class="form-group">
-          <%= label_tag 'Street Address' %>
-          <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "" %>
+          <%# label_tag 'Street Address' %>
+          <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "", placeholder: "Street Address" %>
         </div>
         <div class="form-group">
-         <%= label_tag 'Secondary Address' %>
-         <%= text_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : "" %>
+         <%# label_tag 'Secondary Address' %>
+         <%= text_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : "", placeholder:"Secondary Address" %>
        </div>
        <div class="form-group">
-        <%= label_tag 'Location Description' %>
-        <%= text_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "" %>
+        <%# label_tag 'Location Description' %>
+        <%= text_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "", placeholder: "Location Description" %>
       </div>
       <div class="form-group">
-        <%= label_tag 'City' %>
-        <%= text_field_tag 'origin_address[city]', @origin_address ? @origin_address.city : "" %>
+        <%# label_tag 'City' %>
+        <%= text_field_tag 'origin_address[city]', @origin_address ? @origin_address.city : "", placeholder: "City" %>
       </div>
       <div class="form-group">
-        <%= label_tag 'State' %>
-        <%= text_field_tag 'origin_address[state]', @origin_address ? @origin_address.state : "" %>
+        <%# label_tag 'State' %>
+        <%= text_field_tag 'origin_address[state]', @origin_address ? @origin_address.state : "", placeholder: "State" %>
       </div>
       <div class="form-group">
-       <%= label_tag "Zip Code" %>
-       <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "" %>
+       <%# label_tag "Zip Code" %>
+       <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "", placeholder: "Zip Code" %>
+       <%= hidden_field_tag 'origin_address[user_id]', current_user.id %>
      </div>
    </div>
  </div>
@@ -59,24 +56,24 @@
       <h3> Step 2: Destination     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
       <div class="form-group">
         <%= hidden_field_tag 'destination_address[user_id]', current_user.id %> <br>
-        <%= label_tag 'Street Address' %>
-        <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "" %>
+        <%# label_tag 'Street Address' %>
+        <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "", placeholder: "Street Address" %>
       </div>
       <div class="form-group">
-       <%= label_tag 'Destination Secondary Address' %>
-       <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "" %>
+       <%# label_tag 'Destination Secondary Address' %>
+       <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "", placeholder: " Secondary Address" %>
      </div>
      <div class="form-group">
-      <%= label_tag 'City' %>
-      <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "" %>
+      <%# label_tag 'City' %>
+      <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "", placeholder: "City" %>
     </div>
     <div class="form-group">
-      <%= label_tag 'State' %>
-      <%= text_field_tag 'destination_address[state]', @destination_address ? @destination_address.state : "" %>
+      <%# label_tag 'State' %>
+      <%= text_field_tag 'destination_address[state]', @destination_address ? @destination_address.state : "", placeholder: "State" %>
     </div>
     <div class="form-group">
-      <%= label_tag 'Zip Code' %>
-      <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "" %>
+      <%# label_tag 'Zip Code' %>
+      <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "", placeholder: "Zip Code" %>
     </div>
   </div>
 </div>
@@ -86,49 +83,35 @@
     <div class="col-md-12">
       <h3> Step 3: Trip Info  <%= submit_tag (@submit_btn), class: "btn btn-primary nextBtn btn-lg pull-right" %></h3> 
       <div class="form-group">
-        <%= label_tag "Leaving at" %>
-        <div class='input-group date' id='datetimepicker1'>
-          <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "" %>
-          <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-        </span>
+        <%= hidden_field_tag "trip[driver_id]", current_user.id %>
+        <%# label_tag "Leaving at" %>
+        <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "", placeholder: "Leaving at" %>
       </div>
+      <div class="form-group">
+       <%# label_tag "Arriving at" %>
+       <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "", placeholder: "Arriving at" %>
+     </div>
+     <div class="form-group">
+      <%# label_tag "Volume Available" %>
+      <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "", placeholder: "Volume Available" %>
     </div>
     <div class="form-group">
-      <%= label_tag "Arriving at" %>
-        <div class='input-group date' id='datetimepicker2'>
-            <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "" %>
-          <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-        </span>
-      </div>
+      <%# label_tag "Max Weight" %>
+      <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "", placeholder: "Max Weight" %>
+    </div>
+    <div class="form-group">
+     <%# label_tag "Rate" %>
+     <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "", placeholder: "Max Weight" %>
    </div>
    <div class="form-group">
-    <%= label_tag "Volume Available" %>
-    <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "" %>
+     <%# label_tag "Content Restrictions" %>
+     <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10", placeholder: "Content Restrictions" %>
+   </div>
+   <div class="form-group">
+    <%# label_tag "Vehicle" %>
+    <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Content Restrictions" %>
   </div>
-  <div class="form-group">
-    <%= label_tag "Max Weight" %>
-    <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "" %>
-  </div>
-<<<<<<< HEAD
-  <div class="form-group">
-   <%= label_tag "Rate" %>
-   <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "" %>
- </div>
- <div class="form-group">
-   <%= label_tag "Content Restrictions" %>
-   <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10" %>
- </div>
- <div class="form-group">
-  <%= label_tag "Vehicle" %>
-  <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "" %>
-</div>
-<%= submit_tag (@submit_btn) %>
 <% end %>
-=======
-  <% end %>
->>>>>>> fixed next button bug
 </div>
 </div>
 </div>

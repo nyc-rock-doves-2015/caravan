@@ -5,6 +5,11 @@ class Parcel < ActiveRecord::Base
   belongs_to :origin_address, class_name: "Address"
   belongs_to :destination_address, class_name: "Address"
 
+  validates :origin_address_id, :destination_address_id, :sender_id, presence: true
+  validates :pickup_by, :deliver_by, :volume, presence: true
+  validates_associated :origin_address, :destination_address
+
+
   def self.build(origin_address_params, destination_address_params, parcel_params)
     origin_address = Address.new(origin_address_params)
     unless origin_address.save
@@ -41,12 +46,5 @@ class Parcel < ActiveRecord::Base
     end
     match
   end
-
-
-  validates :origin_address_id, :destination_address_id, :sender_id, presence: true
-  validates :pickup_by, :deliver_by, :volume, presence: true
-
-  validates_associated :origin_address, :destination_address
-
 
 end
