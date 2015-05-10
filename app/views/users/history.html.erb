@@ -1,0 +1,21 @@
+<h2><%= @user.username.capitalize %>'s Caravan History</h2>
+<h3>Your Past Trips</h3>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-3">Trip Destination City</div>
+  <div class="col-md-3">Trip Delivery Date</div>
+</div>
+<% @trips.each do |trip| %>
+  <%= render partial: '/trips/summary', locals: {trip:trip} %>
+<% end %>
+<h3>Your Past Parcels</h3>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">Parcel Description</div>
+  <div class="col-md-3">Parcel Destination City</div>
+  <div class="col-md-3">Parcel Delivery Date</div>
+</div>
+<% @parcels.each do |parcel| %>
+  <%= render partial: '/parcels/summary', locals: {parcel:parcel} %>
+<% end %>

@@ -1,9 +1,0 @@
-<h2><%= @user.username.capitalize %>'s Caravan History</h2>
-<h3>Your Past Trips</h3>
-<% @trips.each do |trip| %>
-  <%= render '/trips/current_user' %>
-<% end %>
-<h3>Your Past Parcels</h3>
-<% @parcels.each do |parcel| %>
-  <%= render '/parcels/current_user' %>
-<% end %>
