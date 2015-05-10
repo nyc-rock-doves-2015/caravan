@@ -1,7 +1,7 @@
 <%= form_tag @url, method: @method do |f|  %>
-  <%= hidden_field_tag "origin_address[user_id]", 1 %>
-  <%= hidden_field_tag "destination_address[user_id]", 1 %>
-  <%= hidden_field_tag "trip[driver_id]", 1 %>
+  <%= hidden_field_tag "origin_address[user_id]", current_user.id %>
+  <%= hidden_field_tag "destination_address[user_id]", current_user.id %>
+  <%= hidden_field_tag "trip[driver_id]", current_user.id %>
   <p>
     <%= label_tag "Origin Street Address" %>
     <%= text_field_tag "origin_address[street_address]", @origin_address ? @origin_address.street_address : "" %>

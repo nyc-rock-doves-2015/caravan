@@ -15,7 +15,7 @@
   <%= text_field_tag 'origin_address[state]', @origin_address ? @origin_address.state : "" %> <br>
   <%= label_tag 'Origin Zip Code' %>
   <%= text_field_tag 'origin_address[zip_code]', @origin_address ? @origin_address.zip_code : "" %> <br>
-  <%= hidden_field_tag 'origin_address[user_id]', '1' %> <br>
+  <%= hidden_field_tag 'origin_address[user_id]', current_user.id %> <br>
 
   <%= hidden_field_tag 'destination_address[user_id]', current_user.id %> <br>
   <%= label_tag 'Destination Street Address' %>
