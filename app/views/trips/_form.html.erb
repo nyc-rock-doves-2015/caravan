@@ -6,15 +6,16 @@
     <div class="stepwizard-row setup-panel">
       <div class="stepwizard-step">
         <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-        <p>Step 1</p>
+        <!-- <p>Step 1</p> -->
       </div>
       <div class="stepwizard-step">
         <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-        <p>Step 2</p>
+        <!-- <p>Step 2</p> -->
       </div>
       <div class="stepwizard-step">
         <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-        <p>Step 3</p>
+        <!-- <p>Step 3</p> -->
+           <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
       </div>
     </div>
   </div>
@@ -47,7 +48,7 @@
        <%= label_tag "Zip Code" %>
        <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "" %>
      </div>
-     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+  
    </div>
  </div>
 </div>
