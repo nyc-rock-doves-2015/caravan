@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: 'get'%></div>
+  <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), class: "btn btn-primary nextBtn btn-sm", method: 'get'%></div>
   <% if parcel.trip_id == nil %>
     <div class="col-md-1"><%= button_to 'match', parcel_trips_path(parcel), method: :get %></div>
   <% elsif parcel.delivered == false %>
@@ -16,10 +16,10 @@
     <%= parcel.deliver_by %> <br>
   </div>
 </div>
+
 <%if !@reviewer && !parcel.delivered%>
   <div class="row">
-    <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), method: 'get' %></div>
-    <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), method: 'delete' %></div>
+    <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-primary nextBtn btn-sm", method: 'get' %></div>
+    <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-primary nextBtn btn-sm", method: 'delete' %></div>
   </div>
-  <br>
 <% end %>

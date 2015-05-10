@@ -5,13 +5,13 @@
     </div class="col-md-4">
   <% else%>
     <div class="col-md-1">
-      <%= link_to "Details", trip_path(trip), method: :get %>
+      <%= link_to "Details", trip_path(trip), class: "btn btn-primary nextBtn btn-sm", method: :get %>
     </div>
     <div class="col-md-1">
-      <%= link_to "Edit", edit_trip_path(trip) %>
+      <%= link_to "Edit", edit_trip_path(trip), class: "btn btn-primary nextBtn btn-sm" %>
     </div>
     <div class="col-md-1">
-      <%= link_to "Delete", trip_path(trip), method: :delete %>
+      <%= link_to "Delete", trip_path(trip), class: "btn btn-primary nextBtn btn-sm", method: :delete %>
     </div>
     <div class="col-md-1">
       <% if parcels %>

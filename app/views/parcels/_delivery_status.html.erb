@@ -10,5 +10,5 @@
   <%end %>
 <% else %>
   Delivery Status: Delivered!
-  <%= button_to "Review #{trip.driver.username} as Driver", new_trip_review_path(trip.id), method: :get %>
+  <%= button_to "Review #{trip.driver.username} as Driver", new_trip_review_path(trip.id), class: "btn btn-primary nextBtn btn-sm", method: :get %>
 <% end %>

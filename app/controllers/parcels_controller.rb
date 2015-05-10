@@ -22,7 +22,7 @@ class ParcelsController < ApplicationController
     if parcel && parcel.persisted?
       redirect_to profile_path
     else
-      flash[:error] = parcel.errors.full_messages.join('<br>')
+      flash[:error] = parcel.errors.full_messages.join(", ")
       render :new
     end
   end

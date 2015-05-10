@@ -1,7 +1,7 @@
 
-<h2>Parcels to Deliver for <%= link_to "Trip##{@trip.id}", trip_path(@trip) %></h2>
+<h4>Parcels to Deliver for <%= link_to "Trip##{@trip.id}", trip_path(@trip) %></h4>
 
-<ol>
+<ol class ="deliveries">
 <% @parcels.each do |parcel| %>
   <li>
     <%= render partial: "parcels/single", locals: {parcel: parcel} %>
@@ -28,7 +28,7 @@
           <%= hidden_field_tag 'parcel[volume]', parcel ? parcel.volume : "" %>
           <%= hidden_field_tag 'parcel[weight]', parcel ? parcel.weight : "" %>
           <%= hidden_field_tag 'parcel[delivery_notes]', parcel ? parcel.delivery_notes : "" %>
-          <%= submit_tag "Parcel Delivered" %>
+          <%= submit_tag "Parcel Delivered" ,class: "btn btn-default" %>
         <% end %>
     <% end %>
   </li>
