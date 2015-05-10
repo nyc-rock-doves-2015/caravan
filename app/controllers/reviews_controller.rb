@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     review = Review.new(review_params)
     review.update_attributes(reviewer_id: current_user.id)
     if review.save
+      User.find(review.reviewee_id).update_attributes(reputation: review.rating)
       redirect_to user_path(review.reviewee_id)
     else
       flash[:error] = review.errors.full_messages.join('<br>')
