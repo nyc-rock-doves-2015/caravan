@@ -27,16 +27,17 @@ ActiveRecord::Schema.define(version: 20150509142815) do
   end
 
   create_table "parcels", force: :cascade do |t|
-    t.integer  "origin_address_id",      null: false
-    t.integer  "destination_address_id", null: false
-    t.integer  "sender_id",              null: false
+    t.integer  "origin_address_id",                      null: false
+    t.integer  "destination_address_id",                 null: false
+    t.integer  "sender_id",                              null: false
     t.integer  "trip_id"
-    t.datetime "pickup_by",              null: false
-    t.datetime "deliver_by",             null: false
+    t.datetime "pickup_by",                              null: false
+    t.datetime "deliver_by",                             null: false
     t.integer  "weight"
-    t.integer  "volume",                 null: false
+    t.integer  "volume",                                 null: false
     t.text     "delivery_notes"
     t.string   "description"
+    t.boolean  "delivered",              default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
