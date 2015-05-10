@@ -52,7 +52,11 @@ RSpec.describe ParcelsController, type: :controller do
       @parcel.reload
       expect(@parcel.delivery_notes).to eq('yo')
     end
+
+    it "renders the edit page if parcel doesn't save" do
+      put :update, id: @parcel, parcel: FactoryGirl.attributes_for(:parcel, delivery_notes: 'yo'), origin_address: FactoryGirl.attributes_for(:address, user_id: user.id), destination_address: FactoryGirl.attributes_for(:address, user_id: user.id)
+      @parcel.reload
+      expect(@parcel.delivery_notes).to eq('yo')
+    end
   end
 end
-
-

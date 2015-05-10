@@ -10,5 +10,4 @@ FactoryGirl.define do
     sender_id 1
     delivery_notes "fragile"
   end
-
 end

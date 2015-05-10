@@ -1,5 +1,5 @@
 FactoryGirl.define do
- factory :address do
+  factory :address do
     sequence(:id) { |n| n }
     association :user, factory: :user
     city Faker::Address.city
