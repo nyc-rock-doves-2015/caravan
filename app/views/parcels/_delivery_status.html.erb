@@ -1,0 +1,14 @@
+<% trip = parcel.trip %>
+<% if !trip.id && %>
+  <%= button_to 'Edit', edit_parcel_path(parcel.id), method: :get %>
+<% elsif trip.id != nil && !parcel.delivered %>
+  Delivery Status: Pending <br>
+  <% if trip.driver != current_user %>
+    Driver: <%= trip.driver.username %>
+  <% else %>
+    Sender: <%= parcel.sender.username %>
+  <%end %>
+<% else %>
+  Delivery Status: Delivered!
+  <%= button_to "Review #{trip.driver.username} as Driver", new_trip_review_path(trip.id), method: :get %>
+<% end %>

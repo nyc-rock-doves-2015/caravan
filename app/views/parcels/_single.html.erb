@@ -1,16 +1,14 @@
 <h2>Parcel ID#<%= parcel.id %>: <%= parcel.description %></h2>
 <p> Parcel Details</p>
-Pickup From: <%= parcel.origin_address.street_address %> <br>
-Drop Off: <%= parcel.destination_address.street_address %> <br>
+Pickup From: <%= parcel.origin_address.street_address %>,
+ <%= parcel.origin_address.city %>,
+ <%= parcel.origin_address.state %> <br>
+Drop Off: <%= parcel.destination_address.street_address %>,
+ <%= parcel.destination_address.city %>,
+ <%= parcel.destination_address.state %><br>
 Pickup By: <%= parcel.pickup_by %> <br>
 Deliver By: <%= parcel.deliver_by %> <br>
 Volume: <%= parcel.volume %> <br>
 Weight: <%= parcel.weight %> <br>
 Delivery Notes: <%= parcel.delivery_notes %> <br>
-<% if parcel.trip_id == nil %>
-
-<% elsif parcel.trip_id != nil && parcel.delivered == false %>
-Delivery Status: Pending
-<% else %>
-Delivery Status: Delivered!
-<% end %>
+<%= render partial: 'delivery_status', locals: {parcel: parcel} %>
