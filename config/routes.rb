@@ -1,23 +1,36 @@
 Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
-
-  resources :users
-
-  get '/profiles/:id', to: redirect('/users/%{id}')
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create'
   get 'signout' => 'sessions#destroy'
   get 'signup' => 'users#new'
 
-  get 'profile', to: 'users#show'
+  resources :users, only: [:new, :create, :show] do
+    resources :reviews
+  end
+
+  get '/profiles/:id', to: 'users#show'
+  get 'profile', to: 'users#current'
+  get 'profile/history', to: 'users#history'
+
+  get 'review_trips/:id', to: 'trips#match_reviewer'
+  get 'review_parcels/:id', to: 'parcels#match_reviewer'
+
+  get '/inbox', to: 'messages#inbox'
+
+  resources :reviews
 
   resources :parcels do
-    resources :trips
+    resources :reviews, only: [:new, :create, :destroy]
+    resources :trips, only: [:index] do
+      get 'book', :on => :member
+    end
   end
 
   resources :trips do
-    resources :parcels
+    resources :parcels, only: [:index]
+    resources :reviews, only: [:new, :create, :destroy]
   end
 
  root to: 'application#index'

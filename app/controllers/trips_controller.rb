@@ -1,9 +1,19 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
+  def index
+    @parcel = Parcel.find(params[:parcel_id])
+    @trips = Trip.all_matching_parcel(@parcel)
+  end
 
   def new
     @url = trips_path
     @method = :post
     @submit_btn = "Create Trip"
+  end
+
+  def show
+    @trip = Trip.find(params[:id])
   end
 
   def edit
@@ -47,17 +57,38 @@ class TripsController < ApplicationController
     end
   end
 
+  def match_reviewer
+    @trips = Trip.match_reviewer(params[:id], current_user.id)
+    if @trips
+      @user =  current_user
+      @reviewer = true
+      render '_current_user'
+    end
+  end
+
+  def book
+    @parcel = Parcel.find(params[:parcel_id])
+    @trip = Trip.find(params[:id])
+    if @parcel.update(trip: @trip)
+      @trip.available_volume -= @parcel.volume
+      @trip.save
+    else
+      flash[:error] = @parcel.errors.full_messages.join('<br>')
+      redirect_to parcel_trips_path(@parcel)
+    end
+  end
+
   private
 
   def origin_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
   end
 
   def destination_address_params
-    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
   end
 
   def trip_params
-    params.require(:trip).permit(:driver_id, :leaving_at, :arriving_at, :available_volume, :max_weight, :rate, :content_restrictions, :vehicle)
+    params.require(:trip).permit(:driver_id, :leaving_at, :arriving_at, :available_volume, :max_weight, :rate, :content_restrictions, :vehicle).merge(driver_id: current_user.id)
   end
 end

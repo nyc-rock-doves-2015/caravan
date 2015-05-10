@@ -1,6 +1,9 @@
-<h1>Sign Up</h1>
+<h3>Sign Up</h3>
 <%= form_for :user, url: users_path do |f| %>
   Name: <%= f.text_field :username %>
   Password: <%= f.password_field :password %>
-  <%= f.submit 'submit' %>
+  <%= f.submit 'Create' %>
+  	<br>
+	<br>
+	<p>Already have an account? <%= link_to 'Sign In', new_session_path %></p>
 <% end %>

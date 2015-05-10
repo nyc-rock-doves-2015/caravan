@@ -13,7 +13,7 @@ feature "Auth" do
       fill_in "user[username]", :with => "test_user"
       fill_in "user[password]", :with => "password"
       click_on "login"
-      expect(page).to have_content("test_user")
+      expect(page).to have_content("Test_user")
     end
 
   end

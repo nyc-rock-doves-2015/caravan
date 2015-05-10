@@ -1,4 +1,10 @@
 class ParcelsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
+  def index
+    @trip = Trip.find(params[:trip_id])
+    @parcels = @trip.parcels
+  end
 
   def new
     @url = parcels_path
@@ -6,13 +12,17 @@ class ParcelsController < ApplicationController
     @submit_btn = "Create Parcel"
   end
 
+  def show
+    @parcel = Parcel.find(params[:id])
+  end
+
   def create
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
 
-    if parcel && parcel.id
+    if parcel && parcel.persisted?
       redirect_to profile_path
     else
-      flash[:error] = parcel.errors.full_messages.join('<br>')
+      flash[:error] = parcel.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -42,19 +52,27 @@ class ParcelsController < ApplicationController
     parcel.destroy
     redirect_to user_path(current_user.id)
   end
+  def match_reviewer
+    @parcels = Parcel.match_reviewer(params[:id], current_user.id)
+    if @parcels
+      @user =  current_user
+      @reviewer = true
+      render '_current_user'
+    end
+  end
 
   private
 
   def origin_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
   end
 
   def destination_address_params
-    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code)
+    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
   end
 
   def parcel_params
-    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description)
+    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered).merge(sender_id: current_user.id)
   end
 
 end
