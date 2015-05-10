@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
-    review.update_attributes(reviewer_id: current_user.id)
     reviewee = User.find(review.reviewee_id)
     if review.save
       reputation = reviewee.get_reputation
@@ -33,7 +32,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :trip_id, :parcel_id, :reviewee_id)
+    params.require(:review).permit(:rating, :content, :trip_id, :parcel_id, :reviewee_id).merge(reviewer_id: current_user.id)
   end
 
 end
