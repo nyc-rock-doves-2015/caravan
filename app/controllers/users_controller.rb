@@ -18,7 +18,15 @@ class UsersController < ApplicationController
 
   def current
     @user = current_user
+    @history = false
     render 'show'
+  end
+
+  def history
+    @user = current_user
+    @trips = @user.trips.where(completed: true)
+    @parcels = @user.parcels.where(delivered: true)
+    render 'history'
   end
 
   private

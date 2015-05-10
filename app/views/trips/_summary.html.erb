@@ -1,9 +1,9 @@
 <div class="row">
-  <% if @reviewer %>
+  <% if @reviewer || trip.completed %>
     <div class="col-md-4">
       <%= link_to "Review", new_trip_review_path(trip) %>
     </div class="col-md-4">
-  <% else %>
+  <% else%>
     <div class="col-md-1">
       <%= link_to "Details", trip_path(trip), method: :get %>
     </div>

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/profiles/:id', to: 'users#show'
   get 'profile', to: 'users#current'
-
+  get 'profile/history', to: 'users#history'
 
   get 'review_trips/:id', to: 'trips#match_reviewer'
   get 'review_parcels/:id', to: 'parcels#match_reviewer'
