@@ -41,5 +41,5 @@ $(document).ready(function () {
 
     $('div.setup-panel div a.btn-primary').trigger('click');
 
-
+    var gmapAuto = GmapAutoComplete();
 });

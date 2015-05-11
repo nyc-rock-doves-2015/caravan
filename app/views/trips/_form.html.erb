@@ -119,10 +119,10 @@
 </div>
 </div>
 <div class="controls">
-  <%= text_field_tag 'origin_address[lat]',@origin_address ? @origin_address.latitude : "", placeholder: 'Latitude'%>
+  <%= text_field_tag 'origin_address[latitude]',@origin_address ? @origin_address.latitude : "", placeholder: 'Latitude'%>
 </div>
 <div class="controls">
-  <%= text_field_tag 'origin_address[lng]', @origin_address ? @origin_address.longitude : "",placeholder: 'Longitude' %>
+  <%= text_field_tag 'origin_address[longitude]', @origin_address ? @origin_address.longitude : "",placeholder: 'Longitude' %>
 </div>
 <div class="form-group">
     <%= text_field_tag :location_search, nil, placeholder: "Search Address" %>
