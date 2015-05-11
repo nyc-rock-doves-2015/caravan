@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   helper_method :return_point
 
   def index
+    @users = User.all
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+    marker.lat user.latitude
+    marker.lng user.longitude
+  end
   end
 
   def current_user
