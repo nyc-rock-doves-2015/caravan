@@ -3,7 +3,9 @@
   <% if parcel.trip_id == nil %>
     <div class="col-md-1"><%= button_to 'match', parcel_trips_path(parcel), method: :get %></div>
   <% elsif parcel.delivered == false %>
-    <div class="col-md-1">Pending Delivery</div>
+    <div class="col-md-1">Pending Delivery
+      <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }  %>
+    </div>
   <% else %>
     <div class="col-md-1">Delivered!</div>
     <div class="col-md-2">

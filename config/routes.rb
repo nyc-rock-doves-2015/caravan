@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'review_parcels/:id', to: 'parcels#match_reviewer'
 
   get '/inbox', to: 'messages#index'
+  post '/compose', to: 'messages#new'
 
   resources :messages, only: [:new, :create, :index]
 

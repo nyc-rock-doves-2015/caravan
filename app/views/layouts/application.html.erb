@@ -39,7 +39,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.username.capitalize %> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="/profile">My profile</a></li>
-              <li><a href="/inbox">Inbox</a></li>
+              <li><a href="<%= inbox_path %>">Inbox</a></li>
               <li class="divider"></li>
               <li><a href="<%= signout_path %>">Sign out</a></li>
             </ul>
