@@ -9,6 +9,14 @@ class Parcel < ActiveRecord::Base
   validates :pickup_by, :deliver_by, :volume, presence: true
   validates_associated :origin_address, :destination_address
 
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 
   def self.build(origin_address_params, destination_address_params, parcel_params)
     origin_address = Address.new(origin_address_params)
