@@ -63,12 +63,11 @@ form input.submit {
 }
 
 .profile-sidebar{
-	background-color: grey;
-	background:grey;
+	background-color: lightgrey;
 }
 
 .profile-content{
-	background-color: grey;
+	background-color: lightgrey;
 }
 .profile-img {
 	width: 96px;
@@ -82,4 +81,13 @@ form input.submit {
 
 input{
 	color: black;
+}
+
+body{
+	background-color: white;
+	color: black;
+}
+
+footer{
+	background-color:inherit;
 }
