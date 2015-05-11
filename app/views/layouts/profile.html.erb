@@ -18,7 +18,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="/">
                     <!-- <i class="fa fa-play-circle"></i> -->Caravan
                 </a>
             </div>
@@ -195,6 +195,7 @@
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
+
 					<button type="button" class="btn btn-success btn-sm">New Trip</button>
 					<button type="button" class="btn btn-alert btn-sm">New Parcel</button>
 				</div>
@@ -237,7 +238,11 @@
 		</div>
 		<div class="col-md-9">
 	    <div class="profile-content">
-				<%yield%>	    	
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#">Parcels</a></li>
+          <li><a href="#">Trips</a></li>
+          <li><a href="#">Inbox</a></li>
+        </ul>
 	    </div>
 		</div>
 	</div>
