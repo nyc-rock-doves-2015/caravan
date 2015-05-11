@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   helper_method :set_return_point
   helper_method :return_point
 
-
   def index
     render layout: 'landing-page'
   end
