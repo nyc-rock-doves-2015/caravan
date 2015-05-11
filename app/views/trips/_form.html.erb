@@ -16,54 +16,22 @@
     </div>
   </div>
   <%= form_tag @url, method: @method do %>
- <div class="row setup-content" id="step-1">
-    <div class="col-xs-12">
-      <div class="col-md-12">
-        <h3> Step 1: Origin <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
-        <%= render 'addresses/new_origin' %>
-   </div>
- </div>
-</div>
-<div class="row setup-content" id="step-2">
-  <div class="col-xs-12">
-    <div class="col-md-12">
-      <h3> Step 2: Destination <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
-      <%= render 'addresses/new_destination' %>
-  </div>
-</div>
-</div>
-<div class="row setup-content" id="step-2">
-
-  <div class="col-xs-12">
-    <div class="col-md-12">
-      <h3> Step 2: Destination     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
-      <div class="form-group">
-        <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "", placeholder: "Street Address" %>
-      </div>
-      <div class="form-group">
-       <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "", placeholder: " Secondary Address" %>
+     <div class="row setup-content" id="step-1">
+        <div class="col-xs-12">
+          <div class="col-md-12">
+            <h3> Step 1: Origin <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
+            <%= render 'addresses/new_origin' %>
+       </div>
      </div>
-     <div class="form-group">
-      <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "", placeholder: "City" %>
     </div>
-    <div class="form-group">
-      <%= text_field_tag 'destination_address[state]', @destination_address ? @destination_address.state : "", placeholder: "State" %>
-    </div>
-    <div class="form-group">
-      <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "", placeholder: "Zip Code" %>
-    </div>
-     <div class="form-group">
-      <%= text_field_tag 'destination_address[latitude]',@destination ? @destination.latitude : "", placeholder: 'Latitude'%>
-    </div>
-    <div class="form-group">
-      <%= text_field_tag 'destination_address[longitude]', @destination ? @destination.longitude : "",placeholder: 'Longitude' %>
-    </div>
-    <div class="gmap_search_bar form-group">
-        <%= text_field_tag 'destination_address[address_string]', nil, placeholder: "Search Address" %>
+    <div class="row setup-content" id="step-2">
+      <div class="col-xs-12">
+        <div class="col-md-12">
+          <h3> Step 2: Destination <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
+          <%= render 'addresses/new_destination' %>
+      </div>
     </div>
   </div>
-</div>
-</div>
 <div class="row setup-content" id="step-3">
   <div class="col-xs-12">
     <div class="col-md-12">
@@ -77,24 +45,24 @@
         <div class='input-group date'>
             <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "", placeholder: "Arriving at", :id => 'datetimepicker2' %>
         </div>
+       </div>
+       <div class="form-group">
+        <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "", placeholder: "Free Space (sq ft)" %>
       </div>
+      <div class="form-group">
+        <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "", placeholder: "Max Weight (lbs)" %>
+      </div>
+      <div class="form-group">
+       <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "", placeholder: "Rate (per sq ft)" %>
+     </div>
      <div class="form-group">
-      <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "", placeholder: "Free Space (sq ft)" %>
+       <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10", placeholder: "Content Restrictions" %>
+     </div>
+     <div class="form-group">
+      <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Vehicle" %>
     </div>
-    <div class="form-group">
-      <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "", placeholder: "Max Weight (lbs)" %>
-    </div>
-    <div class="form-group">
-     <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "", placeholder: "Rate (per sq ft)" %>
-   </div>
-   <div class="form-group">
-     <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10", placeholder: "Content Restrictions" %>
-   </div>
-   <div class="form-group">
-    <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Vehicle" %>
+  <% end %>
   </div>
-<% end %>
-</div>
 </div>
 </div>
 </div>
