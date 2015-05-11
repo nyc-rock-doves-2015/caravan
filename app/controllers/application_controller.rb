@@ -6,14 +6,6 @@ class ApplicationController < ActionController::Base
   helper_method :set_return_point
   helper_method :return_point
 
-  def index
-    @users = User.all
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-    marker.lat user.latitude
-    marker.lng user.longitude
-  end
-  end
-
   def current_user
     User.find_by(id: session[:user_id]) if session[:user_id]
   end

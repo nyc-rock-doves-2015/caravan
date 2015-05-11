@@ -1,8 +1,13 @@
 <div class="jumbotron">
   <h1>Welcome To Caravan</h1>
 </div>
+
+<%= Address.last.street_address %><br>
+<%= Address.last.city %><br>
+<%= Address.last.state %><br>
+lat: <%= Address.last.lat %><br>
+lng: <%= Address.last.lng %>
 <h1>Google Maps Tut</h1>
 <div id="map-container">
   <div id="map-canvas"></div>
 </div>
-markers = handler.addMarkers(<%=raw @hash.to_json %>);
