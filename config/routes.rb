@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   get 'signout' => 'sessions#destroy'
   get 'signup' => 'users#new'
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, path: 'profiles', only: [:new, :create, :show] do
     resources :reviews
   end
 
-  get '/profiles/:id', to: 'users#show'
   get 'profile', to: 'users#current'
   get 'profile/history', to: 'users#history'
 
