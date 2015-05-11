@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   get 'review_trips/:id', to: 'trips#match_reviewer'
   get 'review_parcels/:id', to: 'parcels#match_reviewer'
 
-  get '/inbox', to: 'messages#inbox'
+  get '/inbox', to: 'messages#index'
+  post '/compose', to: 'messages#new'
+
+  resources :messages, only: [:new, :create, :index]
 
   resources :reviews
 
