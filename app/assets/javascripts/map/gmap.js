@@ -9,8 +9,8 @@
 
 $(document).ready(function(){
  var defaultZoom = 17; // Why zoomed in? Because it looks good.
-  var lat = <%= @location.lat %>;
-  var lng = <%= @location.lng %>;
+  var lat = <%= @address.latitude %>;
+  var lng = <%= @address.longitude %>;
   // create map and add controls
   var mapOptions = {
     center: new google.maps.LatLng(lat, lng),

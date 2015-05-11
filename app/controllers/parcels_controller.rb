@@ -10,6 +10,7 @@ class ParcelsController < ApplicationController
     @url = parcels_path
     @method = :post
     @submit_btn = "Create Parcel"
+    @address = Address.new
   end
 
   def show
