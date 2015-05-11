@@ -1,4 +1,13 @@
 Rails.application.configure do
+
+    config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['caravan1'],
+    :access_key_id => ENV['AWS_USER_KEY'],
+    :secret_access_key => ENV['AWS_SECRET_KEY']
+  }
+}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
