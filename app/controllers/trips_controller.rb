@@ -10,6 +10,7 @@ class TripsController < ApplicationController
     @url = trips_path
     @method = :post
     @submit_btn = "Create Trip"
+    @address = Address.new
   end
 
   def show
