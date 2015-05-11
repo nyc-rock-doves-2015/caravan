@@ -85,12 +85,16 @@
       <div class="form-group">
         <%= hidden_field_tag "trip[driver_id]", current_user.id %>
         <%# label_tag "Leaving at" %>
-        <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "", placeholder: "Leaving at" %>
+        <div class='input-group date'>
+           <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "", placeholder: "Leaving at", :id => 'datetimepicker1' %>
+        </div>
       </div>
       <div class="form-group">
-       <%# label_tag "Arriving at" %>
-       <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "", placeholder: "Arriving at" %>
-     </div>
+        <%# label_tag "Arriving at" %>
+        <div class='input-group date'>
+            <%= text_field_tag "trip[arriving_at]", @trip ? @trip.arriving_at : "", placeholder: "Arriving at", :id => 'datetimepicker2' %>
+        </div>
+      </div>
      <div class="form-group">
       <%# label_tag "Volume Available" %>
       <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "", placeholder: "Free Space (sq ft)" %>
