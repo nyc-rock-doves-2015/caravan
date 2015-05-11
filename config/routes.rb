@@ -30,10 +30,13 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/trips/search', to: 'trips#search'
+
   resources :trips do
     resources :parcels, only: [:index]
     resources :reviews, only: [:new, :create, :destroy]
   end
+
 
  root to: 'application#index'
 

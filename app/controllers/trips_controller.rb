@@ -6,6 +6,14 @@ class TripsController < ApplicationController
     @trips = Trip.all_matching_parcel(@parcel)
   end
 
+  def search
+    @origin = params[:origin]
+    @o_lat = params[:o_lat]
+    @o_lon = params[:o_lon]
+
+
+  end
+
   def new
     @url = trips_path
     @method = :post

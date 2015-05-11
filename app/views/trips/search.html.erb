@@ -1,0 +1,31 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <form class="form-horizontal" action="<%= trips_search_path %>">
+        <fieldset>
+        <legend>Your Parcel</legend>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="">Origin:</label>
+          <div class="col-md-8">
+            <%= text_field_tag "origin", @origin, class: "form-control input-md" %>
+            latitude:<%= text_field_tag "o_lat", @o_lat, class: "form-control input-md" %>
+            longitude:<%= text_field_tag "o_lon", @o_lon, class: "form-control input-md" %>
+          </div>
+        </div>
+        </fieldset>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="">Destination:</label>
+          <div class="col-md-8">
+            <input name="destination" type="text" class="form-control input-md">
+          </div>
+        </div>
+        <%= button_to "Find Matching Trips", "", class: "btn btn-primary" %>
+        </fieldset>
+      </form>
+    <div class="col-md-9">
+
+
+    </div>
+  </div>
+</div>
