@@ -21,29 +21,22 @@
       <div class="col-md-12">
         <h3> Step 1: Origin <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
         <div class="form-group">
-          <%# label_tag 'Origin Street Address' %>
           <%= text_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : "", placeholder: "Street Address" %>
         </div>
         <div class="form-group">
-         <%# label_tag 'Origin Secondary Address' %>
          <%= text_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : "", placeholder: "", placeholder: "Secondary Address" %>
        </div>
        <div class="form-group">
-        <%# label_tag 'Location Description' %>
-        <%= text_field_tag 'address[description]', @origin_address ? @origin_address.description : "", placeholder: "Description" %>
+        <%= text_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "", placeholder: "Description" %>
       </div>
       <div class="form-group">
-        <%# label_tag 'Origin City' %>
         <%= text_field_tag 'origin_address[city]', @origin_address ? @origin_address.city : "", placeholder: "City" %>
       </div>
       <div class="form-group">
-        <%# label_tag 'Origin State' %>
         <%= text_field_tag 'origin_address[state]', @origin_address ? @origin_address.state : "", placeholder: "State" %>
       </div>
       <div class="form-group">
-       <%# label_tag "Zip Code" %>
        <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "", placeholder: "Zip Code" %>
-       <%= hidden_field_tag 'origin_address[user_id]', current_user.id %>
      </div>
    </div>
  </div>
@@ -55,24 +48,18 @@
     <div class="col-md-12">
       <h3> Step 2: Destination <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button></h3>
       <div class="form-group">
-        <%= hidden_field_tag 'destination_address[user_id]', current_user.id %> <br>
-        <%# label_tag 'Destination Street Address' %>
         <%= text_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "", placeholder: "Zip Code" %>
       </div>
       <div class="form-group">
-       <%# label_tag 'Destination Secondary Address' %>
        <%= text_field_tag 'destination_address[secondary_address]', @destination_address ? @destination_address.secondary_address : "", placeholder: "Secondary Address" %>
      </div>
      <div class="form-group">
-      <%# label_tag 'Destination City' %>
       <%= text_field_tag 'destination_address[city]', @destination_address ? @destination_address.city : "", placeholder: "City" %>
     </div>
     <div class="form-group">
-      <%# label_tag 'Destination State' %>
       <%= text_field_tag 'destination_address[state]', @destination_address ? @destination_address.state : "", placeholder: "State" %>
     </div>
     <div class="form-group">
-      <%# label_tag 'Destination Zip Code' %>
       <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "", placeholder: "Zip Code" %>
     </div>
   </div>
@@ -86,31 +73,25 @@
       <div class="form-group">
        <%= hidden_field_tag 'parcel[sender_id]', current_user.id %>
        <%= hidden_field_tag 'parcel[delivered]', false %>
-       <%# label_tag 'Parcel Description' %>
        <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "", placeholder: "Parcel Description" %>
      </div>
      <div class="form-group">
-       <%# label_tag 'Pickup By' %>
        <div class='input-group date'>
           <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "", placeholder: "Pickup By", :id => 'datetimepicker1' %>
        </div>
     </div>
     <div class="form-group">
-      <%# label_tag 'Delivery By' %>
       <div class='input-group date'>
           <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "", placeholder: "Delivery By", :id => 'datetimepicker2' %>
        </div>
     </div>
     <div class="form-group">
-      <%# label_tag 'Volume' %>
       <%= text_field_tag 'parcel[volume]', @parcel ? @parcel.volume : "", placeholder: "Volume" %>
     </div>
     <div class="form-group">
-     <%# label_tag 'Weight' %>
      <%= text_field_tag 'parcel[weight]', @parcel ? @parcel.weight : "", placeholder: "Weight" %>
    </div>
    <div class="form-group">
-    <%# label_tag 'Delivery Notes' %>
     <%= text_field_tag 'parcel[delivery_notes]', @parcel ? @parcel.delivery_notes : "", placeholder: "Delivery Notes" %>
   </div>
   <% end %>
@@ -118,10 +99,6 @@
 </div>
 </div>
 </div>
-<div class="control-group">
-  <%= label_tag :search, "Search For Address" %>
-  <%= text_field_tag :location_search, nil, class: "span12 search-query", type: "search" %>
-  </div>
 <script type="text/javascript">
   $(function () {
     $('#datetimepicker1').datetimepicker();
