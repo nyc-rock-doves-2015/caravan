@@ -23,5 +23,5 @@
   <%= hidden_field_tag 'origin_address[longitude]', @origin_address ? @origin_address.longitude : "" %>
 </div>
 <div class="gmap_search_bar form-group">
-  <%= text_field_tag 'origin_address[address_string]', nil, placeholder: "Search Address" %>
+  <%= text_field_tag 'origin_address[address_string]', @origin_address ? @origin_address.address_string : "", placeholder: "Search Address" %>
 </div>

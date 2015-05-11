@@ -14,11 +14,11 @@
   <%= hidden_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "" %>
 </div>
 <div class="form-group">
-  <%= hidden_field_tag 'destination_address[latitude]',@destination ? @destination.latitude : "" %>
+  <%= hidden_field_tag 'destination_address[latitude]',@destination_address ? @destination_address.latitude : "" %>
 </div>
 <div class="form-group">
-  <%= hidden_field_tag 'destination_address[longitude]', @destination ? @destination.longitude : "" %>
+  <%= hidden_field_tag 'destination_address[longitude]', @destination_address ? @destination_address.longitude : "" %>
 </div>
 <div class="gmap_search_bar form-group">
-  <%= text_field_tag 'destination_address[address_string]', nil, placeholder: "Search Address" %>
+  <%= text_field_tag 'destination_address[address_string]', @destination_address ? @destination_address.address_string : "", placeholder: "Search Address" %>
 </div>
