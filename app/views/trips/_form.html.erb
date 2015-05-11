@@ -83,7 +83,6 @@
     <div class="col-md-12">
       <h3> Step 3: Trip Info  <%= submit_tag (@submit_btn), class: "btn btn-primary nextBtn btn-lg pull-right" %></h3>
       <div class="form-group">
-        <%= hidden_field_tag "trip[driver_id]", current_user.id %>
         <%# label_tag "Leaving at" %>
         <div class='input-group date'>
            <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "", placeholder: "Leaving at", :id => 'datetimepicker1' %>
@@ -118,6 +117,12 @@
 <% end %>
 </div>
 </div>
+</div>
+<div class="controls">
+  <%= text_field_tag 'origin_address[lat]',@origin_address ? @origin_address.latitude : "", placeholder: 'Latitude'%>
+</div>
+<div class="controls">
+  <%= text_field_tag 'origin_address[lng]', @origin_address ? @origin_address.longitude : "",placeholder: 'Longitude' %>
 </div>
 <div class="form-group">
     <%= text_field_tag :location_search, nil, placeholder: "Search Address" %>
