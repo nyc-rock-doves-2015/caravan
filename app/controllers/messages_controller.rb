@@ -14,7 +14,6 @@ class MessagesController < ApplicationController
   def create
     receiver = User.find(params[:receiver])
     current_user.send_message(receiver, params[:body], params[:subject])
-
-    render nothing: true
+    redirect_to profile_path, flash: { notice: "Message Sent" }
   end
 end
