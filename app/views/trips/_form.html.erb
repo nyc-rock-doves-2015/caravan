@@ -52,7 +52,7 @@
       <%= text_field_tag 'origin_address[longitude]', @origin_address ? @origin_address.longitude : "",placeholder: 'Longitude' %>
     </div>
     <div class="gmap_search_bar form-group">
-        <%= text_field_tag 'origin[string]', nil, placeholder: "Search Address" %>
+        <%= text_field_tag 'origin_address[address_string]', nil, placeholder: "Search Address" %>
     </div>
    </div>
  </div>
@@ -84,13 +84,13 @@
       <%= text_field_tag 'destination_address[zip_code]', @destination_address ? @destination_address.zip_code : "", placeholder: "Zip Code" %>
     </div>
      <div class="form-group">
-      <%= text_field_tag 'destination[latitude]',@destination ? @destination.latitude : "", placeholder: 'Latitude'%>
+      <%= text_field_tag 'destination_address[latitude]',@destination ? @destination.latitude : "", placeholder: 'Latitude'%>
     </div>
     <div class="form-group">
-      <%= text_field_tag 'destination[longitude]', @destination ? @destination.longitude : "",placeholder: 'Longitude' %>
+      <%= text_field_tag 'destination_address[longitude]', @destination ? @destination.longitude : "",placeholder: 'Longitude' %>
     </div>
     <div class="gmap_search_bar form-group">
-        <%= text_field_tag 'destination[string]', nil, placeholder: "Search Address" %>
+        <%= text_field_tag 'destination_address[address_string]', nil, placeholder: "Search Address" %>
     </div>
   </div>
 </div>
