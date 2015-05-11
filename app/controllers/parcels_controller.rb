@@ -73,7 +73,7 @@ class ParcelsController < ApplicationController
   end
 
   def parcel_params
-    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered).merge(sender_id: current_user.id)
+    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered, :avatar).merge(sender_id: current_user.id)
   end
 
 end
