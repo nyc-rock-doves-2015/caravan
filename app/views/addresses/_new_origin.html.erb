@@ -1,0 +1,27 @@
+<div class="form-group">
+  <%= hidden_field_tag 'origin_address[street_address]', @origin_address ? @origin_address.street_address : ""%>
+</div>
+<div class="form-group">
+  <%= hidden_field_tag 'origin_address[secondary_address]', @origin_address ? @origin_address.secondary_address : ""%>
+</div>
+<div class="form-group">
+  <%= hidden_field_tag 'origin_address[description]', @origin_address ? @origin_address.description : "" %>
+</div>
+<div class="form-group">
+  <%= hidden_field_tag 'origin_address[city]', @origin_address ? @origin_address.city : "" %>
+</div>
+<div class="form-group">
+  <%= hidden_field_tag 'origin_address[state]', @origin_address ? @origin_address.state : "" %>
+</div>
+<div class="form-group">
+  <%= hidden_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "" %>
+</div>
+<div class="form-group">
+  <%= hidden_field_tag 'origin_address[latitude]',@origin_address ? @origin_address.latitude : "" %>
+</div>
+<div class="form-group">
+  <%= hidden_field_tag 'origin_address[longitude]', @origin_address ? @origin_address.longitude : "" %>
+</div>
+<div class="gmap_search_bar form-group">
+  <%= text_field_tag 'origin_address[address_string]', nil, placeholder: "Search Address" %>
+</div>
