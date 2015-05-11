@@ -7,5 +7,7 @@ Geocoder.configure(
   :timeout => 5,
 
   # set default units to miles:
-  :units => :mi
+  :units => :mi,
+
+  ip_lookup: :telize
 )
