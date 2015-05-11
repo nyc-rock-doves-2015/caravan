@@ -195,9 +195,10 @@
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-
-					<button type="button" class="btn btn-success btn-sm">New Trip</button>
-					<button type="button" class="btn btn-alert btn-sm">New Parcel</button>
+          <%= link_to "New Trip", new_trip_path, class:"btn btn-success btn-sm"%>
+					<!-- <button type="button" class="btn btn-success btn-sm">New Trip</button> -->
+					<!-- <button type="button" class="btn btn-alert btn-sm">New Parcel</button> -->
+          <%= link_to "New Parcel", new_parcel_path, class: "btn btn-info btn-sm" %>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
@@ -246,10 +247,12 @@
         </ul>
         <div class="tab-content">
             <div id="sectionA" class="tab-pane fade in active">
-                <p>Section A content…</p>
+              <p>Your Parcels</p>
+              <% render partial: 'parcels/current_user' %>
+
             </div>
             <div id="sectionB" class="tab-pane fade">
-                <p>Section B content…</p>
+                <p>Trips</p>
             </div>
             <div id="sectionC" class="tab-pane fade">
                 <p>Inbox</p>
