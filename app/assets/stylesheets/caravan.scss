@@ -63,11 +63,11 @@ form input.submit {
 }
 
 .profile-sidebar{
-	background-color: lightgrey;
+	background-color: rgb(240,240,240);
 }
 
 .profile-content{
-	background-color: lightgrey;
+	background-color: rgb(240,240,240);
 }
 .profile-img {
 	width: 96px;
@@ -86,6 +86,10 @@ input{
 body{
 	background-color: white;
 	color: black;
+}
+
+nav.navbar .top-nav-collapse{
+	background-color: rgba(66,66,66, 0.8)
 }
 
 footer{
