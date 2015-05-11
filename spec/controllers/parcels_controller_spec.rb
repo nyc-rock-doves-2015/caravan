@@ -6,6 +6,30 @@ RSpec.describe ParcelsController, type: :controller do
     allow(controller).to receive(:current_user) { user}
   end
 
+  context "GET #show" do
+    it "assigns the requested parcel to @parcel" do
+      allow(controller).to receive(:current_user) { user}
+      p_params = FactoryGirl.attributes_for(:parcel)
+      o_params = FactoryGirl.attributes_for(:address, user_id: user.id)
+      d_params = FactoryGirl.attributes_for(:address, user_id: user.id)
+      post :create, origin_address:o_params, destination_address:d_params, parcel:p_params
+      @parcel = Parcel.last
+      get :show, id: @parcel
+      expect(assigns(:parcel)).to eq @parcel
+    end
+
+    it "renders the :show template" do
+      allow(controller).to receive(:current_user) { user}
+      p_params = FactoryGirl.attributes_for(:parcel)
+      o_params = FactoryGirl.attributes_for(:address, user_id: user.id)
+      d_params = FactoryGirl.attributes_for(:address, user_id: user.id)
+      post :create, origin_address:o_params, destination_address:d_params, parcel:p_params
+      @parcel = Parcel.last
+      get :show, id: @parcel
+      expect(response).to render_template :show
+    end
+  end
+
   context "#create" do
     it "redirects to the users profile" do
       p_params = FactoryGirl.attributes_for(:parcel)

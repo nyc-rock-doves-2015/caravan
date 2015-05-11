@@ -1,4 +1,3 @@
-<h4>Welcome Back <%= @user.username.capitalize %></h4>
 <% if @user == current_user %>
   <%= render 'current_user', locals: {history: @history} %>
 <% else %>

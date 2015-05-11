@@ -10,6 +10,7 @@ class TripsController < ApplicationController
     @url = trips_path
     @method = :post
     @submit_btn = "Create Trip"
+    @address = Address.new
   end
 
   def show
@@ -47,11 +48,6 @@ class TripsController < ApplicationController
 
   def create
     trip = Trip.build(origin_address_params, destination_address_params, trip_params)
-    @addresses = [trip.origin_address, trip.destination_address]
-    @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
-      marker.lat address.latitude
-      marker.lng address.longitude
-    end
 
     if trip && trip.id
       redirect_to profile_path
@@ -86,14 +82,14 @@ class TripsController < ApplicationController
   private
 
   def origin_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
+    params.require(:origin_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code,:latitude, :longitude).merge(user_id: current_user.id)
   end
 
   def destination_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
+    params.require(:destination_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code,:latitude,:longitude).merge(user_id: current_user.id)
   end
 
   def trip_params
-    params.require(:trip).permit(:driver_id, :leaving_at, :arriving_at, :available_volume, :max_weight, :rate, :content_restrictions, :vehicle).merge(driver_id: current_user.id)
+    params.require(:trip).permit(:leaving_at, :arriving_at, :available_volume, :max_weight, :rate, :content_restrictions, :vehicle).merge(driver_id: current_user.id)
   end
 end
