@@ -44,8 +44,16 @@
       <div class="form-group">
        <%# label_tag "Zip Code" %>
        <%= text_field_tag "origin_address[zip_code]", @origin_address ? @origin_address.zip_code : "", placeholder: "Zip Code" %>
-       <%= hidden_field_tag 'origin_address[user_id]', current_user.id %>
      </div>
+     <div class="form-group">
+      <%= text_field_tag 'origin_address[latitude]',@origin_address ? @origin_address.latitude : "", placeholder: 'Latitude'%>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag 'origin_address[longitude]', @origin_address ? @origin_address.longitude : "",placeholder: 'Longitude' %>
+    </div>
+    <div class="gmap_search_bar form-group">
+        <%= text_field_tag :origin_search, nil, placeholder: "Search Address" %>
+    </div>
    </div>
  </div>
 </div>
@@ -117,15 +125,6 @@
 <% end %>
 </div>
 </div>
-</div>
-<div class="controls">
-  <%= text_field_tag 'origin_address[latitude]',@origin_address ? @origin_address.latitude : "", placeholder: 'Latitude'%>
-</div>
-<div class="controls">
-  <%= text_field_tag 'origin_address[longitude]', @origin_address ? @origin_address.longitude : "",placeholder: 'Longitude' %>
-</div>
-<div class="form-group">
-    <%= text_field_tag :location_search, nil, placeholder: "Search Address" %>
 </div>
 </div>
 <script type="text/javascript">
