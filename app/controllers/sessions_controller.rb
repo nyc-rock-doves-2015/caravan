@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
-  
+
   def create
     user = User.find_by(username: params[:user][:username])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to profile_path, notice: "You are now signed in"
+      redirect_to profile_path
     else
       flash[:error] = "Bad username or password"
       redirect_to signin_path
