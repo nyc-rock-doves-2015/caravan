@@ -1,8 +1,9 @@
 <h5>Parcel #<%= parcel.id %>: <%= parcel.description %></h5>
 <!-- <p> Parcel Details</p> -->
+<%= image_tag parcel.avatar.url(:square) %>
 <ul class="parcel details">
 	<li>Pickup From: <%= parcel.origin_address.street_address %></li>
-	<li> <%= parcel.origin_address.city %></li> 
+	<li> <%= parcel.origin_address.city %></li>
 	<li>	<%= parcel.origin_address.state %></li>
 	<li></li>
 	<li>Drop Off: <%= parcel.destination_address.street_address %></li>
