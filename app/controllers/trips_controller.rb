@@ -48,11 +48,6 @@ class TripsController < ApplicationController
 
   def create
     trip = Trip.build(origin_address_params, destination_address_params, trip_params)
-    @addresses = [trip.origin_address, trip.destination_address]
-    @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
-      marker.lat address.latitude
-      marker.lng address.longitude
-    end
 
     if trip && trip.id
       redirect_to profile_path
