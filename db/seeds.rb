@@ -20,6 +20,18 @@ User.create(username: 'Justin', password: '123')
 User.create(username: 'Scooter', password: '123')
 User.create(username: 'Ariella', password: '123')
 User.create(username: 'Dean', password: '123')
+User.create(username: 'Andre', password: '123')
+User.create(username: 'Will', password: '123')
+User.create(username: 'Jerry', password: '123')
+User.create(username: 'George', password: '123')
+User.create(username: 'Cosmo', password: '123')
+User.create(username: 'Tucker', password: '123')
+User.create(username: 'Evert', password: '123')
+User.create(username: 'Evert', password: '123')
+User.create(username: 'Carl', password: '123')
+User.create(username: 'Mitt', password: '123')
+User.create(username: 'Barack', password: '123')
+
 
 #going from nyc to sf, seed a lot of origin address that could be nyc, then destination addresses in sf or cali
 
@@ -117,6 +129,21 @@ Address.create(description: "Be careful on the stairss", street_address: "2646 C
 
 Address.create(description: "Be careful on the stairss", street_address: "255 10th St", secondary_address: "Apartment 5", city: "San Francisco", state: "CA", zip_code: 94103, user_id: 20)
 
+
+#far addresses that won't match in the search
+
+Address.create(description: "Be careful on the stairs", street_address: "20480 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 26)
+
+Address.create(description: "Be careful on the stairs", street_address: "20752 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 27)
+
+Address.create(description: "Be careful on the stairs", street_address: "20724 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 28)
+
+Address.create(description: "Be careful on the stairs", street_address: "4878 Jendrejas Rd", secondary_address: "Apartment 5", city: "North Little Rock", state: "AR", zip_code: 72118, user_id: 29)
+
+Address.create(description: "Be careful on the stairs", street_address: "14824 Co Rd 52", secondary_address: "Apartment 5", city: "North Little Rock", state: "AR", zip_code: 72118, user_id: 30)
+
+
+
 #create parcels
 
 parcel1 = Parcel.create(origin_address: Address.find(1), destination_address: Address.find(26), sender: User.find(1), pickup_by: Faker::Date.forward(4), deliver_by: Faker::Date.forward(11), weight: 10, volume: 2, delivery_notes: "Very fragile, be careful", description: "Antique Vase")
@@ -150,6 +177,18 @@ trip8 = Trip.create(origin_address: Address.find(9), destination_address: Addres
 trip9 = Trip.create(origin_address: Address.find(10), destination_address: Address.find(38), driver: User.find(10), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 20, max_weight: 80, rate: 20, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Range Rover")
 
 trip10 = Trip.create(origin_address: Address.find(11), destination_address: Address.find(39), driver: User.find(11), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i")
+
+#non nyc to sf trips
+
+trip11 = Trip.create(origin_address: Address.find(46), destination_address: Address.find(50), driver: User.find(11), leaving_at: Faker::Date.forward(11), arriving_at: Faker::Date.forward(15), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i")
+
+trip12 = Trip.create(origin_address: Address.find(47), destination_address: Address.find(49), driver: User.find(11), leaving_at: Faker::Date.forward(2), arriving_at: Faker::Date.forward(8), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i")
+
+trip13 = Trip.create(origin_address: Address.find(48), destination_address: Address.find(48), driver: User.find(11), leaving_at: Faker::Date.forward(5), arriving_at: Faker::Date.forward(7), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i")
+
+trip14 = Trip.create(origin_address: Address.find(49), destination_address: Address.find(47), driver: User.find(11), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 5, max_weight: 10, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i")
+
+trip15 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(11), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i")
 
 
 #add parcels to trips
