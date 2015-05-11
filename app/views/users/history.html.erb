@@ -1,5 +1,5 @@
-<h2><%= @user.username.capitalize %>'s Caravan History</h2>
-<h3>Your Past Trips</h3>
+<h4><%= @user.username.capitalize %>'s Caravan History</h4>
+<h5>Your Past Trips</h5>
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-2"></div>
@@ -9,7 +9,7 @@
 <% @trips.each do |trip| %>
   <%= render partial: '/trips/summary', locals: {trip:trip} %>
 <% end %>
-<h3>Your Past Parcels</h3>
+<h5>Your Past Parcels</h5>
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">Parcel Description</div>
