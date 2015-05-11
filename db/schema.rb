@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150511023102) do
     t.string  "state",             limit: 2, null: false
     t.string  "zip_code",                    null: false
     t.float   "latitude"
-    t.float   "longitute"
+    t.float   "longitude"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
