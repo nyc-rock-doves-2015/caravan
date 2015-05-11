@@ -90,12 +90,16 @@
        <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "", placeholder: "Parcel Description" %>
      </div>
      <div class="form-group">
-      <%# label_tag 'Pickup By' %>
-      <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "", placeholder: "Pickup By" %>
+       <%# label_tag 'Pickup By' %>
+       <div class='input-group date'>
+          <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "", placeholder: "Pickup By", :id => 'datetimepicker1' %>
+       </div>
     </div>
     <div class="form-group">
       <%# label_tag 'Delivery By' %>
-      <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "", placeholder: "Delivery By" %>
+      <div class='input-group date'>
+          <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "", placeholder: "Delivery By", :id => 'datetimepicker2' %>
+       </div>
     </div>
     <div class="form-group">
       <%# label_tag 'Volume' %>
