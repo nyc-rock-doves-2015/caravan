@@ -59,8 +59,9 @@
     <div class="form-group">
      <%= text_field_tag 'parcel[delivery_notes]', @parcel ? @parcel.delivery_notes : "", placeholder: "Delivery Notes" %>
    </div>
-
-   <%= file_field_tag "file" %>
+   <div class="form-group">
+     <%= file_field_tag :avatar %>
+   </div>
 
   <% end %>
 </div>
