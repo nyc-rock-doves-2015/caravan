@@ -119,12 +119,10 @@
 </div>
 </div>
 </div>
+<div class="form-group">
+    <%= text_field_tag :location_search, nil, placeholder: "Search Address" %>
 </div>
-<div class="control-group">
-    <%= label_tag :search, "Search For Address" %>
-    <%= text_field_tag :location_search, nil, class: "span12 search-query", type: "search" %>
-    </div>
-<div id="googlemap" style="width: 100%; height: 360px"></div>
+</div>
 <script type="text/javascript">
 $(function () {
   $('#datetimepicker1').datetimepicker();
