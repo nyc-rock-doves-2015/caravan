@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20150511215519) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "reviewed",               default: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(version: 20150511215519) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "completed",                                      default: false
+    t.boolean  "reviewed",                                       default: false
   end
 
   create_table "users", force: :cascade do |t|
