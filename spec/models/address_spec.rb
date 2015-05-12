@@ -5,6 +5,7 @@ RSpec.describe Address, type: :model do
   let(:address) { FactoryGirl.build :address }
 
   it "is valid with a user_id, city, state, zip code" do
+    # Factory
     address = Address.new(user_id: 1,
                           city: Faker::Address.city,
                           state: Faker::Address.state_abbr,

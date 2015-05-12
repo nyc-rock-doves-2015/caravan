@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
   before :each do
+    # Y U NO Use factory?
+    # Y U NO use `let()`?
     @user = User.create(username: "Charles", password: "password")
     session[:user_id] = @user.id
   end

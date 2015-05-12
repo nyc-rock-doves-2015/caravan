@@ -6,6 +6,7 @@
 </div>
 <br>
 <% if !@reviewer %>
+  <%# I do not want to see this work (assignment) inside of a VIEW, the CONTROLLER has that responsiblity %>
   <% @parcels = @user.parcels %>
 <% end %>
 <% @parcels.each do |parcel| %>

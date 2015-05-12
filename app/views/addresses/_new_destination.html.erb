@@ -1,3 +1,5 @@
+<%#Is this ternary-fu required?  If @destination_address.attribute is `nil` that turns into a ""%>
+
 <div class="form-group">
   <%= hidden_field_tag 'destination_address[street_address]', @destination_address ? @destination_address.street_address : "" %>
 </div>

@@ -10,6 +10,7 @@
   </div>
   <div class="row"><div class="col-md-12"><hr></div></div>
 <% @conversations.each do |conversation| %>
+  <%# what's this.....why are you doing this?  If you're only ever going to show one, why not send @conversation as set from controller %>
   <% message = conversation.messages.first %>
   <div class="row">
     <div class="col-md-3"><%= link_to message.sender.username, user_path(message.sender.id) %></div>

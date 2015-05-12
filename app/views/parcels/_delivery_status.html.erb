@@ -1,3 +1,4 @@
+<%#Too much logic in the view%>
 <% trip = parcel.trip if trip%>
 <% if !trip%>
   <%= button_to 'Edit', edit_parcel_path(parcel.id), method: :get %>

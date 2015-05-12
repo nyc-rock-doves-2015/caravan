@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   before :each do
+    # let!
     @testuser = User.create(username: "Charles", password: "password")
+    # Yes, this belongs here
     session[:user_id] = @testuser.id
   end
 
@@ -16,6 +18,7 @@ RSpec.describe UsersController, type: :controller do
   context "#create" do
     it "redirects to the users profile" do
       post :create, user: FactoryGirl.attributes_for(:user)
+      # No.  Not `last`
       expect(response).to redirect_to user_path(User.last.id)
     end
 
@@ -37,6 +40,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "#current" do
+    # Clean up
     # pending "sets @user to current_user" do
     #   user = FactoryGirl.create :user
     #   stub_current_user(user)

@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+=begin comment
+I helped Grant debug this mess of let() statements yesterday.  You really need to clean this thing up.
+=end
+
 RSpec.describe Trip, type: :model do
   let!(:user) { FactoryGirl.build :user }
   let!(:address) { FactoryGirl.build :address }

@@ -21,6 +21,7 @@ RSpec.describe TripsController, type: :controller do
       get :edit, id: trip
       expect(assigns(:trip)).to eq trip
       expect(assigns(:url)).to eq trip_path
+      # Why?
       expect(assigns(:method)).to eq :put
       expect(assigns(:submit_btn)).to eq "Update Trip"
     end

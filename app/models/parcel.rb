@@ -9,7 +9,7 @@ class Parcel < ActiveRecord::Base
   validates :pickup_by, :deliver_by, :volume, presence: true
   validates_associated :origin_address, :destination_address
 
-
+  # OK, what is this thing doing?  I'm scared looking at it.
   def self.build(origin_address_params, destination_address_params, parcel_params)
     origin_address = Address.new(origin_address_params)
     unless origin_address.save
@@ -36,6 +36,13 @@ class Parcel < ActiveRecord::Base
     end
   end
 
+  # Fix indentation
+  # Doesn't it feel like you could ask the database to do this for you?
+  # Something like...
+  #
+  # Parcel.where(sender: User.last).joins(:trip).where("trips.driver_id = ?", User.last)
+  #
+  # You can clean that up a bit, but here's an idea....
     def self.match_reviewer(user_id, current_id)
     parcels = Parcel.where(sender_id: user_id)
     match = []

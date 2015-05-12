@@ -1,4 +1,5 @@
 require 'spec_helper'
+# Nice.
 feature "Auth" do
   context "signin" do
     scenario "A user can access the signin page" do

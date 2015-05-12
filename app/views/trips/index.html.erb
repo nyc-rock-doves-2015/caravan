@@ -1,3 +1,4 @@
 <% @trips.each do |trip| %>
   <%= render partial: 'match_trip', locals: {trip: trip} %>
+  <%#if your partial were called 'trip' you could do `render partial, object: trip`%>
 <% end %>

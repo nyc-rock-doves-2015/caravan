@@ -1,3 +1,4 @@
+<% #Uhm, did you mean to commit this? %>
 <%= link_to 'History', profile_history_path %>
 <h5>Your Trips</h5>
 <%= render '/trips/current_user' %>
