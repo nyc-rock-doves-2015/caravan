@@ -17,8 +17,13 @@ class UsersController < ApplicationController
   end
 
   def current
+    # look into eager loading
     @user = current_user
     @parcels = @user.parcels.where(delivered: false)
+    @history = false
+    @notifications = @user.mailbox.notifications
+    @conversations = @user.mailbox.inbox
+    @num_messages = @conversations.count
     render 'current', layout: false
   end
 
