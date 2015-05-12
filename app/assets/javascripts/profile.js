@@ -1,5 +1,5 @@
 $(document).ready(function() {
- $('.details').on('click', function(event) {
+ $('.parcel_details').on('click', function(event) {
     event.preventDefault();
     event.stopPropagation();
     var $details = $(event.target.parentElement);
