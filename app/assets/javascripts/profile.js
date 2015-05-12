@@ -14,7 +14,7 @@ $(document).ready(function() {
       })
     });
 
-   $('#parcels_tab').on('click', function(event) {
+   $('.parcels_tab').on('click', function(event) {
       $('#sectionA').children().show();
       $('.parcel_show').hide();
     });

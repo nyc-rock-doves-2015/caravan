@@ -216,6 +216,7 @@
               <a data-toggle="tab" href="#sectionB" aria-expanded="false"><i class="glyphicon glyphicon-flag"></i> Trips</a>
 						</li>
 						<li>
+
 							<a data-toggle="tab" href="#sectionA" id="parcels_tab"><i class="glyphicon glyphicon-flag"></i> Parcels</a>
 						</li>
 					</ul>
@@ -226,9 +227,9 @@
 		<div class="col-md-9">
 	    <div class="profile-content">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#sectionA" id="parcels_tab">Your Parcels</a></li>
-            <li><a data-toggle="tab" href="#sectionB">Your Trips</a></li>
-            <li><a data-toggle="tab" href="#sectionC">Inbox (<%= @num_messages %>)</a></li>
+            <li class="active"><a data-toggle="tab" href="#sectionA" class="parcels_tab">Your Parcels</a></li>
+            <li><a data-toggle="tab" href="#sectionB" class="trips_tab">Your Trips</a></li>
+            <li><a data-toggle="tab" href="#sectionC" class="inbox_tab">Inbox (<%= @num_messages %>)</a></li>
 
 
         </ul>
