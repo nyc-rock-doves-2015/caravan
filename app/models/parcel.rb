@@ -9,6 +9,10 @@ class Parcel < ActiveRecord::Base
   validates :pickup_by, :deliver_by, :volume, presence: true
   validates_associated :origin_address, :destination_address
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 
   def self.build(origin_address_params, destination_address_params, parcel_params)
     origin_address = Address.new(origin_address_params)
@@ -22,11 +26,19 @@ class Parcel < ActiveRecord::Base
       return destination_address
     end
 
+    p "*********************"
+    p parcel_params
+     p "*********************"
     parcel = Parcel.new(parcel_params)
     parcel.origin_address = origin_address
     parcel.destination_address = destination_address
-
+     p "*********************"
+    p parcel
+     p "*********************"
     if parcel.save
+       p "*********************"
+      p parcel
+       p "*********************"
       return parcel
     else
       origin_address.destroy
