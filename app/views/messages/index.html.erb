@@ -9,6 +9,7 @@
     <div class="col-md-3"><h4>Sent</h4></div>
   </div>
   <div class="row"><div class="col-md-12"><hr></div></div>
+  <%= render 'notifications' %>
 <% @conversations.each do |conversation| %>
   <% message = conversation.messages.first %>
   <div class="row">
