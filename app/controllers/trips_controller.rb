@@ -86,7 +86,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     if @parcel.update(trip: @trip)
       parcel_note = parcel_notification(@parcel)
-      trip_note = trip_notification(@trip)
+      trip_note = trip_notification(@parcel)
       @parcel.sender.notify("Your parcel is booked: Click for Details", parcel_note
       @trip.driver.notify("Your trip has a confirmed parcel booking: Click for Details", trip_note)
       @trip.available_volume -= @parcel.volume
@@ -98,6 +98,14 @@ class TripsController < ApplicationController
   end
 
   private
+
+  def parcel_notification(parcel)
+    "Your parcel ID\##{parcel.id} will be picked up by #{parcel.pickup_by} and delivered by #{parcel.deliver_by} by driver #{parcel.trip.driver.username}."
+  end
+
+  def trip_notification(parcel)
+    "You have accepted to ship parcel ID\##{parcel.id} from #{parcel.sender.username} by #{parcel.pickup_by} and deliver by #{parcel.deliver_by}."
+  end
 
   def origin_address_params
     params.require(:origin_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code,:latitude, :longitude).merge(user_id: current_user.id)
