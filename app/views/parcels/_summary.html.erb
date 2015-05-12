@@ -1,7 +1,7 @@
 <%= render partial: 'application/flash_messages' %>
 
 <div class="row">
-  <div class="col-md-2"><%= button_to 'details', parcel_path(parcel), method: :get, class: "btn btn-primary nextBtn btn-xs details" %></div>
+  <div class="col-md-2"><%= button_to 'details', parcel_path(parcel), method: :get, class: "btn btn-primary nextBtn btn-xs parcel_details" %></div>
 
   <div class="col-md-4"><%= parcel.description %></div>
   <div class="col-md-3"><%= parcel.destination_address.city %></div>
