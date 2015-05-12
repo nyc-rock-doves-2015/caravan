@@ -15,6 +15,7 @@ class ParcelsController < ApplicationController
 
   def show
     @parcel = Parcel.find(params[:id])
+    redirect_to profile_path if @parcel.sender != current_user
   end
 
   def create
