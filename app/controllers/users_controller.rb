@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def current
     @user = current_user
     @history = false
-    render 'show'
+    render 'show', layout: 'profile'
   end
 
   def history

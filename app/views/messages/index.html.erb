@@ -1,12 +1,12 @@
 
 <div class="container-fluid inbox">
   <div class="row">
-    <div class="col-md-12"><h2>Inbox (<%= @num_messages %>)</h2></div>
+    <div class="col-md-12"><h5>Inbox (<%= @num_messages %>)</h5></div>
   </div>
   <div class="row">
-    <div class="col-md-3"><h4>Sender</h4></div>
-    <div class="col-md-6"><h4>Subject</h4></div>
-    <div class="col-md-3"><h4>Sent</h4></div>
+    <div class="col-md-3"><p>Sender</p></div>
+    <div class="col-md-6"><p>Subject</p></div>
+    <div class="col-md-3"><p>Received</p></div>
   </div>
   <div class="row"><div class="col-md-12"><hr></div></div>
   <%= render 'notifications' %>

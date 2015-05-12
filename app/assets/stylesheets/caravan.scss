@@ -67,12 +67,11 @@ form input.submit {
 }
 
 .profile-sidebar{
-	background-color: grey;
-	background:grey;
+	background-color: rgb(240,240,240);
 }
 
 .profile-content{
-	background-color: grey;
+	background-color: rgb(240,240,240);
 }
 .profile-img {
 	width: 96px;
@@ -86,4 +85,25 @@ form input.submit {
 
 input{
 	color: black;
+}
+
+body{
+	background-color: white;
+	color: black;
+}
+
+nav.navbar .top-nav-collapse{
+	background-color: rgba(66,66,66, 0.8)
+}
+
+footer{
+	background-color:inherit;
+}
+
+.main {
+	margin-top: 80px;
+}
+
+.btn {
+	// border: 1px solid blue;
 }

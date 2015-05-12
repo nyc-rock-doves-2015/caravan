@@ -18,6 +18,8 @@ $navbar-default-color: $light-orange;
 @import 'bootstrap-datetimepicker';
 @import "inbox";
 @import "flat-ui";
-@import "caravan";
 @import "user_profile";
-@import "grayscale"
+@import "grayscale";
+
+// load last
+@import "caravan";
