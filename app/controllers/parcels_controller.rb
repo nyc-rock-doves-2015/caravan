@@ -58,7 +58,7 @@ class ParcelsController < ApplicationController
   def destroy
     parcel = Parcel.find(params[:id])
     parcel.destroy
-    redirect_to user_path(current_user.id)
+    redirect_to profile_path
   end
   def match_reviewer
     @parcels = Parcel.match_reviewer(params[:id], current_user.id)
