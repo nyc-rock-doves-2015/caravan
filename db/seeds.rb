@@ -205,17 +205,17 @@ trip19 = Trip.create(origin_address: Address.find(50), destination_address: Addr
 #attach reviews to those parcels and trips
 
 trip1.parcels << parcel3
-trip1.reviews.create(reviewer_id: parcel3.sender_id, reviewee_id: trip1.driver_id, rating: 5, content: "Thanks for the shipment. Highly recommended.")
-parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3.sender_id, rating: 5, content: "Hassle free! Thanks for shipping with me")
+trip1.reviews.create(reviewer_id: parcel3.sender_id, reviewee_id: trip1.driver_id, rating: 5, content: "Thanks for the shipment. Highly recommended.", reviewed :true)
+parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3.sender_id, rating: 5, content: "Hassle free! Thanks for shipping with me", reviewed :true)
 trip2.parcels << parcel1
-trip2.reviews.create(reviewer_id: parcel1.sender_id, reviewee_id: trip2.driver_id, rating: 4, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.")
-parcel1.reviews.create(reviewer_id: parcel1.trip.driver_id, reviewee_id: parcel1.sender_id, rating: 5, content: "Great communication! Glad to help you move your books")
+trip2.reviews.create(reviewer_id: parcel1.sender_id, reviewee_id: trip2.driver_id, rating: 4, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.", reviewed :true)
+parcel1.reviews.create(reviewer_id: parcel1.trip.driver_id, reviewee_id: parcel1.sender_id, rating: 5, content: "Great communication! Glad to help you move your books", reviewed :true)
 trip3.parcels << parcel2
-trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.")
-parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!")
+trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip3.driver.username} to ship again.", reviewed :true)
+parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!", reviewed :true)
 trip10.parcels << parcel5
-trip10.reviews.create(reviewer_id: parcel5.sender_id, reviewee_id: trip10.driver_id, rating: 2, content: "Not recommended. My parcel arrived cracked open and damp!")
-parcel5.reviews.create(reviewer_id: parcel5.trip.driver_id, reviewee_id: parcel5.sender_id, rating: 2, content: "Not recommended. Did not show up with parcel at the agreed-upon meeting time. Address instructions very unclear.")
+trip10.reviews.create(reviewer_id: parcel5.sender_id, reviewee_id: trip10.driver_id, rating: 2, content: "Not recommended. My parcel arrived cracked open and damp!", reviewed :true)
+parcel5.reviews.create(reviewer_id: parcel5.trip.driver_id, reviewee_id: parcel5.sender_id, rating: 2, content: "Not recommended. Did not show up with parcel at the agreed-upon meeting time. Address instructions very unclear.", reviewed :true)
 
 #add parcels to historical trips
 trip16.parcels.create(origin_address: trip16.origin_address, destination_address: trip16.destination_address, sender_id: 2, pickup_by: trip16.leaving_at - 1.day, delivery_by: trip16.arriving_at + 1, weight: 10, volume: 2, delivery_notes: "Very fragile, be careful", description: "Antique Vase", delivered: true)
