@@ -85,6 +85,8 @@ class TripsController < ApplicationController
     @parcel = Parcel.find(params[:parcel_id])
     @trip = Trip.find(params[:id])
     if @parcel.update(trip: @trip)
+      @parcel.sender.notify("Confirmation","Your parcel is booked")
+      @trip.driver.notify("Confirmation", "Your trip has a parcel")
       @trip.available_volume -= @parcel.volume
       @trip.save
     else
