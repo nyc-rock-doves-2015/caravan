@@ -19,4 +19,9 @@ $(document).ready(function() {
       $('.parcel_show').hide();
     });
 
+   $('.trips_tab').on('click', function(event) {
+      $('.nav-tabs:eq(1)').removeClass('active')
+      $('.nav-tabs:eq(2)').addClass('active')
+    });
+
   });

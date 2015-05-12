@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     # look into eager loading
     @user = current_user
     @parcels = @user.parcels.where(delivered: false)
-    @history = false
+    @trips = @user.trips.where(completed: false)
     @notifications = @user.mailbox.notifications
     @conversations = @user.mailbox.inbox
     @num_messages = @conversations.count
