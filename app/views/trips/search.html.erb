@@ -23,9 +23,29 @@
         <%= button_to "Find Matching Trips", "", class: "btn btn-primary" %>
         </fieldset>
       </form>
+    </div>
     <div class="col-md-9">
+      <h4>Matching Trips</h4>
+      <% @trips.each do |trip| %>
 
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><h3><i class="fa fa-truck fa-lg"></i> <%= link_to "Trip ID ##{trip.id}", trip_path(trip) %></h3></h3>
+          </div>
+          <div class="panel-body trip-panel">
+            <p><%= link_to trip.driver.username, profile_path(trip.driver) %></p>
+            <p>origin: <%= link_to trip.origin_address.city_state %></p>
+            <p>leaving at: <%= trip.leaving_at.strftime('%b %d, %Y') %></p>
+            <p>destination: <%= trip.destination_address.city_state %></p>
+            <p>arriving at: <%= trip.arriving_at.strftime('%b %d, %Y') %></p>
+            <p>available volume: <%= trip.available_volume %></p>
+            <p>max weight per parcel: <%= trip.max_weight %></p>
+            <p>rate: <%= number_to_currency(trip.rate) %></p>
+            <p><a href="#" class="btn btn-primary" role="button">Book</a></p>
+          </div>
+        </div>
 
+      <% end %>
     </div>
   </div>
 </div>
