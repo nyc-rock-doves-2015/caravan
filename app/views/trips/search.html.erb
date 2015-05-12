@@ -1,26 +1,23 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
-      <form class="form-horizontal" action="<%= trips_search_path %>">
-        <fieldset>
-        <legend>Your Parcel</legend>
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="">Origin:</label>
-          <div class="col-md-8">
-            <% if @parcel_id %>
-              <%= text_field_tag 'origin_address[address_string]', nil, class: "form-control input-md", placeholder: @origin_address_string %>
-            <% else %>
-              <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Search Address", class: "form-control input-md" %>
-            <% end %>
+    <div class="col-md-3 sticky">
+      <form class="form-horizontal test" action="<%= trips_search_path %>">
 
-            <%= hidden_field_tag "origin_address[latitude]", @origin_latitude, class: "form-control input-md" %>
-            <%= hidden_field_tag "origin_address[longitude]", @origin_longitude, class: "form-control input-md" %>
+          <legend>Your Parcel</legend>
+          <div class="form-group">
+            <div class="col-md-8">
+              <% if @parcel_id %>
+                <%= text_field_tag 'origin_address[address_string]', nil, class: "form-control input-md", placeholder: @origin_address_string %>
+              <% else %>
+                <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+              <% end %>
+              <%= hidden_field_tag "origin_address[latitude]", @origin_latitude, class: "form-control input-md" %>
+              <%= hidden_field_tag "origin_address[longitude]", @origin_longitude, class: "form-control input-md" %>
+            </div>
           </div>
-        </div>
-        </fieldset>
+
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Destination:</label>
           <div class="col-md-8">
             <% if @parcel_id %>
               <%= text_field_tag 'destination_address[address_string]', nil, placeholder: @destination_address_string, class: "form-control input-md" %>
@@ -32,7 +29,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Pick-up by:</label>
           <div class="col-md-8">
             <% if @parcel_id %>
               <%= text_field_tag "parcel[pickup_by]", nil, class: "form-control input-md", placeholder: @pickup_by %>
@@ -42,7 +38,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Deliver by:</label>
           <div class="col-md-8">
             <% if @parcel_id %>
               <%= text_field_tag "parcel[deliver_by]", nil, class: "form-control input-md", placeholder: @deliver_by %>
@@ -52,7 +47,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Weight:</label>
           <div class="col-md-8">
             <% if @parcel_id %>
               <%= text_field_tag "parcel[weight]", nil, class: "form-control input-md", placeholder: @weight %>
@@ -62,7 +56,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Volume:</label>
           <div class="col-md-8">
             <% if  %>
               <%= text_field_tag "parcel[volume]", nil, class: "form-control input-md", placeholder: @volume %>
@@ -72,35 +65,46 @@
           </div>
         </div>
         <%= button_to "Find Matching Trips", "", class: "btn btn-primary" %>
-        </fieldset>
-      </form>
-    </div>
-    <div class="col-md-9">
+      </fieldset>
+    </form>
+  </div>
+  <div class="col-md-9 stick_right">
       <h4>Matching Trips</h4>
-      <% @trips.each do |trip| %>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><h3><i class="fa fa-truck fa-lg"></i> <%= link_to "Trip ID ##{trip.id}", trip_path(trip) %></h3></h3>
-          </div>
-          <div class="panel-body trip-panel">
-            <p><%= link_to trip.driver.username, profile_path(trip.driver) %></p>
-            <p>origin: <%= trip.origin_address.city_state %></p>
-            <p>leaving at: <%= trip.leaving_at.strftime('%b %d, %Y') %></p>
-            <p>destination: <%= trip.destination_address.city_state %></p>
-            <p>arriving at: <%= trip.arriving_at.strftime('%b %d, %Y') %></p>
-            <p>available volume: <%= trip.available_volume %></p>
-            <p>max weight per parcel: <%= trip.max_weight %></p>
-            <p>rate: <%= number_to_currency(trip.rate) %></p>
-            <% if @parcel_id %>
+        <% @trips.each do |trip| %>
+            <div class="col-sm-4 custom-marg">
+          <div class="dl">
+            <div class="brand">
+                <h2>
+                    <%= link_to "Trip ID ##{trip.id}", trip_path(trip) %>
+                    <%= link_to trip.driver.username, profile_path(trip.driver) %>
+                </h2>
+            </div>
+            <div class="discount alizarin">
+                <p>Rate: <%= number_to_currency(trip.rate) %><p>
+                  <p>Volume: <%= trip.available_volume %></p>
+                  <p>Max Weight: <%= trip.max_weight %></p>
+                <div class="type">
+                </div>
+            </div>
+            <div class="descr">
+                <p>From: <%= trip.origin_address.city_state %> <br> To: <%= trip.destination_address.city_state %></p>
+            </div>
+            <div class="ends">
+                <small>
+                    Leaving: <%= trip.leaving_at.strftime('%b %d, %Y') %>
+                    Arriving: <%= trip.arriving_at.strftime('%b %d, %Y') %>
+                </small>
+            </div>
+            <div class="coupon midnight-blue">
+              <% if @parcel_id %>
               <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary" %></p>
             <% else %>
               <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary" %></p>
             <% end %>
+            </div>
           </div>
         </div>
-
-      <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
 </div>
