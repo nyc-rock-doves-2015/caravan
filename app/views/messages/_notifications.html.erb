@@ -1,11 +1,11 @@
-<% @notifications.each do |notification| %>
-  <div class="row">
-    <div class="col-md-3">Caravan Notification</div>
-    <div class="col-md-6"><%= link_to notification.subject, "#", data: { id: notification.id } %></div>
-    <div class="col-md-3"><%= notification.created_at %></div>
-  </div>
-  <div class="row msgbody" id="msgbody<%= notification.id %>">
-    <div class="col-md-3">&nbsp;</div>
-    <div class="col-md-9"><%= notification.body %></div>
-  </div>
-<% end %>
+	<% @notifications.each do |notification| %>
+	  <div class="row">
+	    <div class="col-md-3">Caravan Notification</div>
+	    <div class="col-md-6"><%= link_to notification.subject, "#", data: { id: notification.id } %></div>
+	    <div class="col-md-3"><%= format_date(notification.created_at) %></div>
+	  </div>
+	  <div class="row msgbody" id="msgbody<%= notification.id %>">
+	    <div class="col-md-3">&nbsp;</div>
+	    <div class="col-md-9"><%= notification.body %></div>
+	  </div>
+	<% end %>
