@@ -6,6 +6,20 @@ class TripsController < ApplicationController
     @trips = Trip.all_matching_parcel(@parcel)
   end
 
+  def search
+    @origin = params[:origin] if params[:origin] && !params[:origin].empty?
+    @origin_latitude = params[:origin_latitude] if params[:origin_latitude] && !params[:origin_latitude].empty?
+    @origin_longitude = params[:origin_longitude] if params[:origin_longitude] && !params[:origin_longitude].empty?
+    @destination_latitude = params[:destination_latitude] if params[:destination_latitude] && !params[:destination_latitude].empty>
+    @destination_longitude = params[:destination_longitude] if params[:destination_longitude] && !params[:destination_longitude].empty?
+    @pickup_by = params[:pickup_by] if params[:pickup_by] && !params[:pickup_by].empty?
+    @deliver_by = params[:deliver_by] if params[:deliver_by] && !params[:deliver_by].empty?
+    @weight = params[:weight] if params[:weight] && !params[:weight].empty?
+    @volume = params[:volume] if params[:volume] && !params[:volume].empty?
+
+    @trips = Trip.search({ origin_latitude: @origin_latitude, origin_longitude: @origin_longitude, destination_latitude: @destination_latitude, destination_longitude: @destination_longitude, pickup_by: @pickup_by, deliver_by: @deliver_by, weight: @weight, volume: @volume })
+  end
+
   def new
     @url = trips_path
     @method = :post
