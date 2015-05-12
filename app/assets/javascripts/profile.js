@@ -10,7 +10,7 @@ $(document).ready(function() {
         console.log(response)
           $('#sectionA').html(response)
       }).fail(function (response) {
-        alert("Error")
+
       })
     });
   });
