@@ -9,12 +9,7 @@ class Parcel < ActiveRecord::Base
   validates :pickup_by, :deliver_by, :volume, presence: true
   validates_associated :origin_address, :destination_address
 
-  has_attached_file :avatar, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }
-
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
