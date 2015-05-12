@@ -7,7 +7,7 @@
  -->
 
 <div class="row">
-  <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), class: "btn btn-primary nextBtn btn-xs", method: 'get'%></div>
+  <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), class: "btn btn-primary nextBtn btn-xs", id: 'details', method: 'get'%></div>
   <div class="col-md-1"><%= button_to 'match', parcel_trips_path(parcel), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
 
   <div class="col-md-4"><%= parcel.description %></div>
