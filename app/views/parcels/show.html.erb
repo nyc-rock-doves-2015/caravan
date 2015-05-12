@@ -14,5 +14,5 @@
   <li>Volume: <%= @parcel.volume %></li>
   <li>Weight: <%= @parcel.weight %></li>
   <li>Delivery Notes: <%= @parcel.delivery_notes %></li>
+  <li><%= render partial: 'delivery_status', locals: {parcel: @parcel} %></li>
 </ul>
-<%= render partial: 'delivery_status', locals: {parcel: @parcel} %>
