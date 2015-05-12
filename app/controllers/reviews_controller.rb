@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     review = Review.new(review_params)
     reviewee = User.find(review.reviewee_id)
     if review.save
-      reputation = reviewee.get_reputation
+      new_rep = reviewee.get_reputation
       reviewee.update_attributes(reputation: reputation)
       redirect_to user_path(reviewee.id)
     else
