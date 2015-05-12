@@ -8,9 +8,11 @@ $(document).ready(function() {
       type: 'GET',
       }).done(function (response) {
         console.log(response)
-          $('#sectionA').html(response)
+          $('#sectionA').children().hide();
+          $('#sectionA').append(response);
       }).fail(function (response) {
 
       })
     });
+
   });
