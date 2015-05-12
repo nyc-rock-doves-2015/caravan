@@ -191,13 +191,13 @@ trip14 = Trip.create(origin_address: Address.find(49), destination_address: Addr
 trip15 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(11), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i")
 
 #historical trips
-trip16 = Trip.create(origin_address: Address.find(49), destination_address: Address.find(47), driver: User.find(1), leaving_at: 2015-05-04 10:52:22 -0400), arriving_at: 2015-05-06 10:52:22 -0400, available_volume: 5, max_weight: 10, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
+trip16 = Trip.create(origin_address: Address.find(49), destination_address: Address.find(47), driver: User.find(1), leaving_at: Faker::Date.backward(14), arriving_at: Faker::Date.backward(10), available_volume: 5, max_weight: 10, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
 
-trip17 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(1), leaving_at: 2015-05-07 10:52:22 -0400), arriving_at: 2015-05-10 10:52:22 -0400, available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
+trip17 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(1), leaving_at: Faker::Date.backward(13), arriving_at: Faker::Date.backward(11), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
 
-trip18 = Trip.create(origin_address: Address.find(49), destination_address: Address.find(47), driver: User.find(2), leaving_at: 2015-05-04 10:52:22 -0400), arriving_at: 2015-05-06 10:52:22 -0400, available_volume: 5, max_weight: 10, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
+trip18 = Trip.create(origin_address: Address.find(49), destination_address: Address.find(47), driver: User.find(2), leaving_at: Faker::Date.backward(14),arriving_at: Faker::Date.backward(10), available_volume: 5, max_weight: 10, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
 
-trip19 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(2), leaving_at: 2015-04-29 10:52:22 -0400), arriving_at: 2015-05-06 10:52:22 -0400, available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
+trip19 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(2), leaving_at: Faker::Date.backward(13), arriving_at: Faker::Date.backward(10), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
 
 
 
@@ -205,23 +205,31 @@ trip19 = Trip.create(origin_address: Address.find(50), destination_address: Addr
 #attach reviews to those parcels and trips
 
 trip1.parcels << parcel3
-trip1.reviews.create(reviewer_id: parcel3.sender_id, reviewee_id: trip1.driver_id, rating: 5, content: "Thanks for the shipment. Highly recommended.", reviewed :true)
-parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3.sender_id, rating: 5, content: "Hassle free! Thanks for shipping with me", reviewed :true)
+trip1.reviews.create(reviewer_id: parcel3.sender_id, reviewee_id: trip1.driver_id, rating: 5, content: "Thanks for the shipment. Highly recommended.")
+trip1.update_attributes(reviewed: true, completed: true)
+parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3.sender_id, rating: 5, content: "Hassle free! Thanks for shipping with me")
+parcel3.update_attributes(reviewed: true)
 trip2.parcels << parcel1
-trip2.reviews.create(reviewer_id: parcel1.sender_id, reviewee_id: trip2.driver_id, rating: 4, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.", reviewed :true)
-parcel1.reviews.create(reviewer_id: parcel1.trip.driver_id, reviewee_id: parcel1.sender_id, rating: 5, content: "Great communication! Glad to help you move your books", reviewed :true)
+trip2.reviews.create(reviewer_id: parcel1.sender_id, reviewee_id: trip2.driver_id, rating: 4, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.")
+trip2.update_attributes(reviewed: true, completed: true)
+parcel1.reviews.create(reviewer_id: parcel1.trip.driver_id, reviewee_id: parcel1.sender_id, rating: 5, content: "Great communication! Glad to help you move your books")
+parcel1.update_attributes(reviewed: true)
 trip3.parcels << parcel2
-trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip3.driver.username} to ship again.", reviewed :true)
-parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!", reviewed :true)
+trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip3.driver.username} to ship again.")
+trip3.update_attributes(reviewed: true, completed: true)
+parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!")
+parcel2.update_attributes(reviewed: true)
 trip10.parcels << parcel5
-trip10.reviews.create(reviewer_id: parcel5.sender_id, reviewee_id: trip10.driver_id, rating: 2, content: "Not recommended. My parcel arrived cracked open and damp!", reviewed :true)
-parcel5.reviews.create(reviewer_id: parcel5.trip.driver_id, reviewee_id: parcel5.sender_id, rating: 2, content: "Not recommended. Did not show up with parcel at the agreed-upon meeting time. Address instructions very unclear.", reviewed :true)
+trip10.reviews.create(reviewer_id: parcel5.sender_id, reviewee_id: trip10.driver_id, rating: 2, content: "Not recommended. My parcel arrived cracked open and damp!")
+trip10.update_attributes(reviewed: true, completed: true)
+parcel5.reviews.create(reviewer_id: parcel5.trip.driver_id, reviewee_id: parcel5.sender_id, rating: 2, content: "Not recommended. Did not show up with parcel at the agreed-upon meeting time. Address instructions very unclear.")
+parcel5.update_attributes(reviewed: true)
 
 #add parcels to historical trips
-trip16.parcels.create(origin_address: trip16.origin_address, destination_address: trip16.destination_address, sender_id: 2, pickup_by: trip16.leaving_at - 1.day, delivery_by: trip16.arriving_at + 1, weight: 10, volume: 2, delivery_notes: "Very fragile, be careful", description: "Antique Vase", delivered: true)
-trip17.parcels.create(origin_address: trip17.origin_address, destination_address: trip17.destination_address, sender_id: 2, pickup_by: trip17.leaving_at - 1.day, delivery_by: trip17.arriving_at + 1, weight: 5, volume: 2, delivery_notes: "Fragile!", description: "Mandolin", delivered: true)
-trip18.parcels.create(origin_address: trip18.origin_address, destination_address: trip18.destination_address, sender_id: 1,  pickup_by: trip18.leaving_at - 1.day, delivery_by: trip18.arriving_at + 1, weight: 50, volume: 4, delivery_notes: "Heavy", description: "2 Boxes of Books", delivered: true)
-trip19.parcels.create(origin_address: trip19.origin_address, destination_address: trip19.destination_address, sender_id: 1, pickup_by: trip19.leaving_at - 1.day, delivery_by: trip19.arriving_at + 1, weight: 100, volume: 40, delivery_notes: "Very heavy", description: "Couch", delivered: true)
+trip16.parcels.create(origin_address: trip16.origin_address, destination_address: trip16.destination_address, sender_id: 2, pickup_by: trip16.leaving_at - 1.day, deliver_by: trip16.arriving_at + 1, weight: 10, volume: 2, delivery_notes: "Very fragile, be careful", description: "Antique Vase", delivered: true)
+trip17.parcels.create(origin_address: trip17.origin_address, destination_address: trip17.destination_address, sender_id: 2, pickup_by: trip17.leaving_at - 1.day, deliver_by: trip17.arriving_at + 1, weight: 5, volume: 2, delivery_notes: "Fragile!", description: "Mandolin", delivered: true)
+trip18.parcels.create(origin_address: trip18.origin_address, destination_address: trip18.destination_address, sender_id: 1,  pickup_by: trip18.leaving_at - 1.day, deliver_by: trip18.arriving_at + 1, weight: 50, volume: 4, delivery_notes: "Heavy", description: "2 Boxes of Books", delivered: true)
+trip19.parcels.create(origin_address: trip19.origin_address, destination_address: trip19.destination_address, sender_id: 1, pickup_by: trip19.leaving_at - 1.day, deliver_by: trip19.arriving_at + 1, weight: 100, volume: 40, delivery_notes: "Very heavy", description: "Couch", delivered: true)
 
 
 # for testing trips matching parcel
