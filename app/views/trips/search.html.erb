@@ -8,42 +8,42 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Origin:</label>
           <div class="col-md-8">
-            <%= text_field_tag "origin", @origin, class: "form-control input-md" %>
-            latitude:<%= text_field_tag "origin_latitude", @origin_latitude, class: "form-control input-md" %>
-            longitude:<%= text_field_tag "origin_longitude", @origin_longitude, class: "form-control input-md" %>
+            <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <%= hidden_field_tag "origin_address[latitude]", @origin_latitude, class: "form-control input-md" %>
+            <%= hidden_field_tag "origin_address[longitude]", @origin_longitude, class: "form-control input-md" %>
           </div>
         </div>
         </fieldset>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Destination:</label>
           <div class="col-md-8">
-            <%= text_field_tag "destination", @destination, class: "form-control input-md" %>
-            latitude:<%= text_field_tag "destination_latitude", @destination_latitude, class: "form-control input-md" %>
-            longitude:<%= text_field_tag "destination_longitude", @destination_longitude, class: "form-control input-md" %>
+            <%= text_field_tag 'destination_address[address_string]', @destination_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <%= hidden_field_tag "destination_address[latitude]", @destination_latitude, class: "form-control input-md" %>
+            <%= hidden_field_tag "destination_address[longitude]", @destination_longitude, class: "form-control input-md" %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Pick-up by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "pickup_by", @pickup_by, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md" %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Deliver by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "deliver_by", @deliver_by, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md" %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Weight:</label>
           <div class="col-md-8">
-            <%= text_field_tag "weight", @weight, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[weight]", @weight, class: "form-control input-md" %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Volume:</label>
           <div class="col-md-8">
-            <%= text_field_tag "volume", @volume, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[volume]", @volume, class: "form-control input-md" %>
           </div>
         </div>
         <%= button_to "Find Matching Trips", "", class: "btn btn-primary" %>
@@ -52,6 +52,7 @@
     </div>
     <div class="col-md-9">
       <h4>Matching Trips</h4>
+      <% if !@trips.nil? %>
       <% @trips.each do |trip| %>
 
         <div class="panel panel-default">
@@ -71,6 +72,7 @@
           </div>
         </div>
 
+      <% end %>
       <% end %>
     </div>
   </div>
