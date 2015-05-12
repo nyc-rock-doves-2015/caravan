@@ -206,23 +206,31 @@ trip19 = Trip.create(origin_address: Address.find(50), destination_address: Addr
 
 trip1.parcels << parcel3
 trip1.reviews.create(reviewer_id: parcel3.sender_id, reviewee_id: trip1.driver_id, rating: 5, content: "Thanks for the shipment. Highly recommended.")
+trip1.driver.update_attributes(reputation: trip1.reviews.first.rating)
 trip1.update_attributes(reviewed: true, completed: true)
 parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3.sender_id, rating: 5, content: "Hassle free! Thanks for shipping with me")
+parcel3.sender.update_attributes(reputation: parcel3.reviews.first.rating)
 parcel3.update_attributes(reviewed: true)
 trip2.parcels << parcel1
 trip2.reviews.create(reviewer_id: parcel1.sender_id, reviewee_id: trip2.driver_id, rating: 4, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.")
+trip2.driver.update_attributes(reputation: trip2.reviews.first.rating)
 trip2.update_attributes(reviewed: true, completed: true)
 parcel1.reviews.create(reviewer_id: parcel1.trip.driver_id, reviewee_id: parcel1.sender_id, rating: 5, content: "Great communication! Glad to help you move your books")
+parcel1.sender.update_attributes(reputation: parcel1.reviews.first.rating)
 parcel1.update_attributes(reviewed: true)
 trip3.parcels << parcel2
 trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip3.driver.username} to ship again.")
+trip3.driver.update_attributes(reputation: trip3.reviews.first.rating)
 trip3.update_attributes(reviewed: true, completed: true)
 parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!")
+parcel2.sender.update_attributes(reputation: parcel2.reviews.first.rating)
 parcel2.update_attributes(reviewed: true)
 trip10.parcels << parcel5
 trip10.reviews.create(reviewer_id: parcel5.sender_id, reviewee_id: trip10.driver_id, rating: 2, content: "Not recommended. My parcel arrived cracked open and damp!")
+trip10.driver.update_attributes(reputation: trip10.reviews.first.rating)
 trip10.update_attributes(reviewed: true, completed: true)
 parcel5.reviews.create(reviewer_id: parcel5.trip.driver_id, reviewee_id: parcel5.sender_id, rating: 2, content: "Not recommended. Did not show up with parcel at the agreed-upon meeting time. Address instructions very unclear.")
+parcel5.sender.update_attributes(reputation: parcel5.reviews.first.rating)
 parcel5.update_attributes(reviewed: true)
 
 #add parcels to historical trips
