@@ -13,23 +13,23 @@ class Trip < ActiveRecord::Base
   SEARCH_RADIUS_MILES = 15
 
   def self.search(params)
-    trips_found = []
+    trips_found = nil
 
     if params[:origin_latitude] && params[:origin_longitude]
       trips_near_origin = trips_near(params[:origin_latitude], params[:origin_longitude], :origin_address_id)
       if trips_near_origin.count == 0
         return trips_near_origin
       else
-        trips_found += trips_near_origin
+        trips_found = trips_near_origin
       end
     end
 
     if params[:destination_latitude] && params[:destination_longitude]
       trips_near_destination = trips_near(params[:destination_latitude], params[:destination_longitude], :destination_address_id)
       if trips_near_destination.count == 0
-        return trips_near_destination_count
+        return trips_near_destination
       else
-        trips_found += trips_near_destination
+        trips_found = trips_found.merge(trips_near_destination)
       end
     end
 
@@ -96,10 +96,6 @@ class Trip < ActiveRecord::Base
       p address_ids
       p "*************************************************"
       trips = Trip.where(source => address_ids)
-      p "trips **************************************"
-      p trips
-      p "*************************************************"
-      trips
     else
       []
     end
