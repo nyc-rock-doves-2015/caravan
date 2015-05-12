@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :authenticate_user!
   helper_method :set_return_point
   helper_method :return_point
+  helper_method :format_date
 
   def index
     render layout: 'landing-page'
@@ -34,4 +35,13 @@ class ApplicationController < ActionController::Base
   def return_point
     session[:return_point] || root_path
   end
+
+  def format_date(input_date)
+    # 2015-05-11 20:39:31 UTC
+    
+    output_date = ""
+
+    output_date
+  end
+
 end
