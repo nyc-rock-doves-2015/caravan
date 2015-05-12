@@ -7,7 +7,7 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
-
+gem 'columnize', '~>0.9.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,6 +46,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'byebug'
   gem 'faker'
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'capybara', '~> 2.4'
