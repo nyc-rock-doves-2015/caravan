@@ -1,0 +1,12 @@
+<%# if flash[:notice] %>
+ <!--  <div class="alert alert-success text-center" role="alert"><%# flash[:notice] %></div>
+<%# elsif flash[:error] %>
+  <div class="alert alert-danger text-center" role="alert"><%# flash[:error] %></div> -->
+<%# end %>
+
+<% flash.each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in">
+    <button class="close" data-dismiss="alert">×</button>
+    <%= message %>
+  </div>
+<% end %>

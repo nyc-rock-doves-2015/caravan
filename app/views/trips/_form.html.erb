@@ -1,6 +1,5 @@
-<% if flash[:error] %>
-  <h5 style="color: red;"><%= flash[:error] %></h5>
-<% end %>
+<%= render partial: "application/flash_messages", flash: flash %> 
+
 <div class="container">
   <div class="stepwizard">
     <div class="stepwizard-row setup-panel">

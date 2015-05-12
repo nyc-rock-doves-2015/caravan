@@ -75,7 +75,7 @@ class TripsController < ApplicationController
     if trip && trip.id
       redirect_to profile_path
     else
-      flash[:error] = trip.errors.full_messages.join('<br>')
+      flash[:error] = trip.errors.full_messages.join(', ')
       # TODO: recycle params so user does not have to re-input
       render :new
     end
