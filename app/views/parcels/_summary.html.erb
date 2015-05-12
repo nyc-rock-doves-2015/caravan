@@ -17,7 +17,7 @@
   <div class="col-md-4"><%= parcel.description %></div>
   <div class="col-md-3"><%= parcel.destination_address.city %></div>
   <div class="col-md-3">
-    <%= parcel.deliver_by %> <br>
+    <%= parcel.deliver_by.strftime('%b %d, %Y') %> <br>
   </div>
 </div>
 
