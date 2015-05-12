@@ -8,6 +8,7 @@
 
 <div class="row">
   <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: :get, class: "btn btn-primary nextBtn btn-xs details" %></div>
+  <% if parcel.trip %>
   <div class="col-md-1"><%= button_to 'match', parcel_trips_path(parcel), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
 
   <div class="col-md-4"><%= parcel.description %></div>
@@ -16,11 +17,10 @@
     <%= format_date(parcel.deliver_by) %> 
   </div>
 </div>
-<div class="row">
-      <% if parcel.trip %>
-      <div class="col-md-2">Pending
-        <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-primary nextBtn btn-xs" %>
-      </div>
+  <div class="row">
+    <div class="col-md-2">Pending
+      <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-primary nextBtn btn-xs" %>
+    </div>
     <% end %>
 </div>
 <div class="row">
