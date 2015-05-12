@@ -10,6 +10,37 @@ class Trip < ActiveRecord::Base
 
   validates_associated :origin_address, :destination_address
 
+  SEARCH_RADIUS_MILES = 15
+
+  def self.search(params)
+    trips_found = []
+
+    if params[:origin_latitude] && params[:origin_longitude]
+      trips_near_origin = trips_near(params[:origin_latitude], params[:origin_longitude], :origin_address_id)
+      if trips_near_origin.count == 0
+        return trips_near_origin
+      else
+        trips_found += trips_near_origin
+      end
+    end
+
+    if params[:destination_latitude] && params[:destination_longitude]
+      trips_near_destination = trips_near(params[:destination_latitude], params[:destination_longitude], :destination_address_id)
+      if trips_near_destination.count == 0
+        return trips_near_destination_count
+      else
+        trips_found += trips_near_destination
+      end
+    end
+
+    trips_found = trips_found.where("leaving_at > ?", params[:pickup_by]) if params[:pickup_by]
+    trips_found = trips_found.where("delivery_by < ?", params[:deliver_by]) if params[:deliver_by]
+    trips_found = trips_found.where("max_weight > ?", params[:weight]) if params[:weight]
+    trips_found = trips_found.where("available_volume > ?", params[:volume]) if params[:volume]
+
+    trips_found
+  end
+
   def self.build(origin_address_params, destination_address_params, trip_params)
     origin_address = Address.new(origin_address_params)
     unless origin_address.save
@@ -53,5 +84,24 @@ class Trip < ActiveRecord::Base
       end
     end
     match
+  end
+
+  private
+
+  def self.trips_near(latitude, longitude, source)
+    if latitude && longitude
+      addresses_nearby = Address.near([latitude, longitude], SEARCH_RADIUS_MILES)
+      address_ids = addresses_nearby.map { |address| address.id }
+      p "address_ids **************************************"
+      p address_ids
+      p "*************************************************"
+      trips = Trip.where(source => address_ids)
+      p "trips **************************************"
+      p trips
+      p "*************************************************"
+      trips
+    else
+      []
+    end
   end
 end
