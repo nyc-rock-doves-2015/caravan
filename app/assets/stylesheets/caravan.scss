@@ -108,7 +108,7 @@ footer{
 #scroll-button{
 	color: white;
 	border: 1px solid white;
-	background-color: rbga(0,0,0,0.0) ;
+	background-color: rbga(0,0,0,0.0);
 }
 
 // .btn {
@@ -122,6 +122,10 @@ footer{
 
 ::selection{
 	color: rgb(39,180,211);
+}
+
+.gmap_search_bar input {
+	width: 500px;
 }
 
 

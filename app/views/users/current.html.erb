@@ -213,17 +213,10 @@
 							<% end %>
 						</li>
 						<li>
-							<!-- link to collection -->
-							<%=link_to trip_path(current_user) do %>
-								<i class="glyphicon glyphicon-flag"></i> Trips
-							<% end %>
+              <a data-toggle="tab" href="#sectionB" aria-expanded="false"><i class="glyphicon glyphicon-flag"></i> Trips</a>
 						</li>
 						<li>
-							<!-- link to collection -->
-							<%= link_to parcel_path(current_user) do %>
-							<i class="glyphicon glyphicon-flag"></i>
-							Parcels
-							<% end %>
+							<a data-toggle="tab" href="#sectionA" id="parcels_tab"><i class="glyphicon glyphicon-flag"></i> Parcels</a>
 						</li>
 					</ul>
 				</div>
