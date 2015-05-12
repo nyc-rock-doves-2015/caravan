@@ -45,7 +45,7 @@ p {
 }
 
 a {
-    color: #42dca3;
+    color: rgb(39,180,211);
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -54,7 +54,7 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #1d9b6c;
+    color: rgb(39,180,211);
 }
 
 .light {
@@ -305,17 +305,17 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid #42dca3;
-    color: #42dca3;
+    border: 1px solid rgb(39,180,211);
+    color: rgb(39,180,211);
     background-color: transparent;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #42dca3;
+    border: 1px solid rgb(39,180,211);
     outline: 0;
     color: #000;
-    background-color: #42dca3;
+    background-color: rgb(39,180,211);
 }
 
 ul.banner-social-buttons {
@@ -357,7 +357,7 @@ footer p {
 ::selection {
     text-shadow: none;
     background: #fcfcfc;
-    background: rgba(255,255,255,.2);
+    background: rgba(240,240,240,.2);
 }
 
 img::selection {

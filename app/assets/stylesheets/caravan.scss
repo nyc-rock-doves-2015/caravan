@@ -1,5 +1,6 @@
 $color-nav-main: blue;
 $color-font-homepage: white;
+$color-button-main: rgb(39,180,211);
 $image-background-main: url(road1.jpg);
 
 ul.details{
@@ -104,6 +105,25 @@ footer{
 	margin-top: 80px;
 }
 
-.btn {
-	// border: 1px solid blue;
+#scroll-button{
+	color: white;
+	border: 1px solid white;
+	background-color: rbga(0,0,0,0.0) ;
 }
+
+// .btn {
+// 	border: 1px solid rgb(39,180,211);
+// 	background-color: rgb(39,180,211);
+// }
+
+// .btn-default {
+// 	color: rgb(39,180,211);
+// }
+
+::selection{
+	color: rgb(39,180,211);
+}
+
+
+
+
