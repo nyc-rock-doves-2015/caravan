@@ -15,6 +15,12 @@ class ParcelsController < ApplicationController
 
   def show
     @parcel = Parcel.find(params[:id])
+    redirect_to profile_path if @parcel.sender != current_user
+    if request.xhr?
+      render 'show', layout: false
+    else
+      render 'show'
+    end
   end
 
   def create

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def current
     @user = current_user
-    @history = false
+    @parcels = @user.parcels.where(delivered: false)
     render 'current', layout: false
   end
 

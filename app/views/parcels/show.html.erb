@@ -1,1 +1,20 @@
-<%= render partial: "parcels/single", locals: {parcel: @parcel} %>
+<div class="parcel_show">
+  <h5>Parcel #<%= @parcel.id %>: <%= @parcel.description %></h5>
+  <%= image_tag @parcel.avatar.url(:medium) %>
+  <ul class="@parcel details">
+    <li>Pickup From: <%= @parcel.origin_address.street_address %></li>
+    <li> <%= @parcel.origin_address.city %></li>
+    <li>  <%= @parcel.origin_address.state %></li>
+    <li></li>
+    <li>Drop Off: <%= @parcel.destination_address.street_address %></li>
+    <li> <%= @parcel.destination_address.city %></li>
+    <li> <%= @parcel.destination_address.state %></li>
+
+    <li>Pickup By: <%= @parcel.pickup_by %></li>
+    <li>Deliver By: <%= @parcel.deliver_by %></li>
+    <li>Volume: <%= @parcel.volume %></li>
+    <li>Weight: <%= @parcel.weight %></li>
+    <li>Delivery Notes: <%= @parcel.delivery_notes %></li>
+    <li><%= render partial: 'delivery_status', locals: {parcel: @parcel} %></li>
+  </ul>
+</div>
