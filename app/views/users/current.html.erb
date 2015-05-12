@@ -242,14 +242,13 @@
         </ul>
         <div class="tab-content">
             <div id="sectionA" class="tab-pane fade in active">
-              <p>Your Parcels</p>
-                <% render partial: 'parcels/current_user', locals: {user: @user} %>
+              <%= render partial: 'parcels/current_user' %>
             </div>
-            <div id="sectionB" class="tab-pane fade">
-                <p>Trips</p>
+            <div id="sectionB" class="tab-pane fade active">
+              <%= render partial: 'trips/current_user' %>
             </div>
             <div id="sectionC" class="tab-pane fade">
-                <p>Inbox</p>
+
             </div>
         </div>
        </div>
@@ -257,3 +256,5 @@
 	</div>
 </div>
 <br>
+</body>
+</html>
