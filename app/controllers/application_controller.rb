@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :set_return_point
   helper_method :return_point
   helper_method :format_date
+  helper_method :bootstrap_class_for
 
   def index
     render layout: 'landing-page'
@@ -38,6 +39,21 @@ class ApplicationController < ActionController::Base
 
   def format_date(input_date)    
     output_date = "#{input_date.strftime('%b %d, %Y')}"
+  end
+
+  def bootstrap_class_for(flash_type)
+    case flash_type
+      when "success"
+        "alert-success"   # Green
+      when "error"
+        "alert-danger"    # Red
+      when "alert"
+        "alert-warning"   # Yellow
+      when "notice"
+        "alert-info"      # Blue
+      else
+        flash_type.to_s
+    end
   end
 
 end
