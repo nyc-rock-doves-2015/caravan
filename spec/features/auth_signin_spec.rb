@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 feature "Auth" do
   context "signin" do
     scenario "A user can access the signin page" do
@@ -10,8 +10,8 @@ feature "Auth" do
     scenario "A successful sign in redirects to the user profile" do
       User.create(username: "test_user",password: "password",password_confirmation: "password")
       visit signin_path
-      fill_in "user[username]", :with => "test_user"
-      fill_in "user[password]", :with => "password"
+      fill_in "username-field", :with => "test_user"
+      fill_in "password-field", :with => "password"
       click_on "login"
       expect(page).to have_content("Test_user")
     end
