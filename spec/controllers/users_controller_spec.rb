@@ -47,7 +47,7 @@ RSpec.describe UsersController, type: :controller do
 
     it "renders the show template" do
       get :current, current_user: @testuser
-      expect(response).to render_template :show
+      expect(response).to render_template :current
     end
   end
 end
