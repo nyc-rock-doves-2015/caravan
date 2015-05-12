@@ -18,4 +18,7 @@
 </div>
 <% @parcels.each do |parcel| %>
   <%= render partial: '/parcels/summary', locals: {parcel:parcel} %>
+    <div class="col-md-2">
+          <%= link_to "Review #{parcel.trip.driver.username} as Driver", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs" %>
+      </div>
 <% end %>

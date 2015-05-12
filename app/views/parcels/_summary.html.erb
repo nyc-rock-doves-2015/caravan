@@ -17,15 +17,9 @@
   </div>
 </div>
 <div class="row">
-      <% if parcel.trip_id == nil %>
-    <% elsif parcel.delivered == false %>
+      <% if parcel.trip_id != nil %>
       <div class="col-md-2">Pending
         <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-primary nextBtn btn-xs" %>
-      </div>
-    <% else %>
-      <div class="col-md-2">Delivered!</div>
-      <div class="col-md-2">
-          <%= link_to "Review #{parcel.trip.driver.username} as Driver", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs" %>
       </div>
     <% end %>
 </div>
