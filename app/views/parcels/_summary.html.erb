@@ -1,11 +1,5 @@
 <%= render partial: 'application/flash_messages' %>
 
-<!--   <div class="col-md-2">Details</div>
-  <div class="col-md-4">Description</div>
-  <div class="col-md-3">Destination </div>
-  <div class="col-md-3">Delivery</div>
- -->
-
 <div class="row">
   <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: :get, class: "btn btn-primary nextBtn btn-xs details" %></div>
   <% if parcel.trip %>
@@ -14,7 +8,7 @@
   <div class="col-md-4"><%= parcel.description %></div>
   <div class="col-md-3"><%= parcel.destination_address.city %></div>
   <div class="col-md-3">
-    <%= format_date(parcel.deliver_by) %> 
+    <%= format_date(parcel.deliver_by) %>
   </div>
 </div>
   <div class="row">
