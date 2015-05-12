@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Trip, type: :model do
-  let!(:user) { FactoryGirl.build :user }
-  let!(:address) { FactoryGirl.build :address }
-  let!(:address2) { FactoryGirl.build :address }
-  let!(:origin_address_params) {{user_id: 1, description: 'house', street_address: '444 Lane', city: 'Bueno', state: 'TX', zip_code:44444}}
-  let!(:destination_address_params) {{user_id: 2, description: 'house', street_address: '444 Lane', city: 'Bueno', state: 'NV', zip_code:44445}}
-  let! (:trip_params) {{driver_id: 1, leaving_at: '9/5/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: 2, content_restrictions: 'flammables', vehicle: 'U-Haul'}}
-  let!(:trip1) { Trip.create(origin_address: address, destination_address: address, driver_id: 1, leaving_at: '9/5/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: Faker::Commerce.price , content_restrictions: 'matching trip', vehicle: "U-Haul Lambos")}
-  let!(:parcel) {Parcel.create(origin_address: address, destination_address: address2, sender_id: 2, pickup_by: '8/5/2015', deliver_by: '15/5/2015', weight: 1, volume: 10, delivery_notes: Faker::Lorem.paragraph(2), description: 'parcel 1 for testing matching trips')}
+  let(:user) { FactoryGirl.build :user }
+  let(:address) { FactoryGirl.build :address }
+  let(:address2) { FactoryGirl.build :address }
+  let(:origin_address_params) {{user_id: 1, description: 'house', street_address: '444 Lane', city: 'Bueno', state: 'TX', zip_code:44444}}
+  let(:destination_address_params) {{user_id: 2, description: 'house', street_address: '444 Lane', city: 'Bueno', state: 'NV', zip_code:44445}}
+  let(:trip_params) {{driver_id: 1, leaving_at: '9/5/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: 2, content_restrictions: 'flammables', vehicle: 'U-Haul'}}
+  let(:trip1) { Trip.create(origin_address: address, destination_address: address, driver_id: 1, leaving_at: '9/5/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: Faker::Commerce.price , content_restrictions: 'matching trip', vehicle: "U-Haul Lambos")}
+  let(:parcel) {Parcel.create(origin_address: address, destination_address: address2, sender_id: 2, pickup_by: '8/5/2015', deliver_by: '15/5/2015', weight: 1, volume: 10, delivery_notes: Faker::Lorem.paragraph(2), description: 'parcel 1 for testing matching trips')}
 
   it "is valid with a driver, origin address, destination address, leaving_at, arriving_at, available_volume, max_weight, rate, content_restrictions, vehicle" do
     expect(trip1).to be_valid

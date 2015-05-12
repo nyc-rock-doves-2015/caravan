@@ -54,7 +54,11 @@ form input.submit {
 }
 
 .panel-heading {
-    padding: 5px 15px;
+  padding: 5px 15px;
+}
+
+.panel-body.trip-panel {
+  color: black;
 }
 
 .panel-footer {

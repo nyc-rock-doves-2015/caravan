@@ -6,6 +6,20 @@ class TripsController < ApplicationController
     @trips = Trip.all_matching_parcel(@parcel)
   end
 
+  def search
+    @origin = params[:origin] if params[:origin] && !params[:origin].empty?
+    @origin_latitude = params[:origin_latitude] if params[:origin_latitude] && !params[:origin_latitude].empty?
+    @origin_longitude = params[:origin_longitude] if params[:origin_longitude] && !params[:origin_longitude].empty?
+    @destination_latitude = params[:destination_latitude] if params[:destination_latitude] && !params[:destination_latitude].empty>
+    @destination_longitude = params[:destination_longitude] if params[:destination_longitude] && !params[:destination_longitude].empty?
+    @pickup_by = params[:pickup_by] if params[:pickup_by] && !params[:pickup_by].empty?
+    @deliver_by = params[:deliver_by] if params[:deliver_by] && !params[:deliver_by].empty?
+    @weight = params[:weight] if params[:weight] && !params[:weight].empty?
+    @volume = params[:volume] if params[:volume] && !params[:volume].empty?
+
+    @trips = Trip.search({ origin_latitude: @origin_latitude, origin_longitude: @origin_longitude, destination_latitude: @destination_latitude, destination_longitude: @destination_longitude, pickup_by: @pickup_by, deliver_by: @deliver_by, weight: @weight, volume: @volume })
+  end
+
   def new
     @url = trips_path
     @method = :post
@@ -71,6 +85,8 @@ class TripsController < ApplicationController
     @parcel = Parcel.find(params[:parcel_id])
     @trip = Trip.find(params[:id])
     if @parcel.update(trip: @trip)
+      notify_sender(@parcel)
+      notify_driver(@trip, @parcel)
       @trip.available_volume -= @parcel.volume
       @trip.save
     else
@@ -80,6 +96,14 @@ class TripsController < ApplicationController
   end
 
   private
+
+  def notify_sender(parcel)
+    parcel.sender.notify("Your parcel is booked: Click for Details", "Your parcel ID\##{parcel.id} will be picked up by #{parcel.pickup_by} and delivered by #{parcel.deliver_by} by driver #{parcel.trip.driver.username}.")
+  end
+
+  def notify_driver(trip, parcel)
+    @trip.driver.notify("Your trip has a confirmed parcel booking: Click for Details", "You have accepted to ship parcel ID\##{parcel.id} for #{parcel.sender.username} by #{parcel.pickup_by} and deliver by #{parcel.deliver_by}.")
+  end
 
   def origin_address_params
     params.require(:origin_address).permit(:description, :street_address, :secondary_address, :city, :state, :zip_code,:latitude, :longitude).merge(user_id: current_user.id)

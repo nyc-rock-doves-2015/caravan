@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
+    @notifications = current_user.mailbox.notifications
     @conversations = current_user.mailbox.inbox
     @num_messages = @conversations.count
   end
@@ -16,4 +17,6 @@ class MessagesController < ApplicationController
     current_user.send_message(receiver, params[:body], params[:subject])
     redirect_to profile_path, flash: { notice: "Message Sent" }
   end
+
+
 end
