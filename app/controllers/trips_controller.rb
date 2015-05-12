@@ -38,6 +38,11 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    if request.xhr?
+      render 'show', layout: false
+    else
+      render 'show'
+    end
   end
 
   def edit
