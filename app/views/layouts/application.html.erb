@@ -54,7 +54,7 @@
                       </li>
                     <% else %>
                       <li>
-                    <a href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In</a>
+                    <a href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In / Up</a>
                      </li>
                     <% end %>
                   </ul>
@@ -78,19 +78,13 @@
         </div>
       <div class="modal-body">
         <div id="myTabContent" class="tab-content">
-    <!--     <div class="tab-pane fade in" id="why">
-        <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
-        <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com</a> for any other inquiries.</p>
-        </div> -->
         <div class="tab-pane fade active in" id="signin">
-            <form class="form-horizontal">
             <fieldset>
-            <!-- Sign In Form -->
-            <!-- Text input-->
             <div class="control-group">
               <label class="control-label" for="userid">Alias:</label>
               <div class="controls">
-                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
+                <%= form_for :user, url: signin_path, :html => {:class => "form-horizontal"} do |f| %>
+                <%= f.text_field :username, :class => 'input-medium form-control', :placeholder => 'Username', :id =>"username"  %>
               </div>
             </div>
 
@@ -98,57 +92,38 @@
             <div class="control-group">
               <label class="control-label" for="passwordinput">Password:</label>
               <div class="controls">
-                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                <%= f.password_field :password, :class => 'input-medium form-control', :placeholder => '********' %>
               </div>
             </div>
-
-            <!-- Multiple Checkboxes (inline) -->
-<!--             <div class="control-group">
-              <label class="control-label" for="rememberme"></label>
-              <div class="controls">
-                <label class="checkbox inline" for="rememberme-0">
-                  <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
-                  Remember me
-                </label>
-              </div>
-            </div>
- -->
             <!-- Button -->
             <div class="control-group">
               <label class="control-label" for="signin"></label>
               <div class="controls">
-                <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                <%= f.submit 'Login', :class => 'btn btn-success', :id => 'signin' %>
               </div>
             </div>
             </fieldset>
-            </form>
+            <% end %>
         </div>
+
+
         <div class="tab-pane fade" id="signup">
-            <form class="form-horizontal">
             <fieldset>
-            <!-- Sign Up Form -->
-            <!-- Text input-->
-<!--             <div class="control-group">
-              <label class="control-label" for="Email">Email:</label>
-              <div class="controls">
-                <input id="Email" name="Email" class="form-control" type="text" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
-              </div>
-            </div> -->
-            
+
             <!-- Text input-->
             <div class="control-group">
               <label class="control-label" for="userid">Alias:</label>
               <div class="controls">
-                <input id="userid" name="userid" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                <%= form_for :user, url: users_path do |f| %>
+                <%= f.text_field :username, :class => 'input-medium form-control', :placeholder => 'Username', :id =>"username"  %>
               </div>
             </div>
-            
+
             <!-- Password input-->
             <div class="control-group">
               <label class="control-label" for="password">Password:</label>
               <div class="controls">
-                <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
-                <em>1-16 Characters</em>
+                <%= f.password_field :password, :class => 'input-medium form-control', :placeholder => '********' %>
               </div>
             </div>
 
@@ -156,11 +131,11 @@
             <div class="control-group">
               <label class="control-label" for="confirmsignup"></label>
               <div class="controls">
-                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                <%= f.submit 'Sign Up', :class => 'btn btn-success', :id => 'signin' %>
               </div>
             </div>
             </fieldset>
-            </form>
+            <% end %>
       </div>
     </div>
       </div>
