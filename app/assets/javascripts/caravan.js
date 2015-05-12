@@ -20,7 +20,7 @@
 // });
 
 $(document).ready(function() {
-  $(window).keydown(function(event){
+  $('#creation-form').on('keydown', 'input', function(event) {
     if(event.keyCode == 13) {
       event.preventDefault();
     }
