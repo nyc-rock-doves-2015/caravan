@@ -8,6 +8,10 @@ Rails.application.configure do
     :secret_access_key => ENV['AWS_SECRET_KEY']
   }
 }
+
+p ENV['AWS_USER_KEY']
+p ENV['AWS_SECRET_KEY']
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
