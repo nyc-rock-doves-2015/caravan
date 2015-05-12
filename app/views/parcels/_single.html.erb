@@ -9,8 +9,8 @@
 	<li> <%= parcel.destination_address.city %></li>
 	<li> <%= parcel.destination_address.state %></li>
 
-	<li>Pickup By: <%= parcel.pickup_by %></li>
-	<li>Deliver By: <%= parcel.deliver_by %></li>
+	<li>Pickup By: <%= format_date(parcel.pickup_by) %></li>
+	<li>Deliver By: <%= format_date(parcel.deliver_by) %></li>
 	<li>Volume: <%= parcel.volume %></li>
 	<li>Weight: <%= parcel.weight %></li>
 	<li>Delivery Notes: <%= parcel.delivery_notes %></li>
