@@ -42,7 +42,7 @@
      </div>
      <div class="form-group">
        <div class='input-group date'>
-          <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "", placeholder: "Pickup By", :id => 'datetimepicker1' %>
+          <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "", placeholder: "Pickup By", :id => "datetimepicker1" %>
        </div>
     </div>
     <div class="form-group">
@@ -70,11 +70,11 @@
 </div>
 <script type="text/javascript">
   $(function () {
-    $('#datetimepicker1').datetimepicker();
-  });
-</script>
-<script type="text/javascript">
-  $(function () {
-    $('#datetimepicker2').datetimepicker();
+    $('#datetimepicker1').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm:ss'
+    });
+    $('#datetimepicker2').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm:ss'
+    });
   });
 </script>
