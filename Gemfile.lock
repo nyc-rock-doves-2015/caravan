@@ -239,7 +239,7 @@ DEPENDENCIES
   jquery-rails
   mailboxer!
   momentjs-rails (>= 2.9.0)
-  paperclip
+  paperclip (~> 4.2)
   pg
   rails (= 4.2.1)
   rspec-rails
