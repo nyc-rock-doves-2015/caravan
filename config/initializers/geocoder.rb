@@ -1,7 +1,6 @@
 Geocoder.configure(
 
   # geocoding service (see below for supported options):
-  # :lookup => :geocoder_ca,
   :lookup => :yandex,
 
   # geocoding service request timeout, in seconds (default 3):
