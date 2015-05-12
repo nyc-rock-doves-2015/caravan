@@ -17,7 +17,7 @@
 </div>
 <div class="row">
       <% if parcel.trip_id == nil %>
-      <div class="col-md-2"><%= button_to 'match', parcel_trips_path(parcel), method: :get,class: "btn btn-primary nextBtn btn-xs" %></div>
+      <div class="col-md-2"><%= button_to 'match', parcel_trips_path(parcel), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
     <% elsif parcel.delivered == false %>
       <div class="col-md-2">Pending Delivery
         <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-primary nextBtn btn-xs" %>
@@ -31,7 +31,7 @@
 </div>
 <%if !@reviewer && !parcel.delivered%>
   <div class="row">
-    <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-primary nextBtn btn-xs", method: 'get' %></div>
-    <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-primary nextBtn btn-xs", method: 'delete' %></div>
+    <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'get' %></div>
+    <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-danger nextBtn btn-xs", method: 'delete' %></div>
   </div>
 <% end %>
