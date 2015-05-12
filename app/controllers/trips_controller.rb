@@ -7,17 +7,26 @@ class TripsController < ApplicationController
   end
 
   def search
-    @origin = params[:origin] if params[:origin] && !params[:origin].empty?
-    @origin_latitude = params[:origin_latitude] if params[:origin_latitude] && !params[:origin_latitude].empty?
-    @origin_longitude = params[:origin_longitude] if params[:origin_longitude] && !params[:origin_longitude].empty?
-    @destination_latitude = params[:destination_latitude] if params[:destination_latitude] && !params[:destination_latitude].empty>
-    @destination_longitude = params[:destination_longitude] if params[:destination_longitude] && !params[:destination_longitude].empty?
-    @pickup_by = params[:pickup_by] if params[:pickup_by] && !params[:pickup_by].empty?
-    @deliver_by = params[:deliver_by] if params[:deliver_by] && !params[:deliver_by].empty?
-    @weight = params[:weight] if params[:weight] && !params[:weight].empty?
-    @volume = params[:volume] if params[:volume] && !params[:volume].empty?
+    if params[:origin_address]
+      @origin_address_string = params[:origin_address][:address_string]
+      @origin_latitude = params[:origin_address][:latitude]
+      @origin_longitude = params[:origin_address][:longitude]
+    end
 
-    @trips = Trip.search({ origin_latitude: @origin_latitude, origin_longitude: @origin_longitude, destination_latitude: @destination_latitude, destination_longitude: @destination_longitude, pickup_by: @pickup_by, deliver_by: @deliver_by, weight: @weight, volume: @volume })
+    if params[:destination_address]
+      @destination_address_string = params[:destination_address][:address_string]
+      @destination_latitude = params[:destination_address][:latitude]
+      @destination_longitude = params[:destination_address][:longitude]
+    end
+
+    if params[:parcel]
+      @pickup_by = params[:parcel][:pickup_by]
+      @deliver_by = params[:parcel][:deliver_by]
+      @weight = params[:parcel][:weight]
+      @volume = params[:parcel][:volume]
+    end
+
+    @trips = Trip.search(params)
   end
 
   def new
