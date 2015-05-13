@@ -10,7 +10,7 @@
               <% if @parcel_id %>
                 <%= text_field_tag 'origin_address[address_string]', nil, class: "form-control input-md", placeholder: @origin_address_string %>
               <% else %>
-                <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+                <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Origin Address", class: "form-control input-md" %>
               <% end %>
               <%= hidden_field_tag "origin_address[latitude]", @origin_latitude, class: "form-control input-md" %>
               <%= hidden_field_tag "origin_address[longitude]", @origin_longitude, class: "form-control input-md" %>
@@ -22,7 +22,7 @@
             <% if @parcel_id %>
               <%= text_field_tag 'destination_address[address_string]', nil, placeholder: @destination_address_string, class: "form-control input-md" %>
             <% else %>
-              <%= text_field_tag 'destination_address[address_string]', @destination_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+              <%= text_field_tag 'destination_address[address_string]', @destination_address_string, placeholder: "Destination Address", class: "form-control input-md" %>
             <% end %>
             <%= hidden_field_tag "destination_address[latitude]", @destination_latitude, class: "form-control input-md" %>
             <%= hidden_field_tag "destination_address[longitude]", @destination_longitude, class: "form-control input-md" %>
@@ -33,7 +33,7 @@
             <% if @parcel_id %>
               <%= text_field_tag "parcel[pickup_by]", nil, class: "form-control input-md", placeholder: @pickup_by %>
             <% else %>
-              <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md", :id => "datetimepicker1" %>
+              <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md", :id => "datetimepicker1", placeholder: "Pickup By Date" %>
             <% end %>
           </div>
         </div>
@@ -42,7 +42,7 @@
             <% if @parcel_id %>
               <%= text_field_tag "parcel[deliver_by]", nil, class: "form-control input-md", placeholder: @deliver_by %>
             <% else %>
-              <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md", :id => "datetimepicker2" %>
+              <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md", :id => "datetimepicker2", placeholder: "Deliver By Date" %>
             <% end %>
           </div>
         </div>
