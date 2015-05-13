@@ -37,6 +37,7 @@ gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'faker'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -49,7 +50,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'faker'
+  
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'capybara', '~> 2.4'
   gem 'database_cleaner'
