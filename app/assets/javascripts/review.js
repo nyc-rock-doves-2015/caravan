@@ -3,7 +3,6 @@ $(document).ready(function() {
     event.preventDefault();
     event.stopPropagation();
     var $details = $(event.target);
-    console.log($details[0].href)
     $.ajax({
       url: $details[0].href,
       type: 'GET',
