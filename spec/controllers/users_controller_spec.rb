@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  let(:testuser) {User.create(username: "Charles", password: "password")}
+  let(:testuser) { FactoryGirl.create :user }
+  let(:user_params) { FactoryGirl.attributes_for(:user) }
   before :each do
     session[:user_id] = testuser.id
   end
@@ -15,7 +16,7 @@ RSpec.describe UsersController, type: :controller do
 
   context "#create" do
     it "redirects to the users profile" do
-      post :create, user: FactoryGirl.attributes_for(:user)
+      post :create, user: testuser
       expect(response).to redirect_to user_path(user.id)
     end
 
@@ -26,10 +27,6 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "#show" do
-    # pending "sets @user to current_user" do
-    #   get :show, id: testuser.id
-    #   expect(@user).to eq @testuser
-    # end
     it "renders the show template" do
       get :show, id: testuser.id
       expect(response).to render_template :show
@@ -37,16 +34,8 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "#current" do
-    # pending "sets @user to current_user" do
-    #   user = FactoryGirl.create :user
-    #   stub_current_user(user)
-    #   stub_authorize_user!
-    #   get :current
-    #   expect(@user).to eq(user)
-    # end
-
-    it "renders the show template" do
-      get :current, current_user: testuser
+    it "renders the current view template" do
+      get :current, user:
       expect(response).to render_template :current
     end
   end
