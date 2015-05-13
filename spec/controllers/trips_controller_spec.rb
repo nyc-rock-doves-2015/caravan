@@ -10,7 +10,6 @@ RSpec.describe TripsController, type: :controller do
     it "assigns form variables" do
       get :new
       expect(assigns(:url)).to eq trips_path
-      expect(assigns(:method)).to eq :post
       expect(assigns(:submit_btn)).to eq "Create Trip"
     end
   end
@@ -21,7 +20,6 @@ RSpec.describe TripsController, type: :controller do
       get :edit, id: trip
       expect(assigns(:trip)).to eq trip
       expect(assigns(:url)).to eq trip_path
-      expect(assigns(:method)).to eq :put
       expect(assigns(:submit_btn)).to eq "Update Trip"
     end
   end

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
+  let(:testuser) {User.create(username: "Charles", password: "password")}
   before :each do
-    @testuser = User.create(username: "Charles", password: "password")
-    session[:user_id] = @testuser.id
+    session[:user_id] = testuser.id
   end
 
   describe "#new" do
@@ -16,7 +16,7 @@ RSpec.describe UsersController, type: :controller do
   context "#create" do
     it "redirects to the users profile" do
       post :create, user: FactoryGirl.attributes_for(:user)
-      expect(response).to redirect_to user_path(User.last.id)
+      expect(response).to redirect_to user_path(user.id)
     end
 
     it "does not redirect with bad attributes" do
@@ -27,11 +27,11 @@ RSpec.describe UsersController, type: :controller do
 
   describe "#show" do
     # pending "sets @user to current_user" do
-    #   get :show, id: @testuser.id
+    #   get :show, id: testuser.id
     #   expect(@user).to eq @testuser
     # end
     it "renders the show template" do
-      get :show, id: @testuser.id
+      get :show, id: testuser.id
       expect(response).to render_template :show
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe UsersController, type: :controller do
     # end
 
     it "renders the show template" do
-      get :current, current_user: @testuser
+      get :current, current_user: testuser
       expect(response).to render_template :current
     end
   end
