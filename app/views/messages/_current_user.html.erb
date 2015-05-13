@@ -8,7 +8,7 @@
     <div class="col-md-3"><p>Received</p></div>
   </div>
 
-  <% render 'messages/notifications', locals: {user: @user, notifications: @notifications} %>
+  <%= render partial: 'messages/notifications', locals: {user: @user, notifications: @notifications} %>
 
 	<% @conversations.each do |conversation| %>
   <% message = conversation.messages.first %>

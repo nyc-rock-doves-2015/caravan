@@ -13,5 +13,5 @@
 
 <% @parcels.each do |parcel| %>
   <% trip = parcel.trip %>
-  <%= render partial: '/parcels/summary', locals: {parcel: parcel, trip: trip} %>
+  <%= render partial: '/parcels/summary', locals: {parcel: parcel, trip: trip, history: false} %>
 <% end %>
