@@ -1,18 +1,58 @@
 <div class="trip_show">
-  <h4 > Trip: <%= @trip.id %> </h4>
-  <ul class ="trip details">
-  <li>Leaving From: <%= @trip.origin_address.city %></li>
-  <li>Leaving At: <%= format_date(@trip.leaving_at) %></li>
-  <li>Going To: <%= @trip.destination_address.city %></li>
-  <li>Arriving At: <%= format_date(@trip.arriving_at) %></li>
-  <li>Available Volume: <%= @trip.available_volume %> cubic ft.</li>
-  <li>Max Weight: <%= @trip.max_weight %> lbs.</li>
-  <li>Rate: $<%= @trip.rate %> / cubic ft.</li>
-  <li>Restrictions: <%= @trip.content_restrictions %></li>
-  <li>Vehicle: <%= @trip.vehicle %></li>
+  <h4>Trip: <%= @trip.id %> </h4>
+  <div class="row">
+    <div class="col-md-5">
+      <button type="button" class="btn btn-primary btn-sm">Origin</button>
+    </div>
+    <div class="col-md-5">
+      <button type="button" class="btn btn-primary btn-sm">Destination</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="well">
+        <%= @trip.origin_address.city %><br>
+        <%= format_date(@trip.leaving_at) %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="well">
+        <%= @trip.destination_address.city %><br>
+         <%= format_date(@trip.arriving_at) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <button type="button" class="btn btn-primary btn-sm">Stats</button>
+    </div>
+    <div class="col-md-5">
+      <button type="button" class="btn btn-primary btn-sm">Notes</button>
+    </div>
+  </div
+  <div class="row">
+    <div class="col-md-5">
+      <div class="well">
+        <%= @trip.available_volume %> cubic ft. remaining<br>
+        <%= @trip.max_weight %> lbs. max / parcel<br>
+        $<%= @trip.rate %> / cubic ft.
+      </div>
+    </div>
+   <div class="col-md-5">
+      <div class="well">
+        <%= @trip.content_restrictions %><br>
+        Vehicle: <%= @trip.vehicle %><br>
+      </div
+    </div
+ </div
   <% @trip.parcels.each do |parcel|%>
-    <li>Sender: <%= parcel.sender.username %></li>
+    <div class="row">
+      <div class="well">
+      Sender: <%= parcel.sender.username %>
+      </div>
+    </div
   <% end %>
-  </ul>
-  <%= button_to 'Edit', edit_trip_path(@trip.id), class: "btn btn-primary nextBtn btn-sm", method: :get %>
+  <div class="col-md-5">
+    <%= button_to 'Edit', edit_trip_path(@trip.id), class: "btn btn-primary nextBtn btn-sm", method: :get %>
+</div>
 </div>
