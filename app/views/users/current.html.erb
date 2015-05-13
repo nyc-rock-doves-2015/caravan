@@ -67,8 +67,8 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
         <br>
-        <div class="bs-example bs-example-tabs">
-            <ul id="myTab" class="nav nav-tabs">
+        <div class>
+            <ul id="myTab" class="nav nav-pills">
               <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
               <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
            <!--    <li class=""><a href="#why" data-toggle="tab">Why?</a></li> -->
@@ -190,7 +190,7 @@
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-          <%= link_to "New Trip", new_trip_path, class:"btn btn-success btn-sm"%>
+          <%= link_to "New Trip", new_trip_path, class: "btn btn-primary btn-sm"%>
           <%= link_to "New Parcel", new_parcel_path, class: "btn btn-info btn-sm" %>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
@@ -225,7 +225,7 @@
 		</div>
 		<div class="col-md-9">
 	    <div class="profile-content">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-pills">
             <li class="active"><a data-toggle="tab" href="#sectionA" class="parcels_tab">Your Parcels</a></li>
             <li><a data-toggle="tab" href="#sectionB" class="trips_tab">Your Trips</a></li>
             <li><a data-toggle="tab" href="#sectionC" class="inbox_tab">Inbox (<%= @num_messages %>)</a></li>
