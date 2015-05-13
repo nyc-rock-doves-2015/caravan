@@ -6,6 +6,7 @@ class TripsController < ApplicationController
     @trips = Trip.all_matching_parcel(@parcel)
   end
 
+
   def search
     if params[:parcel_id]
       parcel = Parcel.find(params[:parcel_id])
