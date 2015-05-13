@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     session[:return_point] || root_path
   end
 
-  def format_date(input_date)    
+  def format_date(input_date)
     output_date = "#{input_date.strftime('%b %d, %Y')}"
   end
 
