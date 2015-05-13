@@ -79,7 +79,6 @@ class TripsController < ApplicationController
     @origin_address = @trip.origin_address
     @destination_address = @trip.destination_address
     @url = trip_path
-    @method = :put
     @submit_btn = "Update Trip"
   end
 
