@@ -4,7 +4,7 @@
 <ol class ="deliveries">
 <% @parcels.each do |parcel| %>
   <li>
-    <%= render partial: "parcels/show", locals: {parcel: parcel} %>
+    <%= render partial: "summary", locals: {parcel: parcel} %>
     <% if parcel.delivered == false %>
       <%= form_tag parcel_path(parcel), method: :put do %>
           <%= hidden_field_tag 'origin_address[street_address]', parcel.origin_address ? parcel.origin_address.street_address : "" %>
