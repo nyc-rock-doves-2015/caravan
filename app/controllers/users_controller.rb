@@ -31,7 +31,11 @@ class UsersController < ApplicationController
     @user = current_user
     @trips = @user.trips.where(completed: true)
     @parcels = @user.parcels.where(delivered: true)
-    render 'history'
+    if request.xhr?
+      render 'history', layout: false
+    else
+      render 'history'
+    end
   end
 
   private

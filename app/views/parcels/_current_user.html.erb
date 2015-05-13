@@ -1,20 +1,20 @@
-
 <%= render partial: 'application/flash_messages' %>
+<div id="parcels">
+  <div class="tab-sub-header row">
+    <% if @parcels.count == 0 %>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">You have no current parcels</div>
+    <% else %>
+      <div class="col-md-3">Description</div>
+      <div class="col-md-2">Update</div>
+      <div class="col-md-3">Destination </div>
+      <div class="col-md-3">Delivery</div>
+    <% end %>
+  </div>
+  <br>
 
-<div class="tab-sub-header row">
-  <% if @parcels.count == 0 %>
-    <div class="col-md-1"></div>
-    <div class="col-md-5">You have no current parcels</div>
-  <% else %>
-    <div class="col-md-3">Description</div>
-    <div class="col-md-2">Update</div>
-    <div class="col-md-3">Destination </div>
-    <div class="col-md-3">Delivery</div>
+  <% @parcels.each do |parcel| %>
+    <% trip = parcel.trip %>
+    <%= render partial: '/parcels/summary', locals: {parcel: parcel, trip: trip, history: false} %>
   <% end %>
 </div>
-<br>
-
-<% @parcels.each do |parcel| %>
-  <% trip = parcel.trip %>
-  <%= render partial: '/parcels/summary', locals: {parcel: parcel, trip: trip, history: false} %>
-<% end %>

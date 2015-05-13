@@ -1,16 +1,18 @@
-<div class="tab-sub-header row">
-  <% if @trips.count == 0 %>
-    <div class="col-md-1"></div>
-    <div class="col-md-5">You have no current trips</div>
-  <% else %>
-    <div class="col-md-3">Destination</div>
-    <div class="col-md-2">Deliveries</div>
-    <div class="col-md-3">Update</div>
-    <div class="col-md-2">Departing</div>
-    <div class="col-md-2">Arriving</div>
+<div id="trips">
+  <div class="tab-sub-header row">
+    <% if @trips.count == 0 %>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">You have no current trips</div>
+    <% else %>
+      <div class="col-md-3">Destination</div>
+      <div class="col-md-2">Deliveries</div>
+      <div class="col-md-3">Update</div>
+      <div class="col-md-2">Departing</div>
+      <div class="col-md-2">Arriving</div>
+    <% end %>
+  </div>
+
+  <% @trips.each do |trip| %>
+    <%= render partial: '/trips/summary', locals: {trip: trip, history: false} %>
   <% end %>
 </div>
-
-<% @trips.each do |trip| %>
-  <%= render partial: '/trips/summary', locals: {trip: trip, history: false} %>
-<% end %>

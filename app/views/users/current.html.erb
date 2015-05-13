@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Caravan</title>
-
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places" %>
@@ -24,19 +23,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                 <!--    <li class="hidden active">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="">
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li class="">
-                        <a class="page-scroll" href="#get-started">Get Started</a>
-                    </li> -->
-                    <!-- <li class="">
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li> -->
                     <% if current_user %>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.username.capitalize %> <span class="caret"></span></a>
@@ -57,9 +43,7 @@
                     <% end %>
                   </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
 <!-- Modal -->
@@ -71,15 +55,10 @@
             <ul id="myTab" class="nav nav-pills">
               <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
               <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
-           <!--    <li class=""><a href="#why" data-toggle="tab">Why?</a></li> -->
             </ul>
         </div>
       <div class="modal-body">
-        <div id="myTabContent" class="tab-content">
-    <!--     <div class="tab-pane fade in" id="why">
-        <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
-        <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com</a> for any other inquiries.</p>
-        </div> -->
+        <div id="myTabContent" class="tab-content">s
         <div class="tab-pane fade active in" id="signin">
             <form class="form-horizontal">
             <fieldset>
@@ -101,16 +80,6 @@
             </div>
 
             <!-- Multiple Checkboxes (inline) -->
-<!--             <div class="control-group">
-              <label class="control-label" for="rememberme"></label>
-              <div class="controls">
-                <label class="checkbox inline" for="rememberme-0">
-                  <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
-                  Remember me
-                </label>
-              </div>
-            </div>
- -->
             <!-- Button -->
             <div class="control-group">
               <label class="control-label" for="signin"></label>
@@ -124,14 +93,7 @@
         <div class="tab-pane fade" id="signup">
             <form class="form-horizontal">
             <fieldset>
-            <!-- Sign Up Form -->
-            <!-- Text input-->
-<!--             <div class="control-group">
-              <label class="control-label" for="Email">Email:</label>
-              <div class="controls">
-                <input id="Email" name="Email" class="form-control" type="text" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
-              </div>
-            </div> -->
+
 
             <!-- Text input-->
             <div class="control-group">
@@ -208,12 +170,12 @@
 							Account Settings </a>
 						</li>
 						<li>
-							<%= link_to profile_history_path do %>
+							<%= link_to profile_history_path, id: "history_tab" do %>
 							<i class="glyphicon glyphicon-ok"></i> History
 							<% end %>
 						</li>
 						<li>
-              <a data-toggle="tab" href="#sectionB" aria-expanded="false"><i class="glyphicon glyphicon-flag"></i> Trips</a>
+              <a data-toggle="tab" href="#sectionB" aria-expanded="false" id="trips_tab"><i class="glyphicon glyphicon-flag"></i> Trips</a>
 						</li>
 						<li>
 							<a data-toggle="tab" href="#sectionA" id="parcels_tab"><i class="glyphicon glyphicon-flag"></i> Parcels</a>
@@ -229,8 +191,6 @@
             <li class="active"><a data-toggle="tab" href="#sectionA" class="parcels_tab">Your Parcels</a></li>
             <li><a data-toggle="tab" href="#sectionB" class="trips_tab">Your Trips</a></li>
             <li><a data-toggle="tab" href="#sectionC" class="inbox_tab">Inbox (<%= @num_messages %>)</a></li>
-
-
         </ul>
         <div id="tab-headers" class="tab-content">
             <div id="sectionA" class="tab-pane fade in active">

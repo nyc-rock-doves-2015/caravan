@@ -13,17 +13,21 @@
   </div>
 
     <% if !history %>
-
       <div class="col-md-1">
         <%= button_to "Edit", edit_trip_path(trip), class: "btn btn-info nextBtn btn-xs" %>
       </div>
-
       <div class="col-md-1">
         <%= button_to "Delete", trip_path(trip), class: "btn btn-info nextBtn btn-xs", method: :delete %>
       </div>
+    <% else %>
+     <div class="col-md-2">
+        <% trip.parcels.each do |parcel| %>
+         <%= link_to "Review #{parcel.sender.username}", new_parcel_review_path(parcel.id), class: "btn btn-primary nextBtn btn-xs review" %><br>
+        <% end %>
+      </div>
     <% end %>
     <div class="col-md-1"></div>
-  
+
   <div class="col-md-2"><%= format_date(trip.leaving_at) %>
   </div>
   <div class="col-md-2"><%= format_date(trip.arriving_at) %>
