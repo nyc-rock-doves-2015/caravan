@@ -52,17 +52,17 @@
             <% if @parcel_id %>
               <%= text_field_tag "parcel[weight]", nil, class: "form-control input-md", placeholder: @weight %>
             <% else %>
-              <%= range_field_tag "parcel[weight]", @weight, class: "form-control input-md", :placeholder => "Weight (Lbs)", min: 1, max: 300 %>
+              <%= range_field_tag "parcel[weight]", @weight ? @weight : "0", class: "form-control input-md", :placeholder => "Weight (Lbs)", min: 1, max: 300 %>
             <% end %>
           </div>
         </div>
         <div class="form-group">
           <div><label id="volume">Volume: <span id="grab1"></span></label></div>
           <div class="col-md-8">
-            <% if  %>
+            <% if @parcel_id %>
               <%= text_field_tag "parcel[volume]", nil, class: "form-control input-md", placeholder: @volume %>
             <% else %>
-            <%= range_field_tag "parcel[volume]", @volume, class: "form-control input-md", :placeholder => "Volume (Sq Ft)", min: 1, max: 300 %>
+              <%= range_field_tag "parcel[volume]", @volume ? @volume : "0", class: "form-control input-md", :placeholder => "Volume (Sq Ft)", min: 1, max: 300 %>
             <% end %>
           </div>
         </div>
@@ -113,14 +113,28 @@
 
 <script>
 $(function () {
-  $('#parcel_weight').change(function(){
+
+  function showWeight() {
     var weightValue = $('#parcel_weight').val();
     $('#grab').html(weightValue);
-  });
-  $('#parcel_volume').change(function(){
+  };
+
+  function showVolume() {
     var parcelValue = $('#parcel_volume').val();
     $('#grab1').html(parcelValue);
+  };
+
+  showWeight();
+  showVolume();
+
+  $('#parcel_weight').change(function(){
+    showWeight();
   });
+
+  $('#parcel_volume').change(function(){
+    showVolume();
+  });
+
   $('#Container1').mixItUp({
     animation: {
     duration: 440,
