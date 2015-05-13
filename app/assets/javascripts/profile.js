@@ -22,9 +22,9 @@ $(document).ready(function() {
     $('.trip_details').on('click', function(event) {
     event.preventDefault();
     event.stopPropagation();
-    var $details = $(event.target.parentElement);
+    var $details = $(event.target);
     $.ajax({
-      url: $details.context.action,
+      url: $details[0].href,
       type: 'GET',
       }).done(function (response) {
           $('#sectionB').children().hide();
