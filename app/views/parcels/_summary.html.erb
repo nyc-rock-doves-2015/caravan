@@ -9,15 +9,16 @@
     <%= format_date(parcel.deliver_by) %>
   </div>
 </div>
+<% if !history %>
   <div class="row">
    <% if !parcel.trip %>
   <div class="col-md-2"><%= button_to 'match', parcel_trips_path(parcel), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
   <% else %>
-
-    <div class="col-md-2">
+   <div class="col-md-2">
       <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-info nextBtn btn-xs" %>
     </div>
-    <% end %>
+  <% end %>
      <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'get' %></div>
-  <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'delete' %></div>
-</div>
+    <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'delete' %></div>
+    </div>
+  <% end %>
