@@ -34,6 +34,7 @@ gem "autoprefixer-rails"
 gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 # Use Unicorn as the app server
 # gem 'unicorn'
+  gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -49,7 +50,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'faker'
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'capybara', '~> 2.4'
   gem 'database_cleaner'
