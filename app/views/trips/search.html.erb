@@ -92,9 +92,7 @@
                 <p>From: <%= trip.origin_address.city_state %> <br> To: <%= trip.destination_address.city_state %></p>
             </div>
             <div class="ends">
-                <small>
-                    Leaving: <%= trip.leaving_at.strftime('%b %d, %Y') %>
-                    Arriving: <%= trip.arriving_at.strftime('%b %d, %Y') %>
+                <small>Leaving: <%= trip.leaving_at.strftime('%b %d, %Y') %><br>Arriving: <%= trip.arriving_at.strftime('%b %d, %Y') %>
                 </small>
             </div>
             <div class="coupon midnight-blue">
