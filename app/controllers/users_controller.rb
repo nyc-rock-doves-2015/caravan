@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   def current
     # look into eager loading
     @user = current_user
-    @parcels = @user.parcels.where(delivered: false)
-    @trips = @user.trips.where(completed: false)
+    @parcels = @user.parcels.where(delivered: false).order(updated_at: :desc)
+    @trips = @user.trips.where(completed: false).order(updated_at: :desc)
     @notifications = @user.mailbox.notifications
     @conversations = @user.mailbox.inbox
     @num_messages = @conversations.count
