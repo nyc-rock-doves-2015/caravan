@@ -11,6 +11,8 @@ class ParcelsController < ApplicationController
     @method = :post
     @submit_btn = "Create Parcel"
     @address = Address.new
+
+    @trip_id = params[:trip_id]
   end
 
   def show
@@ -72,11 +74,11 @@ class ParcelsController < ApplicationController
   private
 
   def origin_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string).merge(user_id: current_user.id)
   end
 
   def destination_address_params
-    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
+    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string).merge(user_id: current_user.id)
   end
 
   def parcel_params

@@ -13,7 +13,7 @@ class Trip < ActiveRecord::Base
   SEARCH_RADIUS_MILES = 15
 
   def self.search(params)
-    trips_found = nil
+    trips_found = []
 
     if params[:origin_address] && !params[:origin_address][:latitude].empty? && !params[:origin_address][:longitude].empty?
       trips_near_origin = trips_near(params[:origin_address][:latitude], params[:origin_address][:longitude], :origin_address_id)

@@ -25,13 +25,13 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Pick-up by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md", :id => "datetimepicker1" %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Deliver by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md", :id => "datetimepicker1" %>
           </div>
         </div>
         <div class="form-group">
@@ -52,7 +52,6 @@
     </div>
     <div class="col-md-9">
       <h4>Matching Trips</h4>
-      <% if !@trips.nil? %>
       <% @trips.each do |trip| %>
 
         <div class="panel panel-default">
@@ -68,11 +67,10 @@
             <p>available volume: <%= trip.available_volume %></p>
             <p>max weight per parcel: <%= trip.max_weight %></p>
             <p>rate: <%= number_to_currency(trip.rate) %></p>
-            <p><a href="#" class="btn btn-primary" role="button">Book</a></p>
+            <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary" %></p>
           </div>
         </div>
 
-      <% end %>
       <% end %>
     </div>
   </div>

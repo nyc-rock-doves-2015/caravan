@@ -1,4 +1,4 @@
-<%= render partial: "application/flash_messages", flash: flash %> 
+<%= render partial: "application/flash_messages", flash: flash %>
 
 <div class="container">
   <div class="stepwizard">
@@ -55,11 +55,11 @@
       <div class="form-group">
        <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "", placeholder: "Rate (per sq ft)" %>
      </div>
-     
+
      <div class="form-group">
       <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Vehicle" %>
     </div>
-  
+
 <% end %>
 </div>
 <div class="form-group col-md-8 pull-right">
@@ -71,13 +71,3 @@
 </div>
 </div>
 
-<script type="text/javascript">
-$(function () {
-  $('#datetimepicker1').datetimepicker();
-});
-</script>
-<script type="text/javascript">
-$(function () {
-  $('#datetimepicker2').datetimepicker();
-});
-</script>
