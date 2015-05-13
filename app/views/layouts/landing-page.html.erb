@@ -79,10 +79,10 @@
         <div class="tab-pane fade active in" id="signin">
             <fieldset>
             <div class="control-group">
-              <label class="control-label" for="userid">Alias:</label>
+              <label class="control-label" for="userid">Username:</label>
               <div class="controls">
                 <%= form_for :user, url: signin_path, :html => {:class => "form-horizontal"} do |f| %>
-                <%= f.text_field :username, :class => 'input-medium form-control', :placeholder => 'Username', :id =>"username"  %>
+                <%= f.text_field :username, :class => 'input-medium form-control', :id =>"username"  %>
               </div>
             </div>
 
@@ -90,7 +90,7 @@
             <div class="control-group">
               <label class="control-label password-field" for="passwordinput">Password:</label>
               <div class="controls">
-                <%= f.password_field :password, :class => 'input-medium form-control', :placeholder => '********' %>
+                <%= f.password_field :password, :class => 'input-medium form-control' %>
               </div>
             </div>
             <!-- Button -->
@@ -110,10 +110,10 @@
 
             <!-- Text input-->
             <div class="control-group">
-              <label class="control-label" for="userid">Alias:</label>
+              <label class="control-label" for="userid">Username:</label>
               <div class="controls">
                 <%= form_for :user, url: users_path do |f| %>
-                <%= f.text_field :username, :class => 'input-medium form-control', :placeholder => 'Username', :id =>"username"  %>
+                <%= f.text_field :username, :class => 'input-medium form-control', :id =>"username"  %>
               </div>
             </div>
 
@@ -121,7 +121,7 @@
             <div class="control-group">
               <label class="control-label" for="password">Password:</label>
               <div class="controls">
-                <%= f.password_field :password, :class => 'input-medium form-control', :placeholder => '********' %>
+                <%= f.password_field :password, :class => 'input-medium form-control' %>
               </div>
             </div>
 
@@ -137,12 +137,7 @@
       </div>
     </div>
       </div>
-      <div class="modal-footer">
-      <center>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </center>
-      </div>
-    </div>
+   </div>
   </div>
 </div>
 
