@@ -323,12 +323,38 @@ section {
 
 #weight  {
   margin: 15px;
+  font-size: 12px;
 }
 
 #volume  {
   margin: 15px;
+  font-size: 12px;
 }
 
 #Container1 .mix{
   display: none;
+}
+
+.test {
+  background: #F0F0F0;
+  margin: -15px;
+  margin-right: 5px;
+  padding: 10px;
+  box-shadow: -9px 4px 35px -17px;
+  border-radius: 8px;
+}
+
+.search {
+  padding: 5px;
+}
+
+#parcel_weight {
+  margin-bottom: -30px;
+}
+
+.input[type=range] {
+    border-radius: 8px;
+    height: 7px;
+    border: 1px solid #bdc3c7;
+    background-color: #fff;
 }
