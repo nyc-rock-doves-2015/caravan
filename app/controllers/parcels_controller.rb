@@ -49,7 +49,7 @@ class ParcelsController < ApplicationController
     @destination_address = @parcel.destination_address
     if @parcel.update(parcel_params) && @origin_address.update(origin_address_params) && @destination_address.update(destination_address_params)
       @parcel.trip.update_attributes(completed: true) if @parcel.delivered
-      redirect_to user_path(current_user.id)
+      redirect_to profile_path
     else
       render :edit
     end
@@ -58,7 +58,7 @@ class ParcelsController < ApplicationController
   def destroy
     parcel = Parcel.find(params[:id])
     parcel.destroy
-    redirect_to user_path(current_user.id)
+    redirect_to profile_path
   end
   def match_reviewer
     @parcels = Parcel.match_reviewer(params[:id], current_user.id)

@@ -8,6 +8,8 @@
 </div>
 <% @trips.each do |trip| %>
   <%= render partial: '/trips/summary', locals: {trip:trip} %>
+  <% trip.parcels.each do |parcel| %>
+   <%= link_to "Review #{parcel.sender.username}", new_parcel_review_path(parcel.id), class: "btn btn-primary nextBtn btn-sm" %>
 <% end %>
 <h5>Your Past Parcels</h5>
 <div class="row">
