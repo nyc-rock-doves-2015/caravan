@@ -362,3 +362,29 @@ section {
 .coupon {
   height: 60px;
 }
+
+.parcel-container {
+  background: rgba(232, 232, 232, 0.7);
+  height: 400px;
+  text-align: center;
+  padding: 20px;
+  margin-top: -20px;
+  border-radius: 15px;
+  width: 800px;
+}
+
+#parcel-header {
+  margin-top: -20px;
+  color: white;
+  margin-left: 100px;
+}
+
+body.parcel-trip-background {
+  background-image: url("highway-background.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.parcel-container h4 {
+  text-transform: none;
+}
