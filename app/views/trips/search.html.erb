@@ -66,14 +66,14 @@
             <% end %>
           </div>
         </div>
-        <%= button_to "Find Matching Trips", "", class: "btn btn-primary" %>
+        <%= button_to "Find Matching Trips", "", class: "btn btn-primary search_ajax" %>
       </fieldset>
     </form>
   </div>
-  <div class="col-md-9 stick_right">
+  <div class="col-md-9 stick_right" id="Container1">
       <h4>Matching Trips</h4>
         <% @trips.each do |trip| %>
-            <div class="col-sm-4 custom-marg">
+            <div class="col-sm-4 custom-marg mix">
           <div class="dl">
             <div class="brand">
                 <h2>
@@ -121,5 +121,15 @@ $(function () {
     var parcelValue = $('#parcel_volume').val();
     $('#grab1').html(parcelValue);
   });
+  $('#Container1').mixItUp({
+    animation: {
+    duration: 440,
+    effects: 'fade stagger(70ms) rotateY(-14deg) translateZ(280px)',
+    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+  }
+  });
+
+
 });
 </script>
+<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
