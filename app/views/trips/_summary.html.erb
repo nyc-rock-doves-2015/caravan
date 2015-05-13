@@ -22,7 +22,7 @@
     <% else %>
      <div class="col-md-2">
         <% trip.parcels.each do |parcel| %>
-         <%= link_to "Review #{parcel.sender.username}", new_parcel_review_path(parcel.id), class: "btn btn-primary nextBtn btn-xs" %>
+         <%= link_to "Review #{parcel.sender.username}", new_parcel_review_path(parcel.id), class: "btn btn-primary nextBtn btn-xs review" %>
         <% end %>
       </div>
     <% end %>
