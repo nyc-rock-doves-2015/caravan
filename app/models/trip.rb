@@ -75,19 +75,6 @@ class Trip < ActiveRecord::Base
     matching_trips = matching_trips.where('available_volume > ?', parcel.volume) if parcel.volume
   end
 
-  def self.match_reviewer(user_id, current_id)
-    trips = Trip.where(driver_id: user_id)
-    match = []
-    trips.each do |trip|
-      trip.parcels.each do |parcel|
-        if parcel.sender_id == current_id
-          match << trip
-        end
-      end
-    end
-    match
-  end
-
   private
 
   def self.date_from_euro_string str
