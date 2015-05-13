@@ -67,7 +67,7 @@
             <p>available volume: <%= trip.available_volume %></p>
             <p>max weight per parcel: <%= trip.max_weight %></p>
             <p>rate: <%= number_to_currency(trip.rate) %></p>
-            <p><a href="#" class="btn btn-primary" role="button">Book</a></p>
+            <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary" %></p>
           </div>
         </div>
 
