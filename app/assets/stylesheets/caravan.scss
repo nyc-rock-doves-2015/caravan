@@ -193,8 +193,9 @@ section {
 	margin: 5px 0 5px 0;
 }
 
-#tab-headers {
-	// text-align: center;
+.tab-sub-header {
+	font-size: 1.2em;
+	border-bottom: 1px solid rgba(50,50,50, 0.1)
 }
 
 .xs-gutter{
