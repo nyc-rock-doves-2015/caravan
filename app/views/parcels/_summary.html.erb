@@ -1,12 +1,13 @@
 
 <div class="row">
-
+ <% if !history %>
   <div class="col-md-3"><%= link_to parcel.description, parcel_path(parcel), method: :get, class: "parcel_details" %>
   </div>
   <div class="col-md-1 xs-gutter"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'get' %>
   </div>
   <div class="col-md-1 xs-gutter"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'delete' %>
   </div>
+<% end %>
 
 
 <div class="col-md-3">
