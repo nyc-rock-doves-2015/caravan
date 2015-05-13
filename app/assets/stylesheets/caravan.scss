@@ -94,7 +94,11 @@ body{
 }
 
 nav.navbar .top-nav-collapse{
-	background-color: rgba(66,66,66, 0.8)
+	background-color: transparent;
+}
+
+.nav {
+  background-color: transparent;
 }
 
 footer{
@@ -295,6 +299,7 @@ section {
 .stick_right {
   float: right;
   margin-top: -30px;
+  border-left: 1px solid black;
 }
 
 .test input {
@@ -317,5 +322,9 @@ section {
 }
 
 #weight  {
+  margin: 15px;
+}
+
+#volume  {
   margin: 15px;
 }
