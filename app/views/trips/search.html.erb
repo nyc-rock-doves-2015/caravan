@@ -25,13 +25,13 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Pick-up by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md", :id => "datetimepicker1" %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Deliver by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md" %>
+            <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md", :id => "datetimepicker1" %>
           </div>
         </div>
         <div class="form-group">
