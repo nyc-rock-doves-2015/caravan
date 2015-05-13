@@ -1,11 +1,13 @@
 <div id="history_show">
   <h4><%= @user.username.capitalize %>'s Caravan History</h4>
   <h5>Your Past Trips</h5>
+    <div class="row">
       <div class="col-md-3">Destination</div>
       <div class="col-md-2">Deliveries</div>
-      <div class="col-md-3">Update</div>
+      <div class="col-md-3">Review</div>
       <div class="col-md-2">Departing</div>
       <div class="col-md-2">Arriving</div>
+    </div>
   <% @trips.each do |trip| %>
     <%= render partial: '/trips/summary', locals: {trip:trip, history: true} %>
     <% trip.parcels.each do |parcel| %>
@@ -15,14 +17,17 @@
   <h5>Your Past Parcels</h5>
   <div class="row">
     <div class="col-md-3">Description</div>
-    <div class="col-md-2">Update</div>
+    <div class="col-md-2">Review</div>
     <div class="col-md-3">Destination </div>
     <div class="col-md-3">Delivery</div>
   </div>
   <% @parcels.each do |parcel| %>
-    <%= render partial: '/parcels/summary', locals: {parcel:parcel, history: true} %>
-      <div class="col-md-2">
-        <%= link_to "Review #{parcel.trip.driver.username} as Driver", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs" %>
+      <div class="row">
+      <%= render partial: '/parcels/summary', locals: {parcel:parcel, history: true} %>
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+          <%= link_to "Review Driver #{parcel.trip.driver.username}", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs" %>
+        </div>
       </div>
   <% end %>
 </div>
