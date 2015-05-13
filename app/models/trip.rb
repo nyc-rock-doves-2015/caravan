@@ -91,6 +91,8 @@ class Trip < ActiveRecord::Base
   private
 
   def self.date_from_euro_string str
+    p "xxxxxxxxxxx"
+    p str
    return DateTime.strptime(str, "%d/%m/%Y %H:%M:%S") if str
   end
 
