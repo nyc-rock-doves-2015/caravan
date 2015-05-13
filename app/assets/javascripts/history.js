@@ -1,5 +1,5 @@
 $(document).ready(function() {
- $('#history').on('click', function(event) {
+ $('#history_tab').on('click', function(event) {
     event.preventDefault();
     event.stopPropagation();
     var $details = $(event.target);
@@ -14,9 +14,9 @@ $(document).ready(function() {
         alert("Can Not Render Your Parcels Due to Error")
       })
 
-   $('.parcels_tab').on('click', function(event) {
-      $('#sectionA').children().show();
-      $('.parcel_show').hide();
+   $('#parcels_tab').on('click', function(event) {
+      $('.profile-content').children().show();
+      $('#history_show').hide();
     });
  });
 })
