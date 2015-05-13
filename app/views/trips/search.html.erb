@@ -52,7 +52,6 @@
     </div>
     <div class="col-md-9">
       <h4>Matching Trips</h4>
-      <% if !@trips.nil? %>
       <% @trips.each do |trip| %>
 
         <div class="panel panel-default">
@@ -72,7 +71,6 @@
           </div>
         </div>
 
-      <% end %>
       <% end %>
     </div>
   </div>
