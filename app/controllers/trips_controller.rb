@@ -1,16 +1,7 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
-  def index
-    @parcel = Parcel.find(params[:parcel_id])
-    @trips = Trip.all_matching_parcel(@parcel)
-  end
-
-
   def search
-    p "xxxxxxxxxxxxyyyyyyyyyy"
-    p params
-
     if params[:parcel_id]
       parcel = Parcel.find(params[:parcel_id])
       origin_address = parcel.origin_address

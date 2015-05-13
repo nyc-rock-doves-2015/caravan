@@ -35,14 +35,6 @@ RSpec.describe TripsController, type: :controller do
     end
   end
 
-  describe "GET #index" do
-    it "assigns the requested parcel to @parcel" do
-      parcel = FactoryGirl.create :parcel
-      get :index, parcel_id: parcel
-      expect(assigns(:parcel)).to eq parcel
-    end
-  end
-
   describe "POST #create" do
     it "creates a trip with valid params" do
       expect {post :create, origin_address:o_params, destination_address:d_params, trip:t_params}.to change{Trip.count}.by(1)
