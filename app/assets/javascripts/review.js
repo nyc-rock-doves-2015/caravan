@@ -1,5 +1,5 @@
 $(document).ready(function() {
- $('.review').on('.profile-content','click', function(event) {
+ $('.profile-content').on('click', '.review', function(event) {
     event.preventDefault();
     event.stopPropagation();
     var $details = $(event.target);
