@@ -8,7 +8,12 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Origin:</label>
           <div class="col-md-8">
-            <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag 'origin_address[address_string]', nil, class: "form-control input-md", placeholder: @origin_address_string %>
+            <% else %>
+              <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <% end %>
+
             <%= hidden_field_tag "origin_address[latitude]", @origin_latitude, class: "form-control input-md" %>
             <%= hidden_field_tag "origin_address[longitude]", @origin_longitude, class: "form-control input-md" %>
           </div>
@@ -17,7 +22,11 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Destination:</label>
           <div class="col-md-8">
-            <%= text_field_tag 'destination_address[address_string]', @destination_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag 'destination_address[address_string]', nil, placeholder: @destination_address_string, class: "form-control input-md" %>
+            <% else %>
+              <%= text_field_tag 'destination_address[address_string]', @destination_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <% end %>
             <%= hidden_field_tag "destination_address[latitude]", @destination_latitude, class: "form-control input-md" %>
             <%= hidden_field_tag "destination_address[longitude]", @destination_longitude, class: "form-control input-md" %>
           </div>
@@ -25,25 +34,41 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Pick-up by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md", :id => "datetimepicker1" %>
+            <% if @parcel_id %>
+              <%= text_field_tag "parcel[pickup_by]", nil, class: "form-control input-md", placeholder: @pickup_by %>
+            <% else %>
+              <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md", :id => "datetimepicker1" %>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Deliver by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md", :id => "datetimepicker1" %>
+            <% if @parcel_id %>
+              <%= text_field_tag "parcel[deliver_by]", nil, class: "form-control input-md", placeholder: @deliver_by %>
+            <% else %>
+              <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md", :id => "datetimepicker2" %>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Weight:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[weight]", @weight, class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag "parcel[weight]", nil, class: "form-control input-md", placeholder: @weight %>
+            <% else %>
+              <%= text_field_tag "parcel[weight]", @weight, class: "form-control input-md" %>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-4 control-label" for="">Volume:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[volume]", @volume, class: "form-control input-md" %>
+            <% if  %>
+              <%= text_field_tag "parcel[volume]", nil, class: "form-control input-md", placeholder: @volume %>
+            <% else %>
+              <%= text_field_tag "parcel[volume]", @volume, class: "form-control input-md" %>
+            <% end %>
           </div>
         </div>
         <%= button_to "Find Matching Trips", "", class: "btn btn-primary" %>
@@ -67,7 +92,11 @@
             <p>available volume: <%= trip.available_volume %></p>
             <p>max weight per parcel: <%= trip.max_weight %></p>
             <p>rate: <%= number_to_currency(trip.rate) %></p>
-            <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary" %></p>
+            <% if @parcel_id %>
+              <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary" %></p>
+            <% else %>
+              <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary" %></p>
+            <% end %>
           </div>
         </div>
 

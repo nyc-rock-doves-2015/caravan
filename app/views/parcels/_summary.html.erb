@@ -12,7 +12,7 @@
 <% if !history %>
   <div class="row">
    <% if !parcel.trip %>
-  <div class="col-md-2"><%= button_to 'match', parcel_trips_path(parcel), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
+  <div class="col-md-2"><%= link_to 'match', trips_search_path(parcel_id: parcel.id), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
   <% else %>
    <div class="col-md-2">
       <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-info nextBtn btn-xs" %>
