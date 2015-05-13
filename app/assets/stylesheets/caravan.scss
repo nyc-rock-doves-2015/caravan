@@ -189,6 +189,21 @@ section {
   font-size: 15px;
 }
 
+.row{
+	margin: 5px 0 5px 0;
+}
+
+.tab-sub-header {
+	p{
+	font-size: 1.2em;
+	border-bottom: 1px solid rgba(50,50,50, 0.1)
+	}
+}
+
+.xs-gutter{
+	padding: 0;
+}
+
 .dl .discount p {
   font-size: 20px;
   margin-bottom: -10px;
@@ -234,6 +249,10 @@ section {
 
 .dl .discount.peter-river:after {
     border-top: 20px solid #3498db;
+}
+
+.tab-pane{
+	margin-top: 20px;
 }
 
 .dl .discount.emerald:after {

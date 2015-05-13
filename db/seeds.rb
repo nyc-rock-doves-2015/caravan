@@ -207,7 +207,7 @@ trip19 = Trip.create(origin_address: Address.find(50), destination_address: Addr
 trip1.parcels << parcel3
 trip1.reviews.create(reviewer_id: parcel3.sender_id, reviewee_id: trip1.driver_id, rating: 5, content: "Thanks for the shipment. Highly recommended.")
 trip1.driver.update_attributes(reputation: trip1.reviews.first.rating)
-trip1.update_attributes(reviewed: true, completed: true)
+trip1.update_attributes(reviewed: true, completed: false)
 parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3.sender_id, rating: 5, content: "Hassle free! Thanks for shipping with me")
 parcel3.sender.update_attributes(reputation: parcel3.reviews.first.rating)
 parcel3.update_attributes(reviewed: true)
@@ -221,7 +221,7 @@ parcel1.update_attributes(reviewed: true)
 trip3.parcels << parcel2
 trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip3.driver.username} to ship again.")
 trip3.driver.update_attributes(reputation: trip3.reviews.first.rating)
-trip3.update_attributes(reviewed: true, completed: true)
+trip3.update_attributes(reviewed: true, completed: false)
 parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!")
 parcel2.sender.update_attributes(reputation: parcel2.reviews.first.rating)
 parcel2.update_attributes(reviewed: true)
