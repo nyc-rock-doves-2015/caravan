@@ -60,14 +60,6 @@ class ParcelsController < ApplicationController
     parcel.destroy
     redirect_to profile_path
   end
-  def match_reviewer
-    @parcels = Parcel.match_reviewer(params[:id], current_user.id)
-    if @parcels
-      @user =  current_user
-      @reviewer = true
-      render '_current_user'
-    end
-  end
 
   private
 
