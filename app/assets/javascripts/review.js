@@ -1,5 +1,5 @@
 $(document).ready(function() {
- $('#review').on('click', function(event) {
+ $('.review').on('.profile-content','click', function(event) {
     event.preventDefault();
     event.stopPropagation();
     var $details = $(event.target);
@@ -13,3 +13,5 @@ $(document).ready(function() {
       }).fail(function (response) {
         alert("Can Not Render Your Parcels Due to Error")
       })
+  })
+})
