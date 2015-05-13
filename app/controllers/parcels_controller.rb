@@ -8,14 +8,13 @@ class ParcelsController < ApplicationController
 
   def new
     @url = parcels_path
-    @method = :post
     @submit_btn = "Create Parcel"
     @address = Address.new
   end
 
   def show
     @parcel = Parcel.find(params[:id])
-    redirect_to profile_path if @parcel.sender != current_user
+    bounce_guest(@parcel)
     if request.xhr?
       render 'show', layout: false
     else
@@ -39,7 +38,6 @@ class ParcelsController < ApplicationController
     @origin_address = @parcel.origin_address
     @destination_address = @parcel.destination_address
     @url = parcel_path(@parcel)
-    @method = :put
     @submit_btn = "Update Parcel"
   end
 

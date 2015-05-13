@@ -1,6 +1,37 @@
 <h4>Create New Parcel</h4>
 
-<%# if flash[:error] %>
-  <!-- <h3 style="color: red;"><%= flash[:error] %></h3> -->
-<%# end %>
-<%= render "parcels/form" %>
+<%= render partial: "application/flash_messages", flash: flash %> 
+
+<div class="container">
+  <div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+      <div class="stepwizard-step">
+        <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+      </div>
+      <div class="stepwizard-step">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+      </div>
+    </div>
+  </div>
+
+  <%= form_tag @url, method: :post, multipart: true, id: "creation-form" do %>
+
+	<%= render "parcels/form" %>
+
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm:ss'
+    });
+    $('#datetimepicker2').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm:ss'
+    });
+  });
+</script>
