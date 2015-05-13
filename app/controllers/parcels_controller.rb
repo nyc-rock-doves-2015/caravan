@@ -11,6 +11,8 @@ class ParcelsController < ApplicationController
     @method = :post
     @submit_btn = "Create Parcel"
     @address = Address.new
+
+    @trip_id = params[:trip_id]
   end
 
   def show
