@@ -10,7 +10,7 @@
       <%= @parcel.origin_address.city %>, <%= @parcel.origin_address.state %>
     </div>
     <div class="col-md-5">
-      <%= @parcel.pickup_by %>
+      <%= format_date(@parcel.pickup_by) %>
     </div>
   </div>
     <div class="panel-heading">
@@ -21,7 +21,7 @@
        <%= @parcel.destination_address.street_address %>, <%= @parcel.destination_address.state %>
       </div>
       <div class="col-md-5">
-        <%= @parcel.deliver_by %>
+        <%= format_date(@parcel.deliver_by) %>
       </div>
     </div>
     <div class="panel-heading">
