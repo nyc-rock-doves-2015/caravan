@@ -8,6 +8,9 @@ class TripsController < ApplicationController
 
 
   def search
+    p "xxxxxxxxxxxxyyyyyyyyyy"
+    p params
+
     if params[:parcel_id]
       parcel = Parcel.find(params[:parcel_id])
       origin_address = parcel.origin_address
@@ -24,8 +27,8 @@ class TripsController < ApplicationController
       @destination_latitude = params[:destination_address][:latitude] = destination_address.latitude.to_s
       @destination_longitude = params[:destination_address][:longitude] = destination_address.longitude.to_s
 
-      @pickup_by = params[:parcel][:pickup_by] = parcel.pickup_by.to_s
-      @deliver_by = params[:parcel][:deliver_by] = parcel.deliver_by.to_s
+      @pickup_by = params[:parcel][:pickup_by] = parcel.pickup_by.to_formatted_s(:app)
+      @deliver_by = params[:parcel][:deliver_by] = parcel.deliver_by.to_formatted_s(:app)
       @weight = params[:parcel][:weight] = parcel.weight.to_s
       @volume = params[:parcel][:volume] = parcel.volume.to_s
     else
@@ -48,6 +51,9 @@ class TripsController < ApplicationController
         @volume = params[:parcel][:volume]
       end
     end
+
+    p "yyyyyyyyyyyyyyyyyyy"
+    p params
 
     @trips = Trip.search(params)
   end
