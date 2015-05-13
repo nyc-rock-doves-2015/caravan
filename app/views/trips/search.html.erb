@@ -4,7 +4,7 @@
     <div class="col-md-3 sticky">
       <form class="form-horizontal test" action="<%= trips_search_path %>">
 
-          <legend>Your Parcel</legend>
+          <legend>Parcel Details</legend>
           <div class="form-group">
             <div class="col-md-8">
               <% if @parcel_id %>
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label id="weight">Weight: <span id="grab"></span></label>
+          <div><label id="weight">Weight: <span id="grab"></span></label></div>
           <div class="col-md-8">
             <% if @parcel_id %>
               <%= text_field_tag "parcel[weight]", nil, class: "form-control input-md", placeholder: @weight %>
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label id="volume">Volume: <span id="grab1"></span></label>
+          <div><label id="volume">Volume: <span id="grab1"></span></label></div>
           <div class="col-md-8">
             <% if  %>
               <%= text_field_tag "parcel[volume]", nil, class: "form-control input-md", placeholder: @volume %>
@@ -66,12 +66,12 @@
             <% end %>
           </div>
         </div>
-        <%= button_to "Find Matching Trips", "", class: "btn btn-primary search_ajax" %>
+        <%= button_to "Find Matching Trips", "", class: "btn btn-primary search" %>
       </fieldset>
     </form>
   </div>
   <div class="col-md-9 stick_right" id="Container1">
-      <h4>Matching Trips</h4>
+      <h5>Matching Trips</h5>
         <% @trips.each do |trip| %>
             <div class="col-sm-4 custom-marg mix">
           <div class="dl">
