@@ -47,11 +47,12 @@
           </div>
         </div>
         <div class="form-group">
+          <label id="weight">Weight: <span id="grab"></span></label>
           <div class="col-md-8">
             <% if @parcel_id %>
               <%= text_field_tag "parcel[weight]", nil, class: "form-control input-md", placeholder: @weight %>
             <% else %>
-              <%= text_field_tag "parcel[weight]", @weight, class: "form-control input-md" %>
+              <%= range_field_tag "parcel[weight]", @weight, class: "form-control input-md", :placeholder => "Weight (Lbs)", min: 1, max: 300 %>
             <% end %>
           </div>
         </div>
@@ -60,7 +61,7 @@
             <% if  %>
               <%= text_field_tag "parcel[volume]", nil, class: "form-control input-md", placeholder: @volume %>
             <% else %>
-              <%= text_field_tag "parcel[volume]", @volume, class: "form-control input-md" %>
+            <%= range_field_tag "parcel[volume]", @volume, class: "form-control input-md", :placeholder => "Volume (Sq Ft)", min: 1, max: 300 %>
             <% end %>
           </div>
         </div>
@@ -108,3 +109,12 @@
   </div>
 </div>
 </div>
+
+<script>
+$(function () {
+  $('#parcel_weight').change(function(){
+    var weightValue = $('#parcel_weight').val();
+    $('#grab').html(weightValue);
+  })
+});
+</script>
