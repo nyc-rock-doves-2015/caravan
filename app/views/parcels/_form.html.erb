@@ -1,7 +1,7 @@
 <%# if flash[:error] %>
 <!-- <h5 style="color: red;"><%# flash[:error] %></h5> -->
 <%# end %>
-<%= render partial: "application/flash_messages", flash: flash %> 
+<%= render partial: "application/flash_messages", flash: flash %>
 
 <div class="container">
   <div class="stepwizard">
@@ -64,19 +64,11 @@
    <div class="form-group">
      <%= file_field_tag 'parcel[avatar]' %>
    </div>
+     <%= hidden_field_tag 'parcel[trip_id]', @trip_id %>
 
   <% end %>
 </div>
 </div>
 </div>
 </div>
-<script type="text/javascript">
-  $(function () {
-    $('#datetimepicker1').datetimepicker({
-      format: 'DD/MM/YYYY HH:mm:ss'
-    });
-    $('#datetimepicker2').datetimepicker({
-      format: 'DD/MM/YYYY HH:mm:ss'
-    });
-  });
-</script>
+

@@ -11,6 +11,5 @@
 </div>
 
 <% @trips.each do |trip| %>
-  <% parcels = trip.parcels %>
-  <%= render partial: '/trips/summary', locals: {trip: trip, parcels: parcels} %>
+  <%= render partial: '/trips/summary', locals: {trip: trip, history: false} %>
 <% end %>

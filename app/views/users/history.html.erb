@@ -7,10 +7,11 @@
   <div class="col-md-3">Trip Delivery Date</div>
 </div>
 <% @trips.each do |trip| %>
-  <%= render partial: '/trips/summary', locals: {trip:trip} %>
+  <%= render partial: '/trips/summary', locals: {trip:trip, history: true} %>
   <% trip.parcels.each do |parcel| %>
    <%= link_to "Review #{parcel.sender.username}", new_parcel_review_path(parcel.id), class: "btn btn-primary nextBtn btn-sm" %>
-<% end %>
+  <% end %>
+<%end %>
 <h5>Your Past Parcels</h5>
 <div class="row">
   <div class="col-md-4"></div>
@@ -19,8 +20,8 @@
   <div class="col-md-3">Parcel Delivery Date</div>
 </div>
 <% @parcels.each do |parcel| %>
-  <%= render partial: '/parcels/summary', locals: {parcel:parcel} %>
+  <%= render partial: '/parcels/summary', locals: {parcel:parcel, history: true} %>
     <div class="col-md-2">
-          <%= link_to "Review #{parcel.trip.driver.username} as Driver", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs" %>
-      </div>
+      <%= link_to "Review #{parcel.trip.driver.username} as Driver", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs" %>
+    </div>
 <% end %>
