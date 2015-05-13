@@ -11,8 +11,6 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.slider
-//= require form_slider
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
