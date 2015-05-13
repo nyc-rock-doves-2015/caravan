@@ -2,7 +2,7 @@
 
 <div class="row">
 
-  <div class="col-md-3"><%= link_to parcel.description, parcel_path(parcel), method: :get, class: "btn btn-primary nextBtn btn-xs parcel_details" %>
+  <div class="col-md-3"><%= link_to parcel.description, parcel_path(parcel), method: :get, class: "parcel_details" %>
   </div>
   <div class="col-md-1 xs-gutter"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'get' %>
   </div>

@@ -1,25 +1,39 @@
 <div class="row">
-    <div class="col-md-1">
-      <%= button_to "Details", trip_path(trip), class: "btn btn-primary nextBtn btn-xs trip_details", method: :get %>
-    </div>
+
+  <div class="col-md-3">
+    <%= link_to trip.destination_address.city, trip_path(trip),method: :get, class: "btn btn-primary nextBtn btn-xs trip_details" %>
+  </div>
+
+  <div class="col-md-2">
+    <% if trip.parcels.count > 0 %>
+      <%= link_to trip.parcels.count, trip_parcels_path(trip) %>
+      <% else %>
+      <p>0</p>
+    <% end %>
+  </div>
+
     <% if !history %>
+
       <div class="col-md-1">
         <%= button_to "Edit", edit_trip_path(trip), class: "btn btn-info nextBtn btn-xs" %>
       </div>
+
       <div class="col-md-1">
         <%= button_to "Delete", trip_path(trip), class: "btn btn-info nextBtn btn-xs", method: :delete %>
       </div>
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-2">
-        <% if trip.parcels.count > 0 %>
-          <%= link_to trip.parcels.count, trip_parcels_path(trip) %>
-        <% else %>
-          <p>0</p>
-        <% end %>
-      </div>
     <% end %>
-  <div class="col-md-3"><%= trip.destination_address.city %></div>
-  <div class="col-md-3"><%= format_date(trip.arriving_at) %></div>
+    <div class="col-md-1"></div>
+  
+  <div class="col-md-2"><%= format_date(trip.leaving_at) %>
+  </div>
+  <div class="col-md-2"><%= format_date(trip.arriving_at) %>
+  </div>
 </div>
+  
+<!--   
+    <div class="col-md-2">Deliveries</div>
+    <div class="col-md-4">Details</div>
+    <div class="col-md-3">Destination</div>
+    <div class="col-md-3">Arrive By</div>
+ -->
 
