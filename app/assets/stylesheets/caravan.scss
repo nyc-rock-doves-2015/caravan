@@ -89,7 +89,7 @@ input{
 }
 
 body{
-	background-color: white;
+	background-color: $color-font-homepage;
 	color: black;
 }
 
@@ -110,8 +110,8 @@ footer{
 }
 
 #scroll-button{
-	color: white;
-	border: 1px solid white;
+	color: $color-font-homepage;
+	border: 1px solid $color-font-homepage;
 	background-color: rbga(0,0,0,0.0);
 }
 
@@ -124,9 +124,7 @@ footer{
 // 	color: rgb(39,180,211);
 // }
 
-::selection{
-	color: rgb(39,180,211);
-}
+
 
 .gmap_search_bar input {
 	width: 500px;
@@ -340,12 +338,12 @@ section {
   background: #BABABA;
 }
 
-#weight  {
+#weight {
   margin: 15px;
   font-size: 12px;
 }
 
-#volume  {
+#volume {
   margin: 15px;
   font-size: 12px;
 }
@@ -363,6 +361,54 @@ section {
   border-radius: 8px;
 }
 
+.search-inline{
+  .gmap_search_bar{
+    input{
+      ::selection{
+
+        color: none;
+      }
+      :focus{
+        color:none
+      }
+      ::-webkit-input-placeholder {
+        color:$color-font-homepage;
+        text-transform: uppercase;
+      }
+      ::-moz-placeholder {
+        color:$color-font-homepage;
+        text-transform: uppercase;
+      }
+      :-moz-placeholder {   /* Older versions of Firefox */
+        color:$color-font-homepage;
+        text-transform: uppercase;
+      }
+      :-ms-input-placeholder { 
+        color:$color-font-homepage;
+        text-transform: uppercase;
+      }
+
+    border: 0px solid;
+    border-bottom: 1px solid $color-font-homepage;
+    width: 320px;
+    font-size: 1.5em;
+    background-color: transparent;
+    color: $color-font-homepage
+    }
+    ::input-placeholder{
+        color:$color-font-homepage;
+      }
+  }
+}
+
+.search-inline.gmap_search_bar input::input[placeholder]{
+  color:$color-font-homepage;
+  text-transform: uppercase;
+}
+
+::selection{
+  // color: rgb(39,180,211);
+}
 .search {
   padding: 5px;
 }
@@ -380,4 +426,9 @@ section {
 
 .coupon {
   height: 60px;
+}
+
+#inverse-scroll-button{
+  color: black;
+  border: 1px solid rgb(39,180,211);
 }
