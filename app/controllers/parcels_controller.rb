@@ -10,7 +10,6 @@ class ParcelsController < ApplicationController
     @url = parcels_path
     @submit_btn = "Create Parcel"
     @address = Address.new
-
     @trip_id = params[:trip_id]
   end
 
@@ -28,6 +27,7 @@ class ParcelsController < ApplicationController
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
 
     if parcel && parcel.persisted?
+      flash[:notice] = "Parcel Booked for Shipping"
       redirect_to profile_path
     else
       flash[:error] = parcel.errors.full_messages.join(", ")
