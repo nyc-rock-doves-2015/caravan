@@ -18,5 +18,10 @@ $(document).ready(function() {
       $('.profile-content').children().show();
       $('#history_show').hide();
     });
+
+   $('#trips_tab').on('click', function(event) {
+       $('.profile-content').children().show();
+      $('#history_show').hide();
+    });
  });
 })
