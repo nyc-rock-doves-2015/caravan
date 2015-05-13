@@ -16,8 +16,7 @@ RSpec.describe UsersController, type: :controller do
 
   context "#create" do
     it "redirects to the users profile" do
-      post :create, user: testuser
-      expect(response).to redirect_to user_path(user.id)
+      expect{post :create, user: FactoryGirl.attributes_for(:user)}.to change(User, :count).by(1)
     end
 
     it "does not redirect with bad attributes" do
@@ -35,7 +34,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "#current" do
     it "renders the current view template" do
-      get :current, user:
+      get :current, user: testuser
       expect(response).to render_template :current
     end
   end
