@@ -57,6 +57,7 @@
           </div>
         </div>
         <div class="form-group">
+          <label id="volume">Volume: <span id="grab1"></span></label>
           <div class="col-md-8">
             <% if  %>
               <%= text_field_tag "parcel[volume]", nil, class: "form-control input-md", placeholder: @volume %>
@@ -115,6 +116,10 @@ $(function () {
   $('#parcel_weight').change(function(){
     var weightValue = $('#parcel_weight').val();
     $('#grab').html(weightValue);
-  })
+  });
+  $('#parcel_volume').change(function(){
+    var parcelValue = $('#parcel_volume').val();
+    $('#grab1').html(parcelValue);
+  });
 });
 </script>
