@@ -14,6 +14,13 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
+    if params[:parcel_id]
+       parcel = Parcel.find(params[:parcel_id])
+       review.update_attributes(reviewee_id: parcel.sender_id)
+    else
+      trip = Trip.find(params[:trip_id])
+      review.update_attributes(reviewee_id: trip.driver_id)
+    end
     reviewee = User.find(review.reviewee_id)
     if review.save
       reputation = reviewee.get_reputation
