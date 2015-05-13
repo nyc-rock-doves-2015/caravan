@@ -5,6 +5,11 @@ class ReviewsController < ApplicationController
     @review = Review.new
     @review_carrier = Trip.find(params[:trip_id]) if params[:trip_id]
     @review_carrier = Parcel.find(params[:parcel_id]) if params[:parcel_id]
+    if request.xhr?
+      render 'new', layout: false
+    else
+      render 'new'
+    end
   end
 
   def create
