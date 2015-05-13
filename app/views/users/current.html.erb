@@ -207,7 +207,7 @@
 							Account Settings </a>
 						</li>
 						<li>
-							<%= link_to profile_history_path, id: "history" do %>
+							<%= link_to profile_history_path, id: "history_tab" do %>
 							<i class="glyphicon glyphicon-ok"></i> History
 							<% end %>
 						</li>
@@ -228,8 +228,6 @@
             <li class="active"><a data-toggle="tab" href="#sectionA" class="parcels_tab">Your Parcels</a></li>
             <li><a data-toggle="tab" href="#sectionB" class="trips_tab">Your Trips</a></li>
             <li><a data-toggle="tab" href="#sectionC" class="inbox_tab">Inbox (<%= @num_messages %>)</a></li>
-
-
         </ul>
         <div id="tab-headers" class="tab-content">
             <div id="sectionA" class="tab-pane fade in active">
