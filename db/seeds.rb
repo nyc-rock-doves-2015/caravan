@@ -160,6 +160,9 @@ parcel5 = Parcel.create(origin_address: Address.find(1), destination_address: Ad
 
 trip1 = Trip.create(origin_address: Address.find(2), destination_address: da3, driver: User.find(2), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 2, max_weight: 10, rate: 10, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul")
 
+trip2 = Trip.create(origin_address: Address.find(3), destination_address: da2, driver: User.find(3), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 3, max_weight: 10, rate: 10, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul")
+
+trip3 = Trip.create(origin_address: Address.find(4), destination_address: da4, driver: User.find(4), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 5, max_weight: 50, rate: 12, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Honda Civic")
 
 trip4 = Trip.create(origin_address: Address.find(5), destination_address: da5, driver: User.find(5), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 5, max_weight: 50, rate: 7, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Toyota Avalon")
 
@@ -195,8 +198,6 @@ trip18 = Trip.create(origin_address: Address.find(49), destination_address: Addr
 
 trip19 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(2), leaving_at: Faker::Date.backward(13), arriving_at: Faker::Date.backward(10), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
 
-
-
 #add parcels to trips
 #attach reviews to those parcels and trips
 
@@ -208,6 +209,20 @@ parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3
 parcel3.sender.update_attributes(reputation: parcel3.reviews.first.rating)
 parcel3.update_attributes(reviewed: true)
 
+trip2.parcels << parcel1
+trip2.reviews.create(reviewer_id: parcel1.sender_id, reviewee_id: trip2.driver_id, rating: 4, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.")
+trip2.driver.update_attributes(reputation: trip2.reviews.first.rating)
+trip2.update_attributes(reviewed: true, completed: true)
+parcel1.reviews.create(reviewer_id: parcel1.trip.driver_id, reviewee_id: parcel1.sender_id, rating: 5, content: "Great communication! Glad to help you move your books")
+parcel1.sender.update_attributes(reputation: parcel1.reviews.first.rating)
+parcel1.update_attributes(reviewed: true)
+trip3.parcels << parcel2
+trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip3.driver.username} to ship again.")
+trip3.driver.update_attributes(reputation: trip3.reviews.first.rating)
+trip3.update_attributes(reviewed: true, completed: false)
+parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!")
+parcel2.sender.update_attributes(reputation: parcel2.reviews.first.rating)
+parcel2.update_attributes(reviewed: true)
 
 trip10.parcels << parcel5
 trip10.reviews.create(reviewer_id: parcel5.sender_id, reviewee_id: trip10.driver_id, rating: 2, content: "Not recommended. My parcel arrived cracked open and damp!")
@@ -229,10 +244,9 @@ dt1 =   Trip.create(origin_address: nyaddress1, destination_address: da1, driver
 
 dt2 = Trip.create(origin_address: nyaddress2, destination_address: da2, driver_id: 2, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No flammables", vehicle: "U-Haul")
 
-
 dt3 = Trip.create(origin_address: nyaddress3, destination_address: da3, driver_id: 5, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No flammables", vehicle: "10-ft Uhaul")
 
-
+dt4 = Trip.create(origin_address: nyaddress4, destination_address: da4, driver_id: 8, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No flammables", vehicle: "Escalade")
 
 dt5 = Trip.create(origin_address: nyaddress5, destination_address: da5, driver_id: 5, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No food", vehicle: "F-150")
 
@@ -240,9 +254,14 @@ dt6 = Trip.create(origin_address: nyaddress1, destination_address: sf1, driver_i
 
 dt7 = Trip.create(origin_address: nyaddress2, destination_address: sf2, driver_id: 2, leaving_at: "2015-05-20 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: rand(10..400), max_weight: rand(1..200), rate:9.20 , content_restrictions: "Not responsible for lost or stolen items", vehicle: "Truck")
 
+dt9 = Trip.create(origin_address: nyaddress4, destination_address: sf4, driver_id: 8, leaving_at: "2015-05-22 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: rand(10..400), max_weight: 45, rate: 0.50 , content_restrictions: "Passengers Welcome", vehicle: "Sprinter")
 
 dt10 = Trip.create(origin_address: nyaddress5, destination_address: sf5, driver_id: 5, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: 45, max_weight: 120, rate: 0.85, content_restrictions: "Passengers Welcome", vehicle: "Minivan")
+
 dt11 = Trip.create(origin_address: nyaddress1, destination_address: sf6, driver_id: 6, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-24 18:36:59 -0400", available_volume: 40, max_weight: 140, rate: 2.00 , content_restrictions: "Pets allowed", vehicle: "Minivan")
+
 dt12 = Trip.create(origin_address: nyaddress2, destination_address: sf7, driver_id: 2, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-23 18:36:59 -0400", available_volume: 25, max_weight: 80, rate: 0.99 , content_restrictions: "Pets allowed", vehicle: "U-Haul")
+
 dt13 = Trip.create(origin_address: nyaddress3, destination_address: sf8, driver_id: 3, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-23 18:36:59 -0400", available_volume: 30, max_weight: 110, rate: 1.00 , content_restrictions: "Cardboard parcels only", vehicle: "U-Haul")
-dt14 = Trip.create(origin_address: nyaddress4, destination_address: sf9, driver_id: 7, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-24 18:36:59 -0400", available_volume: 12, max_weight: 95, rate: 0.10 , content_restrictions: "No dogs allowed", vehicle: "Uhaul")
+
+dt14 = Trip.create(origin_address: nyaddress4, destination_address: sf9, driver_id: 3, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-24 18:36:59 -0400", available_volume: 12, max_weight: 95, rate: 0.10 , content_restrictions: "No dogs allowed", vehicle: "Uhaul")
