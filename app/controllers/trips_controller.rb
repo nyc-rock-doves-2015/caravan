@@ -102,15 +102,6 @@ class TripsController < ApplicationController
     end
   end
 
-  def match_reviewer
-    @trips = Trip.match_reviewer(params[:id], current_user.id)
-    if @trips
-      @user =  current_user
-      @reviewer = true
-      render '_current_user'
-    end
-  end
-
   def book
     @parcel = Parcel.find(params[:parcel_id])
     @trip = Trip.find(params[:id])
