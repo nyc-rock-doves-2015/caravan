@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @notifications = @user.mailbox.notifications
     @conversations = @user.mailbox.inbox
     @num_messages = @conversations.count + @notifications.count
-    render 'current', layout: false
+    render 'current' # layout: false
   end
 
   def history
