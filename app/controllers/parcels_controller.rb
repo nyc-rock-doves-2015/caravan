@@ -30,7 +30,6 @@ class ParcelsController < ApplicationController
 
   def create
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
-
     if parcel && parcel.persisted?
       if !parcel.trip_id.nil?
         notify_sender(parcel)
@@ -81,15 +80,15 @@ class ParcelsController < ApplicationController
   end
 
   def origin_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string).merge(user_id: current_user.id)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string, :latitude).merge(user_id: current_user.id)
   end
 
   def destination_address_params
-    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string).merge(user_id: current_user.id)
+    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string, :longitude).merge(user_id: current_user.id)
   end
 
   def parcel_params
-    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered, :avatar).merge(sender_id: current_user.id)
+    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered, :avatar)
   end
 
 end

@@ -29,6 +29,7 @@ class Parcel < ActiveRecord::Base
     parcel = Parcel.new(parcel_params)
     parcel.origin_address = origin_address
     parcel.destination_address = destination_address
+    parcel.sender = origin_address.user
     if parcel.save
       return parcel
     else
