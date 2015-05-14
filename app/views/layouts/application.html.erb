@@ -30,7 +30,7 @@
             <li><a href="<%= inbox_path %>"> My Inbox</a></li>
             <li class="divider"></li>
             <li><a href="/trips/new">New Trip</a></li>
-            <li><a href="/parcels/new">New Parcel</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModalNorm">New Parcel</a></li>
             <li><a href="/trips/search"> New Search</a></li>
 
             <li class="divider"></li>
@@ -126,7 +126,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
     data-dismiss="modal">
     Close
   </button>
-  <%= submit_tag (@submit_btn), id: "button-3", class: "btn btn-default nextBtn btn-lg"%>
+  <%= submit_tag (@submit_btn), id: "button-3", class: "btn btn-default nextBtn"%>
   <% end %>
 </div>
 </div>
