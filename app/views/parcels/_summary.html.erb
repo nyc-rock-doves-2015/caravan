@@ -12,8 +12,6 @@
       </div>
 <% end %>
 
-
-
 <div class="col-md-3">
   <%= parcel.destination_address.city %>
 </div>
@@ -22,16 +20,16 @@
   <%= format_date(parcel.deliver_by) %>
 </div>
 <% if !history %>
-  <div class="row">
    <% if !parcel.trip %>
-  <div class="col-md-1"><%= link_to 'match', trips_search_path(parcel_id: parcel.id), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
-  <% else %>
-   <div class="col-md-1">
+    <div class="col-md-1"><%= link_to 'match', trips_search_path(parcel_id: parcel.id), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
+    <% else %>
+     <div class="col-md-1">
       <%= button_to "Message", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-info nextBtn btn-xs" %>
-    </div>
+      </div>
   <% end %>
 
-  <% end %>
+<% end %>
 </div>
+<div class="row"></div>
 
 
