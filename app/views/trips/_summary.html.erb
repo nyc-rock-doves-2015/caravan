@@ -8,7 +8,7 @@
     <% if trip.parcels.count > 0 %>
       <%= link_to trip.parcels.first.description, trip_parcels_path(trip), class: "delivery_link" %>
       <% else %>
-      <p>0</p>
+        0
     <% end %>
   </div>
 
