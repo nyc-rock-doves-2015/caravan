@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  
+
   before_action :authenticate_user!, except: [:create]
-  
+
   def create
     user = User.new(user_params)
     if user.save
@@ -31,8 +31,8 @@ class UsersController < ApplicationController
 
   def history
     @user = current_user
-    @trips = @user.trips.where(completed: true)
-    @parcels = @user.parcels.where(delivered: true)
+    @trips = Trip.where(driver: @user, completed: true)
+    @parcels = Parcel.where(sender: @user, delivered: true)
     if request.xhr?
       render 'history', layout: false
     else

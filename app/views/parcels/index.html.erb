@@ -23,11 +23,6 @@
             <%= hidden_field_tag 'parcel[sender_id]', parcel.sender.id %>
             <%= hidden_field_tag 'parcel[description]', parcel ? parcel.description : "" %>
             <%= hidden_field_tag 'parcel[delivered]', true %>
-            <%= hidden_field_tag 'parcel[pickup_by]', parcel ? parcel.pickup_by : "" %>
-            <%= hidden_field_tag 'parcel[deliver_by]', parcel ? parcel.deliver_by: "" %>
-            <%= hidden_field_tag 'parcel[volume]', parcel ? parcel.volume : "" %>
-            <%= hidden_field_tag 'parcel[weight]', parcel ? parcel.weight : "" %>
-            <%= hidden_field_tag 'parcel[delivery_notes]', parcel ? parcel.delivery_notes : "" %>
             <%= submit_tag "Parcel Delivered" ,class: "btn btn-default" %>
           <% end %>
       <% end %>
