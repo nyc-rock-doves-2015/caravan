@@ -81,24 +81,23 @@
                 </h2>
             </div>
             <div class="discount peter-river">
-                <p>Rate: <%= number_to_currency(trip.rate) %><p>
-                  <p>Volume: <%= trip.available_volume %></p>
-                  <p>Max Weight: <%= trip.max_weight %></p>
-                <div class="type">
-                </div>
+                <p>Rate: <%= number_to_currency(trip.rate) %> </p>
+                <p>Volume: <%= trip.available_volume %> </p>
+                <p>Max Weight: <%= trip.max_weight %> </p>
             </div>
-            <div class="descr">
-                <p>From: <%= trip.origin_address.city_state %> <br> To: <%= trip.destination_address.city_state %></p>
+
+            <div class="descr center">
+                <p> <span class="strong"> From:</span> <%= trip.origin_address.city_state %> <br> <span class="strong">To:</span> <%= trip.destination_address.city_state %></p>
             </div>
-            <div class="ends">
+            <div class="ends center">
                 <small>Leaving: <%= trip.leaving_at.strftime('%b %d, %Y') %><br>Arriving: <%= trip.arriving_at.strftime('%b %d, %Y') %>
                 </small>
             </div>
             <div class="coupon midnight-blue">
               <% if @parcel_id %>
-              <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary" %></p>
+              <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary peter-river" %></p>
             <% else %>
-              <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary" %></p>
+              <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary peter-river" %></p>
             <% end %>
             </div>
           </div>
