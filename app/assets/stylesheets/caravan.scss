@@ -387,7 +387,7 @@ section {
         color:$color-font-homepage;
         text-transform: uppercase;
       }
-      :-ms-input-placeholder { 
+      :-ms-input-placeholder {
         color:$color-font-homepage;
         text-transform: uppercase;
       }
@@ -435,4 +435,8 @@ section {
 #inverse-scroll-button{
   color: black;
   border: 1px solid rgb(39,180,211);
+}
+
+.pac-container {
+    z-index: 1051 !important;
 }
