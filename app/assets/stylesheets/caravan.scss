@@ -269,8 +269,12 @@ section {
 
 .dl .descr {
     color: #999;
-    margin-top: 40px;
-    padding: 8px;
+    margin-top: 2px;
+    padding: 2px;
+}
+
+.dl .descr-top {
+  margin-top: 20px;
 }
 
 .dl .ends {
@@ -303,7 +307,7 @@ section {
 }
 
 .custom-marg {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .sticky {

@@ -85,14 +85,15 @@
                 <p>Volume: <%= trip.available_volume %> </p>
                 <p>Max Weight: <%= trip.max_weight %> </p>
             </div>
-
+             <div class="descr descr-top center">
+                <p><span class="strong">Leaving:</span> <%= trip.leaving_at.strftime('%b %d, %Y') %>
+                  <br>
+                  <p><span class="strong"> Arriving: </span> <%= trip.arriving_at.strftime('%b %d, %Y') %></p>
+            </div>
             <div class="descr center">
                 <p> <span class="strong"> From:</span> <%= trip.origin_address.city_state %> <br> <span class="strong">To:</span> <%= trip.destination_address.city_state %></p>
             </div>
-            <div class="ends center">
-                <small>Leaving: <%= trip.leaving_at.strftime('%b %d, %Y') %><br>Arriving: <%= trip.arriving_at.strftime('%b %d, %Y') %>
-                </small>
-            </div>
+           
             <div class="coupon midnight-blue">
               <% if @parcel_id %>
               <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary peter-river" %></p>
