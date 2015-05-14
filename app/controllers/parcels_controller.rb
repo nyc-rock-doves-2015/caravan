@@ -29,6 +29,7 @@ class ParcelsController < ApplicationController
   end
 
   def create
+    parcel_params.merge(sender_id: current_user.id)
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
 
     if parcel && parcel.persisted?
@@ -54,7 +55,6 @@ class ParcelsController < ApplicationController
 
   def update
     @parcel = Parcel.find(params[:id])
-    p params
     @origin_address = @parcel.origin_address
     @destination_address = @parcel.destination_address
     if @parcel.update(parcel_params) && @origin_address.update(origin_address_params) && @destination_address.update(destination_address_params)
@@ -82,7 +82,7 @@ class ParcelsController < ApplicationController
   end
 
   def origin_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string).merge(user_id: current_user.id)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string, :sender_id)
   end
 
   def destination_address_params
