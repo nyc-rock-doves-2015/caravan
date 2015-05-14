@@ -1,44 +1,54 @@
-  <div class="row setup-content" id="step-1">
+  <div class="container">
+  <%# render partial: "layouts/stepwizard" %>
+  <%= form_tag @url, method: :post, multipart: true, id: "creation-form" do %>
+    <div class="row " id="step-1">
+      <div class="col-xs-12">
+        <div class="col-md-12">
+          <h3> Step 1: Origin </h3>
+          <%= render partial: 'addresses/new_origin' %>
+      </div>
+    </div>
+  </div>
+  <div class="row " id="step-2">
     <div class="col-xs-12">
       <div class="col-md-12">
-        <h3> Step 1: Origin <button id="button-1" class="btn btn-default nextBtn btn-lg" type="button" >Next</button></h3>
-        <%= render 'addresses/new_origin' %>
+        <h3> Step 2: Destination </h3>
+        <%= render partial: 'addresses/new_destination' %>
      </div>
-   </div>
- </div>
- <div class="row setup-content" id="step-2">
-   <div class="col-xs-12">
-     <div class="col-md-12">
-       <h3> Step 2: Destination <button id="button-2" class="btn btn-default nextBtn btn-lg" type="button" >Next</button></h3>
-       <%= render 'addresses/new_destination' %>
-     </div>
+    </div>
   </div>
+  <div class="row " id="step-3">
+    <div class="col-xs-12">
+      <div class="col-md-12">
+        <h3> Step 3: Parcel Info<h3>
+        <div class="form-group">
+          <%= hidden_field_tag 'parcel[delivered]', false %>
+          <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "", placeholder: "Parcel Description" %>
+        </div>
+        <div class="form-group">
+          <div class='input-group date'>
+            <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "", placeholder: "Pickup By", :id => "datetimepicker1" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class='input-group date'>
+            <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "", placeholder: "Delivery By", :id => 'datetimepicker2' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= text_field_tag 'parcel[volume]', @parcel ? @parcel.volume : "", placeholder: "Volume" %>
+        </div>
+        <div class="form-group">
+          <%= text_field_tag 'parcel[weight]', @parcel ? @parcel.weight : "", placeholder: "Weight" %>
+        </div>
+        <div class="form-group">
+          <%= text_field_tag 'parcel[delivery_notes]', @parcel ? @parcel.delivery_notes : "", placeholder: "Delivery Notes" %>
+        </div>
+        <%= hidden_field_tag 'parcel[trip_id]', @trip_id %>
+      </div>
+    </div>
+  </div>
+
+
 </div>
-<div class="row setup-content" id="step-3">
-  <div class="col-xs-12">
-    <div class="col-md-12">
-      <h3> Step 3: Parcel Info <%= submit_tag (@submit_btn), id: "button-3", class: "btn btn-default nextBtn btn-lg"%><h3>
-      <div class="form-group">
-       <%= hidden_field_tag 'parcel[delivered]', false %>
-       <%= text_field_tag 'parcel[description]', @parcel ? @parcel.description : "", placeholder: "Parcel Description" %>
-     </div>
-     <div class="form-group">
-       <div class='input-group date'>
-          <%= text_field_tag 'parcel[pickup_by]', @parcel ? @parcel.pickup_by : "", placeholder: "Pickup By", :id => "datetimepicker1" %>
-       </div>
-    </div>
-    <div class="form-group">
-      <div class='input-group date'>
-          <%= text_field_tag 'parcel[deliver_by]', @parcel ? @parcel.deliver_by: "", placeholder: "Delivery By", :id => 'datetimepicker2' %>
-       </div>
-    </div>
-    <div class="form-group">
-      <%= text_field_tag 'parcel[volume]', @parcel ? @parcel.volume : "", placeholder: "Volume" %>
-    </div>
-    <div class="form-group">
-     <%= text_field_tag 'parcel[weight]', @parcel ? @parcel.weight : "", placeholder: "Weight" %>
-    </div>
-    <div class="form-group">
-     <%= text_field_tag 'parcel[delivery_notes]', @parcel ? @parcel.delivery_notes : "", placeholder: "Delivery Notes" %>
-   </div>
-   <%= hidden_field_tag 'parcel[trip_id]', @trip_id %>
+
