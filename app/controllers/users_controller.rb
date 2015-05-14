@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  
   before_action :authenticate_user!, except: [:create]
+  
   def create
     user = User.new(user_params)
     if user.save
