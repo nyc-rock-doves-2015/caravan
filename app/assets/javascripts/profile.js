@@ -1,5 +1,5 @@
 $(document).ready(function() {
- $('.parcel_details').on('click', function(event) {
+ $('.profile-content').on('click', '.parcel_details',function(event) {
     event.preventDefault();
     event.stopPropagation();
     var $details = $(event.target);
