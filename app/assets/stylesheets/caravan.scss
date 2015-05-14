@@ -93,6 +93,10 @@ body{
 	color: black;
 }
 
+nav.navbar{
+  border-radius: 0px;
+}
+
 nav.navbar .top-nav-collapse{
 	background-color: transparent;
 }
@@ -363,7 +367,7 @@ section {
 .test {
   background: #F0F0F0;
   margin: -15px;
-  margin-right: 5px;
+  // margin-right: 5px;
   padding: 10px;
   box-shadow: -9px 4px 35px -17px;
   border-radius: 8px;
@@ -372,12 +376,12 @@ section {
 .search-inline{
   .gmap_search_bar{
     input{
-      ::selection{
-
-        color: none;
-      }
-      :focus{
-        color:none
+      border: 0px solid;
+      border-bottom: 1px solid $color-font-homepage;
+      width: 320px;
+      font-size: 1.5em;
+      background-color: transparent;
+      color: $color-font-homepage
       }
       ::-webkit-input-placeholder {
         color:$color-font-homepage;
@@ -387,25 +391,15 @@ section {
         color:$color-font-homepage;
         text-transform: uppercase;
       }
-      :-moz-placeholder {   /* Older versions of Firefox */
-        color:$color-font-homepage;
-        text-transform: uppercase;
-      }
       :-ms-input-placeholder { 
         color:$color-font-homepage;
         text-transform: uppercase;
       }
-
-    border: 0px solid;
-    border-bottom: 1px solid $color-font-homepage;
-    width: 320px;
-    font-size: 1.5em;
-    background-color: transparent;
-    color: $color-font-homepage
-    }
-    ::input-placeholder{
-        color:$color-font-homepage;
+      input:focus{
+        outline: none;
       }
+
+   
   }
 }
 
@@ -414,9 +408,6 @@ section {
   text-transform: uppercase;
 }
 
-::selection{
-  // color: rgb(39,180,211);
-}
 .search {
   padding: 5px;
 }
