@@ -1,7 +1,6 @@
 $color-nav-main: blue;
 $color-font-homepage: white;
-$color-button-main: rgb(39,180,211);
-$image-background-main: url(road1.jpg);
+$color-button-main: rgba(39,180,211, 0.5);
 
 ul.details{
 	list-style: none;
@@ -15,15 +14,6 @@ form input.submit {
 	@extend .btn;
 	@extend .btn-default;
 	@extend button;
-}
-
-.jumbotron{
-	background: none;
-	background-image: $image-background-main;
-	background-repeat: no-repeat;
-	background-size: cover;
-	text-align:center;
-	color: $color-font-homepage;
 }
 
 .stepwizard-step {
@@ -166,18 +156,6 @@ section {
     border-radius: 20px;
     position: relative;
 }
-
-// .dl:before {
-//     content: " ";
-//     height: 20px;
-//     width: 20px;
-//     background: #ddd;
-//     border-radius: 20px;
-//     position: absolute;
-//     left: 50%;
-//     top: 20px;
-//     margin-left: -10px;
-// }
 
 .dl .brand {
     text-transform: uppercase;
@@ -381,25 +359,27 @@ section {
       width: 320px;
       font-size: 1.5em;
       background-color: transparent;
-      color: $color-font-homepage
+      color: $color-font-homepage;
+        text-align: center;
       }
       ::-webkit-input-placeholder {
         color:$color-font-homepage;
         text-transform: uppercase;
+        text-align: center;
       }
       ::-moz-placeholder {
         color:$color-font-homepage;
         text-transform: uppercase;
+        text-align: center;
       }
       :-ms-input-placeholder { 
         color:$color-font-homepage;
         text-transform: uppercase;
+        text-align: center;
       }
       input:focus{
         outline: none;
       }
-
-   
   }
 }
 
