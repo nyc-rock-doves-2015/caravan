@@ -27,6 +27,10 @@ class ParcelsController < ApplicationController
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
 
     if parcel && parcel.persisted?
+      if !parcel.trip_id.nil?
+        notify_sender(parcel)
+        notify_driver(parcel.trip, parcel)
+      end
       flash[:notice] = "Parcel Booked for Shipping"
       redirect_to profile_path
     else
@@ -62,6 +66,14 @@ class ParcelsController < ApplicationController
   end
 
   private
+
+  def notify_sender(parcel)
+    parcel.sender.notify("Your parcel is booked: Details", "Your parcel ID\##{parcel.id} will be picked up by #{parcel.pickup_by} and delivered by #{parcel.deliver_by} by driver #{parcel.trip.driver.username}.")
+  end
+
+  def notify_driver(trip, parcel)
+    trip.driver.notify("Your trip has a confirmed parcel: Details", "You have accepted to ship parcel ID\##{parcel.id} for #{parcel.sender.username} by #{parcel.pickup_by} and deliver by #{parcel.deliver_by}.")
+  end
 
   def origin_address_params
     params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string).merge(user_id: current_user.id)

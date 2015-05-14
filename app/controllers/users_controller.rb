@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @trips = @user.trips.where(completed: false).order(updated_at: :desc )
     @notifications = @user.mailbox.notifications
     @conversations = @user.mailbox.inbox
-    @num_messages = @conversations.count
+    @num_messages = @conversations.count + @notifications.count
     render 'current', layout: false
   end
 

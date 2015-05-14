@@ -43,9 +43,6 @@ class TripsController < ApplicationController
       end
     end
 
-    p "yyyyyyyyyyyyyyyyyyy"
-    p params
-
     @trips = Trip.search(params)
   end
 
@@ -135,7 +132,7 @@ class TripsController < ApplicationController
   end
 
   def notify_driver(trip, parcel)
-    @trip.driver.notify("Your trip has a confirmed parcel: Details", "You have accepted to ship parcel ID\##{parcel.id} for #{parcel.sender.username} by #{parcel.pickup_by} and deliver by #{parcel.deliver_by}.")
+    trip.driver.notify("Your trip has a confirmed parcel: Details", "You have accepted to ship parcel ID\##{parcel.id} for #{parcel.sender.username} by #{parcel.pickup_by} and deliver by #{parcel.deliver_by}.")
   end
 
   def origin_address_params
