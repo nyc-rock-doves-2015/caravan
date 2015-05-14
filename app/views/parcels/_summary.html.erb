@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-md-3"><%= link_to parcel.description, parcel_path(parcel), method: :get, class: "parcel_details" %>
     </div>
@@ -12,6 +11,7 @@
         <%= link_to "Review #{parcel.trip.driver.username}", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs review" %>
       </div>
 <% end %>
+
 
 
 <div class="col-md-3">
@@ -32,8 +32,6 @@
   <% end %>
 
   <% end %>
-
 </div>
 
-</div>
 
