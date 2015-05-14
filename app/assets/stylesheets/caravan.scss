@@ -151,25 +151,29 @@ section {
     background: #3498db;
 }
 
+.light-grey{
+  background: lightgrey;
+}
+
 // match card
 .dl {
     background: #f0f0f0;
-    padding: 30px 0;
+    padding: 2px 0 20px 0;
     border-radius: 20px;
     position: relative;
 }
 
-.dl:before {
-    content: " ";
-    height: 20px;
-    width: 20px;
-    background: #ddd;
-    border-radius: 20px;
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    margin-left: -10px;
-}
+// .dl:before {
+//     content: " ";
+//     height: 20px;
+//     width: 20px;
+//     background: #ddd;
+//     border-radius: 20px;
+//     position: absolute;
+//     left: 50%;
+//     top: 20px;
+//     margin-left: -10px;
+// }
 
 .dl .brand {
     text-transform: uppercase;
