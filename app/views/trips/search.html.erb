@@ -65,12 +65,12 @@
             <% end %>
           </div>
         </div>
-        <%= button_to "Find Matching Trips", "", class: "btn btn-primary search" %>
+        <%= button_to "Find Matching Trips", "", class: "btn btn-primary search peter-river" %>
       </fieldset>
     </form>
   </div>
   <div class="col-md-9 stick_right" id="Container1">
-      <h5>Matching Trips</h5>
+      <h5 class ="center">Matching Trips</h5>
         <% @trips.each do |trip| %>
             <div class="col-sm-4 custom-marg mix">
           <div class="dl">
@@ -80,25 +80,25 @@
                     <%= link_to trip.driver.username, profile_path(trip.driver) %>
                 </h2>
             </div>
-            <div class="discount alizarin">
-                <p>Rate: <%= number_to_currency(trip.rate) %><p>
-                  <p>Volume: <%= trip.available_volume %></p>
-                  <p>Max Weight: <%= trip.max_weight %></p>
-                <div class="type">
-                </div>
+            <div class="discount peter-river">
+                <p>Rate: <%= number_to_currency(trip.rate) %> </p>
+                <p>Volume: <%= trip.available_volume %> </p>
+                <p>Max Weight: <%= trip.max_weight %> </p>
             </div>
-            <div class="descr">
-                <p>From: <%= trip.origin_address.city_state %> <br> To: <%= trip.destination_address.city_state %></p>
+             <div class="descr descr-top center">
+                <p><span class="strong">Leaving:</span> <%= trip.leaving_at.strftime('%b %d, %Y') %>
+                  <br>
+                  <p><span class="strong"> Arriving: </span> <%= trip.arriving_at.strftime('%b %d, %Y') %></p>
             </div>
-            <div class="ends">
-                <small>Leaving: <%= trip.leaving_at.strftime('%b %d, %Y') %><br>Arriving: <%= trip.arriving_at.strftime('%b %d, %Y') %>
-                </small>
+            <div class="descr center">
+                <p> <span class="strong"> From:</span> <%= trip.origin_address.city_state %> <br> <span class="strong">To:</span> <%= trip.destination_address.city_state %></p>
             </div>
+           
             <div class="coupon midnight-blue">
               <% if @parcel_id %>
-              <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary" %></p>
+              <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary peter-river" %></p>
             <% else %>
-              <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary" %></p>
+              <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary peter-river" %></p>
             <% end %>
             </div>
           </div>

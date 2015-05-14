@@ -115,16 +115,13 @@ footer{
 	background-color: rbga(0,0,0,0.0);
 }
 
-// .btn {
-// 	border: 1px solid rgb(39,180,211);
-// 	background-color: rgb(39,180,211);
-// }
+.center{
+  text-align: center;
+}
 
-// .btn-default {
-// 	color: rgb(39,180,211);
-// }
-
-
+.strong{
+  font-weight: bold;
+}
 
 .gmap_search_bar input {
 	width: 500px;
@@ -154,6 +151,7 @@ section {
     background: #3498db;
 }
 
+// match card
 .dl {
     background: #f0f0f0;
     padding: 30px 0;
@@ -203,13 +201,15 @@ section {
 }
 
 .dl .discount p {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 40px;
   margin-bottom: -10px;
   margin-top: -15px;
 }
 
 .dl .descr {
   font-size: 8px;
+  margin-bottom: 8px
 }
 
 .dl .descr p {
@@ -218,7 +218,7 @@ section {
 }
 
 .dl .discount p {
-  text-align: left;
+  text-align: center;
 }
 
 .dl .discount {
@@ -270,8 +270,12 @@ section {
 
 .dl .descr {
     color: #999;
-    margin-top: 40px;
-    padding: 8px;
+    margin-top: 2px;
+    padding: 2px;
+}
+
+.dl .descr-top {
+  margin-top: 20px;
 }
 
 .dl .ends {
@@ -304,19 +308,19 @@ section {
 }
 
 .custom-marg {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .sticky {
   position: fixed;
   margin-left: -50px;
-  margin-top: -30px;
+  margin-top: 35px;
 }
 
 .stick_right {
   float: right;
   margin-top: -30px;
-  border-left: 1px solid black;
+  border-left: 1px solid rgb(230,230,230);
 }
 
 .test input {
