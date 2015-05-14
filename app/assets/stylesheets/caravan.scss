@@ -1,7 +1,6 @@
 $color-nav-main: blue;
 $color-font-homepage: white;
-$color-button-main: rgb(39,180,211);
-$image-background-main: url(road1.jpg);
+$color-button-main: rgba(39,180,211, 0.5);
 
 ul.details{
 	list-style: none;
@@ -15,15 +14,6 @@ form input.submit {
 	@extend .btn;
 	@extend .btn-default;
 	@extend button;
-}
-
-.jumbotron{
-	background: none;
-	background-image: $image-background-main;
-	background-repeat: no-repeat;
-	background-size: cover;
-	text-align:center;
-	color: $color-font-homepage;
 }
 
 .stepwizard-step {
@@ -91,6 +81,10 @@ input{
 body{
 	background-color: $color-font-homepage;
 	color: black;
+}
+
+nav.navbar{
+  border-radius: 0px;
 }
 
 nav.navbar .top-nav-collapse{
@@ -163,18 +157,6 @@ section {
     position: relative;
 }
 
-// .dl:before {
-//     content: " ";
-//     height: 20px;
-//     width: 20px;
-//     background: #ddd;
-//     border-radius: 20px;
-//     position: absolute;
-//     left: 50%;
-//     top: 20px;
-//     margin-left: -10px;
-// }
-
 .dl .brand {
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -234,7 +216,7 @@ section {
     font-weight: bold;
 
     padding: 20px 15px 0;
-    color: #f1c40f;
+    color: lightgrey;
 }
 
 .dl .discount:after {
@@ -316,7 +298,7 @@ section {
 }
 
 .sticky {
-  position: fixed;
+  // position: fixed;
   margin-left: -50px;
   margin-top: 35px;
 }
@@ -363,7 +345,7 @@ section {
 .test {
   background: #F0F0F0;
   margin: -15px;
-  margin-right: 5px;
+  // margin-right: 5px;
   padding: 10px;
   box-shadow: -9px 4px 35px -17px;
   border-radius: 8px;
@@ -372,39 +354,31 @@ section {
 .search-inline{
   .gmap_search_bar{
     input{
-      ::selection{
-
-        color: none;
-      }
-      :focus{
-        color:none
+      border: 0px solid;
+      border-bottom: 1px solid $color-font-homepage;
+      width: 320px;
+      font-size: 1.5em;
+      background-color: transparent;
+      color: $color-font-homepage;
+        text-align: center;
       }
       ::-webkit-input-placeholder {
         color:$color-font-homepage;
         text-transform: uppercase;
+        text-align: center;
       }
       ::-moz-placeholder {
         color:$color-font-homepage;
         text-transform: uppercase;
-      }
-      :-moz-placeholder {   /* Older versions of Firefox */
-        color:$color-font-homepage;
-        text-transform: uppercase;
+        text-align: center;
       }
       :-ms-input-placeholder { 
         color:$color-font-homepage;
         text-transform: uppercase;
+        text-align: center;
       }
-
-    border: 0px solid;
-    border-bottom: 1px solid $color-font-homepage;
-    width: 320px;
-    font-size: 1.5em;
-    background-color: transparent;
-    color: $color-font-homepage
-    }
-    ::input-placeholder{
-        color:$color-font-homepage;
+      input:focus{
+        outline: none;
       }
   }
 }
@@ -414,9 +388,6 @@ section {
   text-transform: uppercase;
 }
 
-::selection{
-  // color: rgb(39,180,211);
-}
 .search {
   padding: 5px;
 }

@@ -11,6 +11,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem 'paperclip', "~> 4.2"
 gem 'aws-sdk', '< 2.0'
 
+gem 'rails_12factor', group: :production
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
