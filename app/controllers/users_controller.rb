@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def history
     @user = current_user
     @trips = Trip.where(driver: @user, completed: true)
-    @parcels = @user.parcels.where(delivered: true)
+    @parcels = Parcel.where(sender: @user, delivered: true)
     if request.xhr?
       render 'history', layout: false
     else
