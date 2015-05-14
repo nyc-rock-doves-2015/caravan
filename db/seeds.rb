@@ -170,7 +170,6 @@ trip5 = Trip.create(origin_address: Address.find(6), destination_address: da1, d
 
 trip6 = Trip.create(origin_address: Address.find(7), destination_address: Address.find(35), driver: User.find(7), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 15, max_weight: 200, rate: 30, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Toyota Avalon")
 
-trip7 = Trip.create(origin_address: Address.find(8), destination_address: Address.find(36), driver: User.find(8), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 15, max_weight: 200, rate: 21, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Range Rover")
 
 trip8 = Trip.create(origin_address: Address.find(9), destination_address: Address.find(37), driver: User.find(9), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 300, max_weight: 200, rate: 23, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Range Rover")
 
@@ -254,7 +253,7 @@ dt5 = Trip.create(origin_address: nyaddress5, destination_address: da5, driver_i
 
 dt6 = Trip.create(origin_address: nyaddress1, destination_address: sf1, driver_id: 6, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No food", vehicle: "F-150")
 
-dt7 = Trip.create(origin_address: nyaddress2, destination_address: sf2, driver_id: 2, leaving_at: "2015-05-20 18:36:59 -0400", arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate:9.20 , content_restrictions: "Not responsible for lost or stolen items", vehicle: "Truck")
+dt7 = Trip.create(origin_address: nyaddress2, destination_address: sf2, driver_id: 2, leaving_at: "2015-05-20 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: rand(10..400), max_weight: rand(1..200), rate:9.20 , content_restrictions: "Not responsible for lost or stolen items", vehicle: "Truck")
 
 dt8 = Trip.create(origin_address: nyaddress3, destination_address: sf3, driver_id: 3, leaving_at: "2015-05-21 18:36:59 -0400", arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: 40, rate: Faker::Commerce.price , content_restrictions: "Not responsible for lost or stolen items", vehicle: "U-Haul")
 dt9 = Trip.create(origin_address: nyaddress4, destination_address: sf4, driver_id: 4, leaving_at: "2015-05-22 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: rand(10..400), max_weight: 45, rate: 0.50 , content_restrictions: "Passengers Welcome", vehicle: "Sprinter")
