@@ -4,6 +4,11 @@ class ParcelsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @parcels = @trip.parcels
+    if request.xhr?
+      render 'index', layout: false
+    else
+      render 'index'
+    end
   end
 
   def new

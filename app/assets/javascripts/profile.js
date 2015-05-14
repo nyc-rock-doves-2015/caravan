@@ -19,7 +19,7 @@ $(document).ready(function() {
       $('.parcel_show').hide();
     });
 
-    $('.trip_details').on('click', function(event) {
+  $('.trip_details').on('click', function(event) {
     event.preventDefault();
     event.stopPropagation();
     var $details = $(event.target);
@@ -34,9 +34,24 @@ $(document).ready(function() {
       })
     });
 
-     $('.trips_tab').on('click', function(event) {
+    $('.trips_tab').on('click', function(event) {
       $('#sectionB').children().show();
       $('.trip_show').hide();
     });
 
+
+  $('.delivery_link').on('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var $details = $(event.target);
+    $.ajax({
+      url: $details[0].href,
+      type: 'GET',
+      }).done(function (response) {
+          $('#sectionB').children().hide();
+          $('#sectionB').append(response);
+      }).fail(function (response) {
+        alert("Can Not Render Your Trips Due to Error")
+      })
+    });
   });
