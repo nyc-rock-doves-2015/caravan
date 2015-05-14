@@ -54,6 +54,7 @@ class ParcelsController < ApplicationController
 
   def update
     @parcel = Parcel.find(params[:id])
+    p params
     @origin_address = @parcel.origin_address
     @destination_address = @parcel.destination_address
     if @parcel.update(parcel_params) && @origin_address.update(origin_address_params) && @destination_address.update(destination_address_params)
