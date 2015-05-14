@@ -29,7 +29,6 @@ class ParcelsController < ApplicationController
   end
 
   def create
-    parcel_params.merge(sender_id: current_user.id)
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
 
     if parcel && parcel.persisted?
@@ -57,6 +56,9 @@ class ParcelsController < ApplicationController
     @parcel = Parcel.find(params[:id])
     @origin_address = @parcel.origin_address
     @destination_address = @parcel.destination_address
+    if params[:parcel][:delivered]
+      parcel_params.merge(sender_id: params[:parcel][:sender_id])
+    end
     if @parcel.update(parcel_params) && @origin_address.update(origin_address_params) && @destination_address.update(destination_address_params)
       @parcel.trip.update_attributes(completed: true) if @parcel.delivered
       redirect_to profile_path
