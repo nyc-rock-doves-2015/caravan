@@ -256,7 +256,7 @@ dt7 = Trip.create(origin_address: nyaddress2, destination_address: sf2, driver_i
 
 dt9 = Trip.create(origin_address: nyaddress4, destination_address: sf4, driver_id: 8, leaving_at: "2015-05-22 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: rand(10..400), max_weight: 45, rate: 0.50 , content_restrictions: "Passengers Welcome", vehicle: "Sprinter")
 
-dt10 = Trip.create(origin_address: nyaddress5, destination_address: sf5, driver_id: 5, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: 45, max_weight: 120, rate: 0.85, content_restrictions: "Passengers Welcome", vehicle: "Minivan")
+dt10 = Trip.create(origin_address: nyaddress5, destination_address: sf5, driver_id: 5, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: 45, max_weight: 120, rate: 1.20, content_restrictions: "Passengers Welcome", vehicle: "Minivan")
 
 dt11 = Trip.create(origin_address: nyaddress1, destination_address: sf6, driver_id: 6, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-24 18:36:59 -0400", available_volume: 40, max_weight: 140, rate: 2.00 , content_restrictions: "Pets allowed", vehicle: "Minivan")
 
