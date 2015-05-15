@@ -10,11 +10,11 @@ ul.details{
 	list-style: none;
 }
 
-form input.submit {
-	@extend .btn;
-	@extend .btn-default;
-	@extend button;
-}
+// form input.submit {
+// 	@extend .btn;
+// 	@extend .btn-default;
+// 	@extend button;
+// }
 
 .stepwizard-step {
 	display: inline;
@@ -309,6 +309,12 @@ section {
   border-left: 1px solid rgb(230,230,230);
 }
 
+#matches{
+  font-size: 1.5em;
+  color: rgb(100,100,100);
+}
+
+
 .test input {
   height: 25px;
   width: 250px;
@@ -347,7 +353,7 @@ section {
   margin: -15px;
   // margin-right: 5px;
   padding: 10px;
-  box-shadow: -9px 4px 35px -17px;
+  box-shadow: -9px 4px 35px -21px;
   border-radius: 8px;
 }
 
@@ -390,6 +396,7 @@ section {
 
 .search {
   padding: 5px;
+  border-radius: 4px;
 }
 
 #parcel_weight {
@@ -401,6 +408,18 @@ section {
     height: 7px;
     border: 1px solid #bdc3c7;
     background-color: #fff;
+}
+
+legend{
+  text-align:center;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #646464;
+}
+
+.btn{
+  border-radius: 3px;
 }
 
 .coupon {
