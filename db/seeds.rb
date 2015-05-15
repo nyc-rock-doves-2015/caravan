@@ -263,5 +263,3 @@ dt11 = Trip.create(origin_address: nyaddress1, destination_address: sf6, driver_
 dt12 = Trip.create(origin_address: nyaddress2, destination_address: sf7, driver_id: 2, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-23 18:36:59 -0400", available_volume: 25, max_weight: 80, rate: 0.99 , content_restrictions: "Pets allowed", vehicle: "U-Haul")
 
 dt13 = Trip.create(origin_address: nyaddress3, destination_address: sf8, driver_id: 3, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-23 18:36:59 -0400", available_volume: 30, max_weight: 110, rate: 1.00 , content_restrictions: "Cardboard parcels only", vehicle: "U-Haul")
-
-dt14 = Trip.create(origin_address: nyaddress4, destination_address: sf9, driver_id: 3, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-24 18:36:59 -0400", available_volume: 12, max_weight: 95, rate: 0.10 , content_restrictions: "No dogs allowed", vehicle: "Uhaul")

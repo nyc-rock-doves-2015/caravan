@@ -32,9 +32,14 @@ GmapAutoComplete = function() {
       var country = address[address.length - 2].long_name;
     };
     if (address[address.length - 3]) {
+       var state = address[address.length - 3].short_name
+     };
+    if (address.length === 9 ) {
       var city = address[address.length - 3].long_name;
-      var state = address[address.length - 3].short_name
-    };
+     };
+    if (address.length === 8 ) {
+      var city = address[address.length - 5].long_name;
+     };
     if (address[0]) {
       var streetnumber = address[0].long_name;
     };
@@ -85,8 +90,13 @@ GmapAutoComplete = function() {
         var country = address[address.length - 2].long_name;
       };
       if (address[address.length - 3]) {
-        var city = address[address.length - 3].long_name;
-        var state = address[address.length - 3].short_name
+       var state = address[address.length - 3].short_name
+       };
+      if (address.length === 9 ) {
+      var city = address[address.length - 3].long_name;
+       };
+      if (address.length === 8 ) {
+      var city = address[address.length - 5].long_name;
       };
       if (address[0]) {
         var streetnumber = address[0].long_name;
